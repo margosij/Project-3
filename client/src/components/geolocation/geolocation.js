@@ -8,6 +8,14 @@ function Geolocation() {
 	const schoolLon = -95.4252249;
     
 	// Get location of parent
+	function getLocation() {
+  		if (navigator.geolocation) {
+    		navigator.geolocation.getCurrentPosition(showPosition);
+  		} else {
+    		x.innerHTML = "Geolocation is not supported by this browser.";
+  		}
+		return showPosition;
+	}
 
 	// Compare location of school & location of parent, check if they're within determined range
 	function distance(schoolLat, schoolLon, parentLat, parentLon, unit) {
