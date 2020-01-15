@@ -14,6 +14,8 @@ module.exports = {
   // find a Family by id
   findFamilyById: (req, res) => {
     db.Family.findById(req.params.id)
+      .populate('guardians')
+      .populate('students')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
