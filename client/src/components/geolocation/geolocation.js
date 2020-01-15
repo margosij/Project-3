@@ -10,11 +10,17 @@ function Geolocation() {
 	// Get location of parent
 	function getLocation() {
   		if (navigator.geolocation) {
-    		navigator.geolocation.getCurrentPosition(showPosition);
+    		navigator.geolocation.watchPosition(showPosition);
   		} else {
-    		x.innerHTML = "Geolocation is not supported by this browser.";
+    		console.log("Geolocation is not supported by this browser.");
   		}
-		return showPosition;
+	}
+
+	const parentCoords = showPosition(position) => {
+  		return {
+			  parentLat: position.coords.latitude,
+			  parentLon: position.coords.longitude
+		  }
 	}
 
 	// Compare location of school & location of parent, check if they're within determined range
