@@ -54,6 +54,11 @@ function Navbar() {
                 Dismissal
               </Link>
             </li>
+            <li className='nav-item active'>
+              <Link className='nav-link' to='/database'>
+                Database
+              </Link>
+            </li>
           </ul>
          
         </div>
