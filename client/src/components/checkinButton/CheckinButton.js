@@ -1,16 +1,32 @@
-import React from "react";
-import Geolocation from "../geolocation/Geolocation";
+import React from 'react';
+import Geolocated from '../components/Geolocated/Geolocated';
 
-function CheckinButton() {
+function Checkin() {
     
-    // If within range, activate button to signal they've arrived
-    function activateButton() {
-    
+    function distance(schoolLat, schoolLon, pickupLat, pickupLon, unit) {
+		if ((schoolLat == pickupLat) && (schoolLon == pickupLon)) {
+			return 0;
+		}
+		else {
+			var radlat1 = Math.PI * schoolLat/180;
+			var radlat2 = Math.PI * pickupLat/180;
+			var theta = schoolLon-pickupLon;
+			var radtheta = Math.PI * theta/180;
+			var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+			if (dist > 1) {
+				dist = 1;
+			}
+			dist = Math.acos(dist);
+			dist = dist * 180/Math.PI;
+			dist = dist * 60 * 1.1515;
+			if (unit=='K') { dist = dist * 1.609344 }
+			if (unit=='N') { dist = dist * 0.8684 }
+			console.log(dist);
+			return dist;
+		}
+	}
+
+    function createButton() {
+        
     }
-
-    // If not within range keep button deactivated, maybe alert that they're too far away
-
-    // create button, onClick action will send notification to teacher that the parent has arrived
-
-    // notification will need to pull from database using login credentials as identifier to let the teacher know which students need to go
 }

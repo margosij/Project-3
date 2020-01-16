@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
+import Geolocated from '../components/Geolocated/Geolocated'
 
 function Home() {
   return (
