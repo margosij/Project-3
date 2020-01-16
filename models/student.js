@@ -55,6 +55,12 @@ const studentSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Student'
     }
+  ],
+  family: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Family'
+    }
   ]
 })
 
