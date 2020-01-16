@@ -39,11 +39,18 @@
   },
   "dependencies": {
     "axios": "^0.19.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
     "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
     "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-session": "^1.17.0",
     "if-env": "^1.0.4",
-    "mongoose": "^5.8.6",
+    "mongoose": "^5.8.7",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
     "socket.io": "^2.3.0"
   }
 }
