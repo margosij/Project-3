@@ -1,7 +1,7 @@
 import React from 'react';
 import Geolocated from '../components/Geolocated/Geolocated';
 
-function Checkin {
+function Checkin() {
     
     function distance(schoolLat, schoolLon, pickupLat, pickupLon, unit) {
 		if ((schoolLat == pickupLat) && (schoolLon == pickupLon)) {
@@ -19,10 +19,14 @@ function Checkin {
 			dist = Math.acos(dist);
 			dist = dist * 180/Math.PI;
 			dist = dist * 60 * 1.1515;
-			if (unit=="K") { dist = dist * 1.609344 }
-			if (unit=="N") { dist = dist * 0.8684 }
+			if (unit=='K') { dist = dist * 1.609344 }
+			if (unit=='N') { dist = dist * 0.8684 }
 			console.log(dist);
 			return dist;
 		}
 	}
+
+    function createButton() {
+        
+    }
 }
