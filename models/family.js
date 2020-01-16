@@ -7,20 +7,18 @@ const familySchema = new Schema({
     type: String,
     required: true
   },
-  address: {
-    street: {
-      type: String
-    },
-    city: {
-      type: String
-    },
-    state: {
-      type: String
-    },
-    zipCode: {
-      type: String
-    }
-    
+
+  street: {
+    type: String
+  },
+  city: {
+    type: String
+  },
+  state: {
+    type: String
+  },
+  zipCode: {
+    type: String
   },
   emergencyContact: {
     type: String,
