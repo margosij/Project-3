@@ -23,15 +23,18 @@ function Geolocation() {
 		  }
 	}
 
+	let pickupLat = parentCoords.parentLat;
+	let pickupLon = parentCoords.parentLon;
+
 	// Compare location of school & location of parent, check if they're within determined range
-	function distance(schoolLat, schoolLon, parentLat, parentLon, unit) {
-		if ((lat1 == lat2) && (lon1 == lon2)) {
+	function distance(schoolLat, schoolLon, pickupLat, pickupLon, unit) {
+		if ((schoolLat == pickupLat) && (schoolLon == pickupLon)) {
 			return 0;
 		}
 		else {
-			var radlat1 = Math.PI * lat1/180;
-			var radlat2 = Math.PI * lat2/180;
-			var theta = lon1-lon2;
+			var radlat1 = Math.PI * schoolLat/180;
+			var radlat2 = Math.PI * pickupLat/180;
+			var theta = schoolLon-pickupLon;
 			var radtheta = Math.PI * theta/180;
 			var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
 			if (dist > 1) {
@@ -42,10 +45,18 @@ function Geolocation() {
 			dist = dist * 60 * 1.1515;
 			if (unit=="K") { dist = dist * 1.609344 }
 			if (unit=="N") { dist = dist * 0.8684 }
+			console.log(dist);
 			return dist;
+		}
+	}
+
+	function activateButton(dist) {
+		if (dist <= .5) {
+			checkinButton();
 		}
 	}
 
 }
 
 export default Geolocation;
+
