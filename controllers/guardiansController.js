@@ -6,12 +6,16 @@ module.exports = {
   findAllGuardians: (req, res) => {
     db.Guardian.find(req.query)
       .sort({ date: -1 })
+      .populate('students')
+      .populate('family')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
   // find a Guardian by id
   findGuardianById: (req, res) => {
     db.Guardian.findById(req.params.id)
+      .populate('students')
+      .populate('family')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },

@@ -5,6 +5,9 @@ module.exports = {
   // find all students
   findAllStudents: (req, res) => {
     db.Student.find(req.query)
+      .populate('guardians')
+      .populate('siblings')
+      .populate('family')
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
@@ -12,6 +15,9 @@ module.exports = {
   // find a student by id
   findStudentById: (req, res) => {
     db.Student.findById(req.params.id)
+      .populate('guardians')
+      .populate('siblings')
+      .populate('family')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
