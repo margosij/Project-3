@@ -3,9 +3,6 @@ const Schema = mongoose.Schema
 
 // Parent Schema
 const guardianSchema = new Schema({
-  prefix: {
-    type: String
-  },
   firstName: {
     type: String,
     required: true

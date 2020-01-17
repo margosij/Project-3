@@ -6,16 +6,12 @@ module.exports = {
   findAllFamilies: (req, res) => {
     db.Family.find(req.query)
       .sort('familyLastName -test')
-      .populate('guardians')
-      .populate('students')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
   // find a Family by id
   findFamilyById: (req, res) => {
     db.Family.findById(req.params.id)
-      .populate('guardians')
-      .populate('students')
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   },
