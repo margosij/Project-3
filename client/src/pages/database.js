@@ -2,8 +2,9 @@ import React from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
 import Admin from '../utils/socket/admin'
+import Parents from '../utils/socket/parents'
 
-function Database() {
+function Database(props) {
   return (
     <>
       <Container>
@@ -12,7 +13,8 @@ function Database() {
             <Jumbotron title='Welcome to Harmony' lead='Database'></Jumbotron>
           </Column>
         </Row>
-        <Admin />
+        <Admin { ...props}/>
+        <Parents { ...props}/>
       </Container>
     </>
   )
