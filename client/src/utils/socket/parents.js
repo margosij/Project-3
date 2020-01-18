@@ -1,31 +1,40 @@
-import react, { Component } from 'React'
-import socketIOClient from 'socket.io-client'
+import familyTestData from './testData'
+import Card from '../../components/Card'
+import React, { Component } from 'react'
+import openSocket from 'socket.io-client'
+const socket = openSocket('http://localhost:3001')
 
 class Parents extends Component {
   state = {
-    familyId: '1234',
-    arrived: 'false',
-    endpoint: 'localhost:4001',
-    wait: "false",
-    come: "drive"
-  }
-  componentDidMount = () => {
-    const socket = socketIOClient(this.state.endpoint)
-    setInterval(this.send(), 1000)
-    socket.on('Parent such and such is here', (status) => {
-      this.setState({ status: status})
-    })
+    familyId: familyTestData,
+    timestamp: Date.now()
   }
 
-  send = () => {
-  socket.emit(`familyID ${this.state.familyId} is here`)
+  componentDidMount() {
+    socket.emit('arrived', { time: this.state.timestamp })
+    socket.emit('arrived', { familyId: this.state.familyId })
   }
-  
 
+  handleEmit = function() {
+    console.log(this.state.familyId)
+    socket.emit('arrived', this.state.familyId)
+  }
   render() {
-    const socket = socketIOClient(this.state.endpoint)
     return (
-      <div className='card'>{`familyID ${this.state.familyId} is here`}</div>
+      <>
+        <Card>
+          <div className='card-body'>
+            <h5 className='card-title'>Socket Emitter Test</h5>
+            <p className='card-text'>
+              With supporting text below as a natural lead-in to additional
+              content. This is the timer value: {this.state.timestamp}
+            </p>
+            <a href='#' className='btn btn-primary' onClick={this.handleEmit}>
+              Check in
+            </a>
+          </div>
+        </Card>
+      </>
     )
   }
 }

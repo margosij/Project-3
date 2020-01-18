@@ -8,17 +8,20 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div className='mx-auto'>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/dismissal' component={Dismissal} />
-          <Route exact path='/dismissal' component={Database} />
-          <Route exact path='*' component={NoMatch} />
-        </Switch>
-      </Router>
-    </div>
+    // Redux Global State Provider
+    // <StateProvider>
+      <div className='mx-auto'>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/dismissal' component={Dismissal} />
+            <Route exact path='/database' component={Database} />
+            <Route exact path='*' component={NoMatch} />
+          </Switch>
+        </Router>
+      </div>
+    // </StateProvider>
   )
 }
 
