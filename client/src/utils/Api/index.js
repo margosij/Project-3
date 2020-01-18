@@ -1,5 +1,4 @@
 import axios from 'axios'
-import socketIOClient from 'socket.io-client'
 
 export default {
   // get all admins

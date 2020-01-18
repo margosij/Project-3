@@ -5,7 +5,6 @@ import Jumbotron from '../components/Jumbotron'
 function NoMatch() {
   return (
     <Container>
-      // 
       <Row styling='align-self-center justify-content-center'>
         <Column>
           <Jumbotron title='404 Page Not Found' lead='🙄'></Jumbotron>
