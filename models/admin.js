@@ -5,9 +5,6 @@ const adminSchema = new Schema({
   name: {
     type: String,
     required: true
-  },
-  dob: {
-    type: Date
   }
 })
 

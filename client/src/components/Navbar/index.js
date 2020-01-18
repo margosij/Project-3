@@ -35,7 +35,7 @@ function Navbar() {
           className={`${classOne} pl-2 text-light`}
           id='navbarResponsive'
         >
-          <a class='navbar-brand' href='https://hsenrichment.harmonytx.org/'>
+          <a className='navbar-brand' href='https://hsenrichment.harmonytx.org/'>
             <img
               src='https://harmonypublicschools.network/hsenrichment-new/wp-content/uploads/sites/111/2019/03/hsenrichment-houston-white-300px.png'
               width='150'
