@@ -3,7 +3,6 @@ const adminRoutes = require('./admins')
 const familyRoutes = require('./families')
 const guardianRoutes = require('./guardians')
 const studentRoutes = require('./students')
-const userRoutes = require('./users')
 
 // admin routes
 router.use('/admins', adminRoutes)
@@ -13,7 +12,5 @@ router.use('/families', familyRoutes)
 router.use('/guardians', guardianRoutes)
 // student routes
 router.use('/students', studentRoutes)
-// user routes
-router.use('/users', userRoutes)
 
 module.exports = router
