@@ -7,6 +7,7 @@ const routes = require('./routes')
 const app = express()
 const server = require('http').createServer(app)
 const io = require('socket.io').listen(server)
+const bcrypt = require('bcrypt')
 
 var cors = require('cors')
 // var whitelist = 

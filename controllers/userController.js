@@ -1,10 +1,16 @@
 const db = require('../models')
+const bcrypt = require('bcrypt')
+
 
 // Defining methods for the UserController
 module.exports = {
     createUser: (req, res) => {
-        console.log(req.body)
-        db.User.create(req.body)
+      let newuser = req.body
+        newuser.password = bcrypt.hashSync(newuser.password, bcrypt.genSaltSync(10));
+
+    
+
+        db.User.create(newuser)
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err))
     },
