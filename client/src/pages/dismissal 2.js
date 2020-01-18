@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-indent */
 import React, { useState, useEffect } from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
