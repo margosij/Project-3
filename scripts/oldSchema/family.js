@@ -20,7 +20,6 @@ const familySchema = new Schema({
     zipCode: {
       type: String
     }
-    
   },
   emergencyContact: {
     type: String,

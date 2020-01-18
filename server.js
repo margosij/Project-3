@@ -6,7 +6,8 @@ const mongoose = require('mongoose')
 const routes = require('./routes')
 const app = express()
 const bcrypt = require('bcrypt')
-var cors = require('cors')
+const cors = require('cors')
+const gradient = require('gradient-string')
 // var whitelist = 
 
 
