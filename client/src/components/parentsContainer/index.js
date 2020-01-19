@@ -2,6 +2,7 @@ import React from 'react'
 import { Row, Col, Container, Column } from '../Grid'
 import Card from '../Card'
 import StudentContainer from '../StudentContainer'
+import { CheckInBtn } from '../Buttons'
 
 const ParentsContainer = (props) => {
   return <>
@@ -16,6 +17,9 @@ const ParentsContainer = (props) => {
               <h5 className="card-title">Work Phone: {props.work}</h5>
               <h5 className="card-title">Cell Phone: {props.cell}</h5>
               <h5 className="card-title">Email: {props.email}</h5>
+            </div>
+            <div className='card-footer'>
+              <CheckInBtn {...props} />
             </div>
         </Card>
         </Column>

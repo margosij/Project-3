@@ -4,7 +4,7 @@ import { Row, Column, Container } from '../components/Grid'
 import Admin from '../utils/socket/admin'
 import Parents from '../utils/socket/parents'
 
-const Database = (props) => {
+const Database = props => {
   return (
     <>
       <Container>
@@ -13,8 +13,10 @@ const Database = (props) => {
             <Jumbotron title='Welcome to Harmony' lead='Database' />
           </Column>
         </Row>
-        <Admin {...props} />
-        <Parents {...props} />
+        <Row>
+          <Admin {...props} />
+          <Parents {...props} />
+        </Row>
       </Container>
     </>
   )
