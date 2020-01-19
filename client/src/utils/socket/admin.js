@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import Card from '../../components/Card'
+// import socket.io client -- A client-side build of Socket.io
 import openSocket from 'socket.io-client'
+// open a webSocket on this port --this will change when deployed
 const socket = openSocket('http://localhost:3001')
+
+// "socket.on('Hello there', function()) ---listen for a data with a 'Hello there' tag, and then complete function---the function is whatever you want it to be or do.
+// "socket.emit('Hello there', data) --- emit a broadcast to all browsers with a tag of 'Hello there'. data has to be in the form of an object ex. {data:'I Heard you'}
+// whatever tag is used, it has to be added to "io" section in Server.js
 
 class Admin extends Component {
   state = {
@@ -10,14 +16,16 @@ class Admin extends Component {
   }
 
   componentDidMount() {
-    this.handleLoadEmit('adminTime', this.state.timestamp )
-    this.handleLoadEmit('adminID', this.state.adminId )
+    // test emits when the component mounts
+    this.handleLoadEmit('adminTime', this.state.timestamp)
+    this.handleLoadEmit('adminID', this.state.adminId)
     this.setState({ adminId: 'Joe Clark' })
   }
 
   handleEmit = function(method, data) {
     console.log('data:', data)
     console.log('method:', method)
+    // method is the websocket Tag, {message: data} is the data sent
     socket.emit(method, { message: data })
   }
   handleLoadEmit = function(method, data) {
@@ -28,7 +36,8 @@ class Admin extends Component {
     }
   }
   render() {
-    socket.on('hello', (data) => console.log(data.message))
+    // listen for data with a 'hello tag
+    socket.on('hello', data => console.log(data.message))
     return (
       <>
         <Card>

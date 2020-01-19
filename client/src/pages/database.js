@@ -4,17 +4,17 @@ import { Row, Column, Container } from '../components/Grid'
 import Admin from '../utils/socket/admin'
 import Parents from '../utils/socket/parents'
 
-function Database(props) {
+const Database = (props) => {
   return (
     <>
       <Container>
         <Row styling='row align-self-center'>
           <Column>
-            <Jumbotron title='Welcome to Harmony' lead='Database'></Jumbotron>
+            <Jumbotron title='Welcome to Harmony' lead='Database' />
           </Column>
         </Row>
-        <Admin { ...props}/>
-        <Parents { ...props}/>
+        <Admin {...props} />
+        <Parents {...props} />
       </Container>
     </>
   )

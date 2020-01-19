@@ -1,5 +1,5 @@
 require('dotenv').config()
-const path = require("path")
+const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
@@ -8,8 +8,7 @@ const app = express()
 const bcrypt = require('bcrypt')
 const cors = require('cors')
 const gradient = require('gradient-string')
-// var whitelist = 
-
+// var whitelist =
 
 const PORT = process.env.PORT || 3001
 
@@ -54,7 +53,7 @@ mongoose.set('useFindAndModify', false)
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true })
 
 // Start the API server
-const server = app.listen(PORT, function() {
+const server = app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
 })
 const io = require('socket.io')(server)
@@ -73,7 +72,7 @@ io.on('connection', socket => {
   })
   socket.on('adminGreet', data => {
     console.log('\nAdmin Greet Message:', gradient.summer(data.message))
-     io.emit('helloParents', data)
+    io.emit('helloParents', data)
   })
   socket.on('adminTime', data => {
     console.log('\nAdmin Time Message:', gradient.summer(data.message))

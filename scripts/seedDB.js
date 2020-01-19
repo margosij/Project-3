@@ -671,7 +671,7 @@ const familySeed = [
 ]
 const adminSeed = [
   {
-    name: 'Rosetta Blasdale'
+    name: 'Joe Clark'
   },
   {
     name: 'Rick Karlolak'
@@ -680,7 +680,6 @@ const adminSeed = [
     name: 'Ezmeralda Hamments'
   }
 ]
-
 
 db.Family.remove({})
   .then(() => db.Family.collection.insertMany(familySeed))
@@ -692,7 +691,7 @@ db.Family.remove({})
     console.error(err)
     process.exit(1)
   })
-  
+
 db.Admin.remove({})
   .then(() => db.Admin.collection.insertMany(adminSeed))
   .then(data => {
