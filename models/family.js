@@ -7,18 +7,19 @@ const familySchema = new Schema({
     type: String,
     required: true
   },
-
-  street: {
-    type: String
-  },
-  city: {
-    type: String
-  },
-  state: {
-    type: String
-  },
-  zipCode: {
-    type: String
+  address: {
+    street: {
+      type: String
+    },
+    city: {
+      type: String
+    },
+    state: {
+      type: String
+    },
+    zipCode: {
+      type: String
+    }
   },
   emergencyContact: {
     type: String,
@@ -26,16 +27,90 @@ const familySchema = new Schema({
   },
   guardians: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Guardian'
+      firstName: {
+        type: String,
+        required: true
+      },
+      lastName: {
+        type: String,
+        required: true
+      },
+      suffix: {
+        type: String
+      },
+      relation: {
+        type: String,
+        required: true
+      },
+      homePhone: {
+        type: String,
+        required: true
+      },
+      workPhone: {
+        type: String
+      },
+      cellPhone: {
+        type: String,
+        required: true
+      },
+      email: {
+        type: String,
+        required: true
+      }
     }
   ],
   students: [
     {
-      type: Schema.Types.ObjectId,
-      ref: 'Student'
+      firstName: {
+        type: String,
+        required: true
+      },
+      middleName: {
+        type: String
+      },
+      lastName: {
+        type: String,
+        required: true
+      },
+      suffix: {
+        type: String
+      },
+      gender: {
+        type: String,
+        required: true
+      },
+      dob: {
+        type: String,
+        required: true
+      },
+      tShirtSize: {
+        type: String
+      },
+      gradeLevel: {
+        type: Number,
+        min: [1, 'Pre-K'],
+        max: 5
+      },
+      disabilities: {
+        type: String
+      },
+      allergies: {
+        type: String
+      },
+      studentDoctor: {
+        type: String
+      }
     }
-  ]
+  ],
+  authorizedPickUp: [
+    {
+      type: String
+    }
+  ],
+  User: {
+    type: Schema.Types.ObjectID,
+    ref: 'User'
+  }
 })
 
 const Family = mongoose.model('Family', familySchema)

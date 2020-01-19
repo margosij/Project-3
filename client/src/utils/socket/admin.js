@@ -1,38 +1,50 @@
-import Card from '../../components/Card'
 import React, { Component } from 'react'
+import Card from '../../components/Card'
 import openSocket from 'socket.io-client'
 const socket = openSocket('http://localhost:3001')
 
 class Admin extends Component {
   state = {
     adminId: 'Joe Clark',
-    timestamp: Date.now()
+    timestamp: new Date().toTimeString()
   }
 
   componentDidMount() {
-    socket.emit('arrived', { time: this.state.timestamp })
-    socket.emit('arrived', { adminId: this.state.adminId })
+    this.handleLoadEmit('adminTime', this.state.timestamp )
+    this.handleLoadEmit('adminID', this.state.adminId )
+    this.setState({ adminId: 'Joe Clark' })
   }
 
-  handleEmit = function () {
-    console.log(this.state.adminId)
-    socket.emit('arrived', this.state.adminId)
+  handleEmit = function(method, data) {
+    console.log('data:', data)
+    console.log('method:', method)
+    socket.emit(method, { message: data })
+  }
+  handleLoadEmit = function(method, data) {
+    console.log('data:', data)
+    console.log('method:', method)
+    if (data !== undefined) {
+      socket.emit(method, { message: data })
+    }
   }
   render() {
+    socket.on('hello', (data) => console.log(data.message))
     return (
       <>
         <Card>
           <div className='card-body'>
-            <h5 className='card-title'>Socket Emitter Test</h5>
+            <h5 className='card-title'>Socket Emitter Test Admin</h5>
             <p className='card-text'>
-              With supporting text below as a natural lead-in to additional
-              content.
-            This is the timer value: {this.state.timestamp}
+              {this.state.adminId} is signed in. This is the timer value:{' '}
+              {this.state.timestamp}
             </p>
-            <a href='#' className='btn btn-primary' onClick={this.handleEmit}>
-              Check in 
-            </a>
-          </div>        
+            <button
+              className='btn btn-primary'
+              onClick={() => this.handleEmit('adminGreet', 'i hate you all')}
+            >
+              I hate my job
+            </button>
+          </div>
         </Card>
       </>
     )

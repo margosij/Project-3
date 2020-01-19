@@ -7,31 +7,47 @@ const socket = openSocket('http://localhost:3001')
 class Parents extends Component {
   state = {
     familyId: familyTestData,
-    timestamp: Date.now()
+    timestamp: new Date().toTimeString(),
+    message: 'The Shade family is here to pickup Eva Browell.'
   }
 
   componentDidMount() {
-    socket.emit('arrived', { time: this.state.timestamp })
-    socket.emit('arrived', { familyId: this.state.familyId })
+    this.handleLoadEmit('testTime', this.state.timestamp)
+    this.handleLoadEmit('testFamily', this.state.familyId.lastName)
+    this.handleLoadEmit('arrived', this.state.message)
+    
   }
 
-  handleEmit = function() {
-    console.log(this.state.familyId)
-    socket.emit('arrived', this.state.familyId)
+  handleEmit = function(method, data) {
+    console.log('data:', data)
+    console.log('method:', method)
+    socket.emit(method, { message: data })
   }
+  handleLoadEmit = function(method, data) {
+    console.log('data:', data)
+    console.log('method:', method)
+    if (data !== undefined) {
+      socket.emit(method, { message: data })
+    }
+  }
+
   render() {
     return (
       <>
         <Card>
           <div className='card-body'>
-            <h5 className='card-title'>Socket Emitter Test</h5>
+            <h5 className='card-title'>Socket Emitter Test Parents</h5>
             <p className='card-text'>
-              With supporting text below as a natural lead-in to additional
-              content. This is the timer value: {this.state.timestamp}
+              {this.state.message}
+              <br />
+              This is the timer value: {this.state.timestamp}
             </p>
-            <a href='#' className='btn btn-primary' onClick={this.handleEmit}>
-              Check in
-            </a>
+            <button
+              className='btn btn-primary'
+              onClick={() => this.handleEmit('arrived', this.state.message)}
+            >
+              I'm here
+            </button>
           </div>
         </Card>
       </>

@@ -11,7 +11,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true })
 
 const familySeed = [
   {
-    'Last Name': 'Kent',
+    familyLastName: 'Kent',
     address: {
       street: '65461 Thackeray Hill',
       city: 'Durham',
@@ -74,7 +74,7 @@ const familySeed = [
     ]
   },
   {
-    'Last Name': 'Shade',
+    familyLastName: 'Shade',
     address: {
       street: '71741 Debs Plaza',
       city: 'Charlotte',
@@ -125,7 +125,7 @@ const familySeed = [
     ]
   },
   {
-    'Last Name': 'Wayne',
+    familyLastName: 'Wayne',
     address: {
       street: '9 Anderson Parkway',
       city: 'Fayetteville',
@@ -176,7 +176,7 @@ const familySeed = [
     ]
   },
   {
-    'Last Name': 'Richards',
+    familyLastName: 'Richards',
     address: {
       street: '3134 Bluejay Alley',
       city: 'Raleigh',
@@ -228,7 +228,7 @@ const familySeed = [
     ]
   },
   {
-    'Last Name': 'Parker',
+    familyLastName: 'Parker',
     address: {
       street: '49020 Sachs Point',
       city: 'Raleigh',
@@ -309,7 +309,7 @@ const familySeed = [
     ]
   },
   {
-    'Last Name': 'Allen',
+    familyLastName: 'Allen',
     address: {
       street: '24 Westridge Road',
       city: 'Greensboro',
@@ -373,7 +373,7 @@ const familySeed = [
     ]
   },
   {
-    'Last Name': 'Lucas',
+    familyLastName: 'Lucas',
     address: {
       street: '279 Kim Way',
       city: 'Winston Salem',
@@ -455,7 +455,7 @@ const familySeed = [
     ]
   },
   {
-    'Last Name': 'Fleck',
+    familyLastName: 'Fleck',
     address: {
       street: '5 Lawn Point',
       city: 'Wilmington',
@@ -521,7 +521,7 @@ const familySeed = [
     ]
   },
   {
-    'Last Name': 'Rogers',
+    familyLastName: 'Rogers',
     address: {
       street: '047 Veith Avenue',
       city: 'Fayetteville',
@@ -597,7 +597,7 @@ const familySeed = [
     ]
   },
   {
-    'Last Name': 'Parr',
+    familyLastName: 'Parr',
     address: {
       street: '377 Bellgrove Trail',
       city: 'Raleigh',
