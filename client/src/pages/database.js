@@ -4,7 +4,7 @@ import { Row, Column, Container } from '../components/Grid'
 import Admin from '../utils/socket/admin'
 import Parents from '../utils/socket/parents'
 
-function Database(props) {
+const Database = (props) => {
   return (
     <>
       <Container>

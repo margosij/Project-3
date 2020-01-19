@@ -53,7 +53,7 @@ mongoose.set('useFindAndModify', false)
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true })
 
 // Start the API server
-const server = app.listen(PORT, function() {
+const server = app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
 })
 const io = require('socket.io')(server)

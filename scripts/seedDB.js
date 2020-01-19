@@ -671,7 +671,7 @@ const familySeed = [
 ]
 const adminSeed = [
   {
-    name: 'Rosetta Blasdale'
+    name: 'Joe Clark'
   },
   {
     name: 'Rick Karlolak'

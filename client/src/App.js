@@ -10,7 +10,7 @@ import ParentsDashboard from './pages/parentsLanding'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
 import AdminDashboard from './pages/adminLanding'
 
-function App() {
+const App = () => {
   return (
     <div className='mx-auto'>
       <Router>

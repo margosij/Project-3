@@ -4,8 +4,9 @@ import { Row, Column, Container } from '../components/Grid'
 import Admin from '../utils/socket/admin'
 import Parents from '../utils/socket/parents'
 import API from '../utils/Api'
+const parentID = '5e201b103bbbe7513cb80b19'
 
-function ParentsDashboard(props) {
+const ParentsDashboard = (props) => {
   return (
     <>
       <Container>

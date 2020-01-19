@@ -1,5 +1,5 @@
 import React from 'react'
 
-function ParentsDashBoard() {
+const ParentsDashBoard = () => {
   return <div className="card"></div>
 }

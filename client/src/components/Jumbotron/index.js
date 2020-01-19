@@ -1,7 +1,7 @@
 import React from 'react'
 import './jumbotron.css'
 
-function Jumbotron({ children, title, lead }) {
+const Jumbotron = ({ children, title, lead }) => {
   return (
     <div className='jumbotron jumbotron-fluid text-light '>
       <div className='container text-center'>

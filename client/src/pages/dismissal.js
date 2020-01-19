@@ -2,7 +2,7 @@ import React from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
 
-function Home() {
+const Dismissal = () => {
   return (
     <>
       <Container>
@@ -16,4 +16,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Dismissal
