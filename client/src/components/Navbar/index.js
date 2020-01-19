@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import NavLink from '../NavLink'
 import './style.css'
 
 const Navbar = () => {
@@ -44,41 +44,13 @@ const Navbar = () => {
             />
           </a>
           <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
-            <li className='nav-item active'>
-              <Link className='nav-link' to='/'>
-                Home
-              </Link>
-            </li>
-            <li className='nav-item active'>
-              <Link className='nav-link' to='/dismissal'>
-                Dismissal
-              </Link>
-            </li>
-            <li className='nav-item active'>
-              <Link className='nav-link' to='/database'>
-                Database
-              </Link>
-            </li>
-            <li className='nav-item active'>
-              <Link className='nav-link' to='/signup'>
-                Sign Up
-              </Link>
-            </li>
-            <li className='nav-item active'>
-              <Link className='nav-link' to='/parents'>
-                Parents Landing
-              </Link>
-            </li>
-            <li className='nav-item active'>
-              <Link className='nav-link' to='/admin'>
-                Admin Landing Page
-              </Link>
-            </li>
-            <li className='nav-item active'>
-              <Link className='nav-link' to='/socket'>
-                Socket Boiler Plate
-              </Link>
-            </li>
+            <NavLink navTitle='Home' to='/' />
+            <NavLink navTitle='Sign Up' to='/signup' />
+            <NavLink navTitle='Dismissal' to='/dismissal' />
+            <NavLink navTitle='Database Dashboard' to='/database' />
+            <NavLink navTitle='Family Dashboard' to='/family' />
+            <NavLink navTitle='Admin Dashboard' to='/admin' />
+            <NavLink navTitle='Socket.io Boiler Plate' to='/socket' />
           </ul>
         </div>
       </nav>

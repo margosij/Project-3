@@ -1,17 +1,28 @@
 import React from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
-import Admin from '../utils/socket/admin'
+import ParentsContainer from '../components/parentsContainer'
 import Parents from '../utils/socket/parents'
 import API from '../utils/Api'
-const parentID = '5e201b103bbbe7513cb80b19'
+const familyID = '5e201b103bbbe7513cb80b19'
 
-const ParentsDashboard = (props) => {
-  
+const FamilyDashboard = (props) => {
   
   const getParent = () => {
-    API.getFamilies
+    API.getFamilyById(familyID).then(res => {
+      console.log(res)
+    }).catch(err => console.log(err))
   }
+  
+  const getAllParents = () => {
+    API.getAllFamilies().then(res => {
+      console.log(res)
+    }).catch(err => console.log(err))
+  }
+
+  getParent()
+  getAllParents()
+
   return (
     <>
       <Container>
@@ -19,15 +30,15 @@ const ParentsDashboard = (props) => {
           <Column>
             <Jumbotron
               title='Welcome to Harmony'
-              lead='Parents Dashboard'
+              lead='Family Dashboard'
             />
           </Column>
         </Row>
-        <Admin {...props} />
+        <ParentsContainer />
         <Parents {...props} />
       </Container>
     </>
   )
 }
 
-export default ParentsDashboard
+export default FamilyDashboard

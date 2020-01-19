@@ -1,9 +1,14 @@
 import React from 'react'
+import Card from '../Card'
 
 const StudentContainer = () => {
   return (
     <>
-      <Card />
+      <Card>
+        <div className="card-body">
+          
+        </div>
+      </Card>
     </>
   )
 }

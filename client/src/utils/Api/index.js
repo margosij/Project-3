@@ -10,8 +10,8 @@ export default {
     return res.data || []
   },
   // get an Admin
-  getAnAdmin: async (id) => {
-    let res = await axios.get(`/api/admin/${id}`)
+  getAnAdminById: async (adminId) => {
+    let res = await axios.get(`/api/admins/${adminId}`)
     return res.data || []
   },
   // save an admin
@@ -21,7 +21,7 @@ export default {
   },
   // delete an admin
   deleteAnAdmin: async id => {
-    let res = await axios.delete(`/api/admin/${id}`)
+    let res = await axios.delete(`/api/admins/${id}`)
     return res.data || []
   },
   // ===========================================================================
@@ -32,7 +32,7 @@ export default {
     let res = await axios.get('/api/families')
     return res.data || []
   },
-  getAFamily: async (familyId) => {
+  getFamilyById: async (familyId) => {
     let res = await axios.get(`/api/families/${familyId}`)
     return res.data || []
   },

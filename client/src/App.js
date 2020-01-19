@@ -6,9 +6,9 @@ import Home from './pages/home'
 import NoMatch from './pages/nomatch'
 import Navbar from './components/Navbar'
 import SignUp from './pages/SignUp'
-import ParentsDashboard from './pages/parentsLanding'
+import FamilyDashboard from './pages/familyDashboard'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
-import AdminDashboard from './pages/adminLanding'
+import AdminDashboard from './pages/adminDashboard'
 
 const App = () => {
   return (
@@ -20,7 +20,7 @@ const App = () => {
           <Route exact path='/dismissal' component={Dismissal} />
           <Route exact path='/database' component={Database} />
           <Route exact path='/signup' component={SignUp} />
-          <Route exact path='/parents' component={ParentsDashboard} />
+          <Route exact path='/family' component={FamilyDashboard} />
           <Route exact path='/admin' component={AdminDashboard} />
           <Route exact path='/socket' component={SocketBoilerPlate} />
           <Route exact path='*' component={NoMatch} />
