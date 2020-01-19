@@ -4,12 +4,12 @@ import openSocket from 'socket.io-client'
 // open a webSocket on this port --this will change when deployed
 const socket = openSocket('http://localhost:3001')
 
-const componentDidMount = () => {
-  // test emits when the component mounts
-  this.handleLoadEmit('adminTime', this.state.timestamp)
-  this.handleLoadEmit('adminID', this.state.adminId)
-  this.setState({ adminId: 'Joe Clark' })
-}
+// const componentDidMount = () => {
+//   // test emits when the component mounts
+//   this.handleLoadEmit('adminTime', this.state.timestamp)
+//   this.handleLoadEmit('adminID', this.state.adminId)
+//   this.setState({ adminId: 'Joe Clark' })
+// }
 
 const handleEmit = (method, data) => {
   console.log('data:', data)
@@ -17,13 +17,13 @@ const handleEmit = (method, data) => {
   // method is the websocket Tag, {message: data} is the data sent
   socket.emit(method, { message: data })
 }
-const handleLoadEmit = (method, data) => {
-  console.log('data:', data)
-  console.log('method:', method)
-  if (data !== undefined) {
-    socket.emit(method, { message: data })
-  }
-}
+// const handleLoadEmit = (method, data) => {
+//   console.log('data:', data)
+//   console.log('method:', method)
+//   if (data !== undefined) {
+//     socket.emit(method, { message: data })
+//   }
+// }
 // Socket.io Check In button
 export function CheckInBtn(props) {
   return (

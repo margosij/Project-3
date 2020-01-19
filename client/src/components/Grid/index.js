@@ -1,11 +1,11 @@
 import React from 'react'
 
 export const Container = props => {
-  return <div className='container-fluid'>{props.children}</div>
+  return <div className={`container-fluid ${props.styling}`}>{props.children}</div>
 }
 
 export const Column = props => {
-  return <div className='col'>{props.children}</div>
+  return <div className={`col ${props.styling}`} >{props.children}</div>
 }
 
 export const Row = props => {
