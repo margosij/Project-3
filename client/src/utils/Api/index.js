@@ -23,7 +23,7 @@ export default {
   },
   // save a family
   saveFamily: async familyData => {
-    let res = await axios.post('/api/families', adminData)
+    let res = await axios.post('/api/families', familyData)
     return res.data || []
   },
   // delete a family
