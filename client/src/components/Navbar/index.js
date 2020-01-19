@@ -70,6 +70,11 @@ function Navbar() {
               </Link>
             </li>
             <li className='nav-item active'>
+              <Link className='nav-link' to='/admin'>
+                Admin Landing Page
+              </Link>
+            </li>
+            <li className='nav-item active'>
               <Link className='nav-link' to='/socket'>
                 Socket Boiler Plate
               </Link>

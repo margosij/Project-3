@@ -8,6 +8,7 @@ import Navbar from './components/Navbar'
 import SignUp from './pages/SignUp'
 import ParentsLanding from './pages/parents'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
+import Harmony from './pages/harmony'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route exact path='/database' component={Database} />
           <Route exact path='/signup' component={SignUp} />
           <Route exact path='/parents' component={ParentsLanding} />
+          <Route exact path='/admin' component={Harmony} />
           <Route exact path='/socket' component={SocketBoilerPlate} />
           <Route exact path='*' component={NoMatch} />
         </Switch>

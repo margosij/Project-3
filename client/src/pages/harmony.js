@@ -4,20 +4,23 @@ import { Row, Column, Container } from '../components/Grid'
 import Admin from '../utils/socket/admin'
 import Parents from '../utils/socket/parents'
 
-function Database(props) {
+function Harmony(props) {
   return (
     <>
       <Container>
         <Row styling='row align-self-center'>
           <Column>
-            <Jumbotron title='Welcome to Harmony' lead='Parents Landing Page'></Jumbotron>
+            <Jumbotron
+              title='Welcome to Harmony'
+              lead='Harmony Landing Page'
+            ></Jumbotron>
           </Column>
         </Row>
-        <Admin { ...props}/>
-        <Parents { ...props}/>
+        <Admin {...props} />
+        <Parents {...props} />
       </Container>
     </>
   )
 }
 
-export default Database
+export default Harmony
