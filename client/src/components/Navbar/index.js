@@ -59,6 +59,21 @@ function Navbar() {
                 Database
               </Link>
             </li>
+            <li className='nav-item active'>
+              <Link className='nav-link' to='/signup'>
+                Sign Up
+              </Link>
+            </li>
+            <li className='nav-item active'>
+              <Link className='nav-link' to='/parents'>
+                Parents Landing
+              </Link>
+            </li>
+            <li className='nav-item active'>
+              <Link className='nav-link' to='/socket'>
+                Socket Boiler Plate
+              </Link>
+            </li>
           </ul>
          
         </div>
