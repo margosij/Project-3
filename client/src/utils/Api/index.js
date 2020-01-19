@@ -1,34 +1,72 @@
 import axios from 'axios'
 
 export default {
+  // ===========================================================================
+  // Admin Routes
+  // ===========================================================================
   // get all admins
-  getAdmins: async () => {
+  getAllAdmins: async () => {
     let res = await axios.get('/api/admins')
     return res.data || []
   },
+  // get an Admin
+  getAnAdmin: async (id) => {
+    let res = await axios.get(`/api/admin/${id}`)
+    return res.data || []
+  },
   // save an admin
-  saveAdmin: async adminData => {
+  saveAnAdmin: async adminData => {
     let res = await axios.post('/api/admins', adminData)
     return res.data || []
   },
   // delete an admin
-  deleteAdmin: async id => {
+  deleteAnAdmin: async id => {
     let res = await axios.delete(`/api/admin/${id}`)
     return res.data || []
   },
+  // ===========================================================================
+  // Family/Parent Routes
+  // ===========================================================================
   // get all families
-  getFamilies: async () => {
+  getAllFamilies: async () => {
     let res = await axios.get('/api/families')
     return res.data || []
   },
+  getAFamily: async (familyId) => {
+    let res = await axios.get(`/api/families/${familyId}`)
+    return res.data || []
+  },
   // save a family
-  saveFamily: async familyData => {
+  saveAFamily: async familyData => {
     let res = await axios.post('/api/families', familyData)
     return res.data || []
   },
   // delete a family
-  deleteFamily: async id => {
+  deleteAFamily: async id => {
     let res = await axios.delete(`/api/families/${id}`)
+    return res.data || []
+  },
+  // ===========================================================================
+  // User Routes ---ALL OF THESE MAY NOT WORK, NEED TO FOLLOW UP WiTH K.C.
+  // ===========================================================================
+  // get all Users
+  getAllUsers: async () => {
+    let res = await axios.get('/api/users')
+    return res.data || []
+  },
+  // get a User
+  getAUser: async (userId) => {
+    let res = await axios.get(`/api/users/${userId}`)
+    return res.data || []
+  },
+  // save a User
+  saveAUser: async userData => {
+    let res = await axios.post('/api/users', userData)
+    return res.data || []
+  },
+  // delete a User
+  deleteAUser: async id => {
+    let res = await axios.delete(`/api/users/${id}`)
     return res.data || []
   }
 }

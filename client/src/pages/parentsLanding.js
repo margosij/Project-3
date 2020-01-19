@@ -7,10 +7,15 @@ import API from '../utils/Api'
 const parentID = '5e201b103bbbe7513cb80b19'
 
 const ParentsDashboard = (props) => {
+  
+  
+  const getParent = () => {
+    API.getFamilies
+  }
   return (
     <>
       <Container>
-        <Row styling='row align-self-center'>
+        <Row styling='align-self-center'>
           <Column>
             <Jumbotron
               title='Welcome to Harmony'
