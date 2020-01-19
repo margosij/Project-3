@@ -681,7 +681,6 @@ const adminSeed = [
   }
 ]
 
-
 db.Family.remove({})
   .then(() => db.Family.collection.insertMany(familySeed))
   .then(data => {
@@ -692,7 +691,7 @@ db.Family.remove({})
     console.error(err)
     process.exit(1)
   })
-  
+
 db.Admin.remove({})
   .then(() => db.Admin.collection.insertMany(adminSeed))
   .then(data => {

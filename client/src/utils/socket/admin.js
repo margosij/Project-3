@@ -7,7 +7,7 @@ const socket = openSocket('http://localhost:3001')
 
 // "socket.on('Hello there', function()) ---listen for a data with a 'Hello there' tag, and then complete function---the function is whatever you want it to be or do.
 // "socket.emit('Hello there', data) --- emit a broadcast to all browsers with a tag of 'Hello there'. data has to be in the form of an object ex. {data:'I Heard you'}
-// whatever tag is used, it has to be added to "io" section in Server.js  
+// whatever tag is used, it has to be added to "io" section in Server.js
 
 class Admin extends Component {
   state = {
@@ -17,8 +17,8 @@ class Admin extends Component {
 
   componentDidMount() {
     // test emits when the component mounts
-    this.handleLoadEmit('adminTime', this.state.timestamp )
-    this.handleLoadEmit('adminID', this.state.adminId )
+    this.handleLoadEmit('adminTime', this.state.timestamp)
+    this.handleLoadEmit('adminID', this.state.adminId)
     this.setState({ adminId: 'Joe Clark' })
   }
 
@@ -37,7 +37,7 @@ class Admin extends Component {
   }
   render() {
     // listen for data with a 'hello tag
-    socket.on('hello', (data) => console.log(data.message))
+    socket.on('hello', data => console.log(data.message))
     return (
       <>
         <Card>

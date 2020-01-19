@@ -10,11 +10,11 @@ function Database(props) {
       <Container>
         <Row styling='row align-self-center'>
           <Column>
-            <Jumbotron title='Welcome to Harmony' lead='Database'></Jumbotron>
+            <Jumbotron title='Welcome to Harmony' lead='Database' />
           </Column>
         </Row>
-        <Admin { ...props}/>
-        <Parents { ...props}/>
+        <Admin {...props} />
+        <Parents {...props} />
       </Container>
     </>
   )

@@ -31,11 +31,11 @@ function Navbar() {
         >
           <span className='navbar-toggler-icon' />
         </button>
-        <div
-          className={`${classOne} pl-2 text-light`}
-          id='navbarResponsive'
-        >
-          <a className='navbar-brand' href='https://hsenrichment.harmonytx.org/'>
+        <div className={`${classOne} pl-2 text-light`} id='navbarResponsive'>
+          <a
+            className='navbar-brand'
+            href='https://hsenrichment.harmonytx.org/'
+          >
             <img
               src='https://harmonypublicschools.network/hsenrichment-new/wp-content/uploads/sites/111/2019/03/hsenrichment-houston-white-300px.png'
               width='150'
@@ -80,7 +80,6 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-         
         </div>
       </nav>
     </>

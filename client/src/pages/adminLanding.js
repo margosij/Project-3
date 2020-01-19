@@ -4,7 +4,7 @@ import { Row, Column, Container } from '../components/Grid'
 import Admin from '../utils/socket/admin'
 import Parents from '../utils/socket/parents'
 
-function Harmony(props) {
+function AdminDashboard(props) {
   return (
     <>
       <Container>
@@ -12,8 +12,8 @@ function Harmony(props) {
           <Column>
             <Jumbotron
               title='Welcome to Harmony'
-              lead='Harmony Landing Page'
-            ></Jumbotron>
+              lead='Admin Dashboard'
+            />
           </Column>
         </Row>
         <Admin {...props} />
@@ -23,4 +23,4 @@ function Harmony(props) {
   )
 }
 
-export default Harmony
+export default AdminDashboard

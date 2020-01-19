@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
@@ -9,7 +8,7 @@ function Home() {
       <Container>
         <Row styling='row align-self-center'>
           <Column>
-            <Jumbotron title='Welcome to Harmony' lead='Dismissal'></Jumbotron>
+            <Jumbotron title='Welcome to Harmony' lead='Dismissal' />
           </Column>
         </Row>
       </Container>
