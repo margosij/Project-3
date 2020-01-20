@@ -61,7 +61,7 @@ export default {
   },
   // save a User
   saveAUser: async userData => {
-    let res = await axios.post('/api/users', userData)
+    let res = await axios.post('/api/users/', userData)
     return res.data || []
   },
   // delete a User

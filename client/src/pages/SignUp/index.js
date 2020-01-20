@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import Container from '../../components/Container'
 import Col from '../../components/Col'
 import Row from '../../components/Row'
+import API from '../../utils/Api'
+import Api from '../../utils/Api'
 // import * as userService from '../../services/userService';
 // import auth from '../../services/authService'
 
@@ -16,15 +18,23 @@ const Signup = () => {
 
   const handleSubmit = async e => {
     e.preventDefault()
-    // try {
-    //   const { data: jwt } = await userService.register({ 'email':email,'password':password,'familyName':familyName });
-    //   auth.loginWithJwt(jwt);
-    //   window.location = '/';
-    // } catch (ex) {
-    //   if (ex.response) {
-    //     alert(ex.response.data)
-    //   }
-    // }
+    try {
+      const newUser = {
+        username: email,
+        password: password
+      }
+      API.saveAUser(newUser).then(result =>{
+        console.log(result)
+      }).catch(err => console.log(err))
+
+      // const { data: jwt } = await userService.register({ 'email':email,'password':password,'familyName':familyName });
+      // auth.loginWithJwt(jwt);
+      // window.location = '/';
+    } catch (ex) {
+      if (ex.response) {
+        alert(ex.response.data)
+      }
+    }
   }
 
   return (
