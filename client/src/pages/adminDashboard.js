@@ -1,6 +1,7 @@
 import React from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
+import Chat from '../components/Chat'
 import Admin from '../utils/socket/admin'
 import API from '../utils/Api'
 const adminID = '5e23fd723d93932da04241f6'
@@ -31,6 +32,7 @@ const AdminDashboard = props => {
           </Column>
         </Row>
         <Admin {...props} />
+        <Chat />
       </Container>
     </>
   )

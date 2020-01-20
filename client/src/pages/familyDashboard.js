@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Jumbotron from '../components/Jumbotron'
+// import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
 import FamilyContainer from '../components/FamilyContainer'
 import API from '../utils/Api'
