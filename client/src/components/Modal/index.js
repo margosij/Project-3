@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Modal() {
+const Modal = () => {
   return (
     <>
       {/* Button trigger modal */}

@@ -1,7 +1,7 @@
 import React from "react";
 
-function Row(props) {
-  return <div className={`row${props.fluid ? "-fluid" : ""}`} {...props} />;
+const Row = (props) => {
+  return <div className={`row ${props.styling}`} {...props} />;
 }
 
 export default Row;
