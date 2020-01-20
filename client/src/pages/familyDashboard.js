@@ -51,14 +51,15 @@ const FamilyDashboard = props => {
   return (
     <>
       <Container>
-        <Row styling='align-self-center'>
-          <Column>
-            <Jumbotron title='Welcome to Harmony' lead='Family Dashboard' />
+        <h1 className='text-center'>Family Dashboard</h1>
+        <Row styling='align-items-center justify-content-center my-5'>
+          <Column
+            size='sm-4 md-6 lg-8 xl-10'
+            styling='align-self-center no-gutters'
+          >
+            <FamilyContainer familyData={singleFamilyData} />
           </Column>
         </Row>
-        <Container>
-          <FamilyContainer familyData={singleFamilyData}/>
-        </Container>
       </Container>
     </>
   )

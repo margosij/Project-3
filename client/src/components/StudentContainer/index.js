@@ -1,29 +1,25 @@
 import React from 'react'
 import Card from '../Card'
-import { Container, Row, Column } from '../Grid'
 import { CheckInBtn } from '../Buttons'
+import { ListItem } from '../List'
 const StudentContainer = props => {
   return (
     <>
-      <Container>
-        <Row>
-          <Column>
-            <Card>
-              <div className='card-body'>
-                <h5 className='card-title'>Name: {props.name}</h5>
-                <h5 className='card-title'>Relation: {props.gender}</h5>
-                <h5 className='card-title'>Home Phone: {props.home}</h5>
-                <h5 className='card-title'>Work Phone: {props.work}</h5>
-                <h5 className='card-title'>Cell Phone: {props.cell}</h5>
-                <h5 className='card-title'>Email: {props.email}</h5>
-              </div>
-              <div className='card-footer'>
-                <CheckInBtn {...props} />
-              </div>
-            </Card>
-          </Column>
-        </Row>
-      </Container>
+      <ListItem styling='list-inline-item m-0'>
+        <Card>
+          <div className='card-body'>
+            <h5 className='card-title'>Name:</h5>
+            <p>{`${props.firstName} ${props.middleName} ${props.lastName} ${props.suffix}`}</p>
+            <h6 className='card-title'>Gender:</h6>
+            <p>{props.gender}</p>
+            <h6 className='card-title'>Grade:</h6>
+            <p>{props.gradeLevel}</p>
+          </div>
+          <div className='card-footer'>
+            <CheckInBtn name={props.firstName} {...props} />
+          </div>
+        </Card>
+      </ListItem>
     </>
   )
 }

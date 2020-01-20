@@ -1,11 +1,26 @@
 import React from 'react'
 
 export const Container = props => {
-  return <div className={`container-fluid ${props.styling}`}>{props.children}</div>
+  
+  return (
+    <div className={`container-fluid ${props.styling}`}>{props.children}</div>
+  )
 }
 
 export const Column = props => {
-  return <div className={`col ${props.styling}`} >{props.children}</div>
+  let size
+  props.size
+    // if size prop passed to this component, map col-size to class Name
+    ? (size = props.size
+        .split(' ')
+        .map(size => 'col-' + size)
+      .join(' '))
+    // if not, just set the class to col
+    : (size = 'col')
+  let styling
+  props.styling ?
+  (styling = props.styling) : (styling = 'col')
+  return <div className={`${size} ${styling}`}>{props.children}</div>
 }
 
 export const Row = props => {
