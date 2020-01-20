@@ -12,6 +12,9 @@ function Home() {
                       <Jumbotron title='Welcome to Harmony' lead='Homepage'></Jumbotron>
                   </Column>
               </Row>
+              <Row>
+                  <Geolocated />
+              </Row>
           </Container>
       </>
   )
