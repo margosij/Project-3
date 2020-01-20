@@ -18,7 +18,7 @@ const FamilyContainer = props => {
             <Container>
               <Row styling='row-cols-1 row-cols-md-2'>
                 <Column styling='px-0'>
-                  <Card>
+                  <Card styling='guardianContainer'>
                     <CardHeader title='Guardians' />
                     <List styling='list-inline'>
                       {props.familyData.guardians ? (
@@ -44,7 +44,7 @@ const FamilyContainer = props => {
                   </Card>
                 </Column>
                 <Column styling='px-0 mx-0'>
-                  <Card>
+                  <Card styling='studentCard'>
                     <CardHeader title='Students' />
                     <List styling='list-inline'>
                       {props.familyData.students ? (
