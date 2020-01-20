@@ -1,8 +1,8 @@
 import React from 'react'
 
-function Card(props) {
+const Card = (props) => {
   return (
-    <div className='card container animated fadeInUpBig'>{props.children}</div>
+    <div className={`card animated fadeInUpBig ${props.styling}`}>{props.children}</div>
   )
 }
 export default Card

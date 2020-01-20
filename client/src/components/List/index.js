@@ -1,9 +1,11 @@
 import React from 'react'
 
-export function List({ children }) {
-  return <ul className='list-unstyled col-8 mx-auto'>{children}</ul>
+const List = (props) => {
+  return <ul className={`list-inline ${props.styling} mx-auto`}>{props.children}</ul>
 }
 
-export function ListItem({ children }) {
-  return <li className='list-group-item'>{children}</li>
+const ListItem = (props) => {
+  return <li className={`${props.styling}`} >{props.children}</li>
 }
+
+export {List, ListItem} 

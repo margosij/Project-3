@@ -5,6 +5,10 @@ const adminSchema = new Schema({
   name: {
     type: String,
     required: true
+  },
+  User: {
+    type: Schema.Types.ObjectID,
+    ref: 'User'
   }
 })
 
