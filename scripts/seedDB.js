@@ -55,7 +55,7 @@ const familySeed = [
         disabilities:
           'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.\n\nSed ante. Vivamus tortor. Duis mattis egestas metus.',
         allergies: 'In congue. Etiam justo. Etiam pretium iaculis justo.',
-        studentDoctor: 'Cherie Rodenburg',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       },
       {
@@ -68,7 +68,7 @@ const familySeed = [
         gradeLevel: 4,
         disabilities:
           'In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.\n\nSuspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst.',
-        studentDoctor: 'Kassey Brushfield',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
     ]
@@ -119,7 +119,7 @@ const familySeed = [
           'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
         allergies:
           'Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.',
-        studentDoctor: 'Eva Browell',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
     ]
@@ -171,7 +171,7 @@ const familySeed = [
         gradeLevel: 5,
         disabilities:
           'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.\n\nSed ante. Vivamus tortor. Duis mattis egestas metus.',
-        studentDoctor: 'Kenn Codi'
+        studentDoctor: 'Leonard McKoy'
       }
     ]
   },
@@ -222,7 +222,7 @@ const familySeed = [
         gradeLevel: 1,
         disabilities:
           'Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.',
-        studentDoctor: 'Tillie Mills',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
     ]
@@ -276,7 +276,7 @@ const familySeed = [
           'Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh.\n\nQuisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros.',
         allergies:
           'Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.\n\nCum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-        studentDoctor: 'Dana Garnar',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: [
           {
             firstName: 'Bekki',
@@ -290,7 +290,7 @@ const familySeed = [
               'Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.',
             allergies:
               'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-            studentDoctor: 'Bekki Quinevan'
+            studentDoctor: 'Leonard McKoy'
           },
           {
             firstName: 'Rheta',
@@ -302,7 +302,7 @@ const familySeed = [
             gradeLevel: 4,
             disabilities:
               'Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-            studentDoctor: 'Rheta Rushby'
+            studentDoctor: 'Leonard McKoy'
           }
         ]
       }
@@ -355,7 +355,7 @@ const familySeed = [
         tShirtSize: 'S',
         gradeLevel: 5,
         disabilities: 'Fusce consequat. Nulla nisl. Nunc nisl.',
-        studentDoctor: 'Eustace Hammatt'
+        studentDoctor: 'Leonard McKoy'
       },
       {
         firstName: 'Dulcie',
@@ -367,7 +367,7 @@ const familySeed = [
         gradeLevel: 5,
         disabilities:
           'Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.\n\nPhasellus in felis. Donec semper sapien a libero. Nam dui.',
-        studentDoctor: 'Dulcie Cattrell',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
     ]
@@ -420,7 +420,7 @@ const familySeed = [
         gradeLevel: 1,
         disabilities:
           'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.',
-        studentDoctor: 'Falito Hullbrook',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       },
       {
@@ -435,7 +435,7 @@ const familySeed = [
           'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.',
         allergies:
           'Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.',
-        studentDoctor: 'Hendrik Worner'
+        studentDoctor: 'Leonard McKoy'
       },
       {
         firstName: 'Isidora',
@@ -449,7 +449,7 @@ const familySeed = [
           'Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.\n\nDuis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
         allergies:
           'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.\n\nFusce consequat. Nulla nisl. Nunc nisl.',
-        studentDoctor: 'Isidora Dripps',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
     ]
@@ -503,7 +503,7 @@ const familySeed = [
           'Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.\n\nCurabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.',
         allergies:
           'Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.',
-        studentDoctor: 'Morton MacDirmid'
+        studentDoctor: 'Leonard McKoy'
       },
       {
         firstName: 'Panchito',
@@ -515,7 +515,7 @@ const familySeed = [
         gradeLevel: 2,
         disabilities:
           'Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.\n\nAenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.',
-        studentDoctor: 'Panchito Billyard',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
     ]
@@ -566,7 +566,7 @@ const familySeed = [
           'Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.',
         allergies:
           'Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.\n\nIn congue. Etiam justo. Etiam pretium iaculis justo.',
-        studentDoctor: 'Lindsay Peddie',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       },
       {
@@ -579,7 +579,7 @@ const familySeed = [
         gradeLevel: 2,
         disabilities:
           'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.\n\nEtiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.',
-        studentDoctor: 'Ardyce Wigmore',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       },
       {
@@ -592,7 +592,7 @@ const familySeed = [
         gradeLevel: 4,
         disabilities:
           'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.',
-        studentDoctor: 'Luise Mazey'
+        studentDoctor: 'Leonard McKoy'
       }
     ]
   },
@@ -639,7 +639,7 @@ const familySeed = [
         gradeLevel: 4,
         disabilities:
           'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.',
-        studentDoctor: 'Kimmy Dusting',
+        studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       },
       {
@@ -652,7 +652,7 @@ const familySeed = [
         gradeLevel: 2,
         disabilities:
           'Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.',
-        studentDoctor: 'Hattie Blaycock'
+        studentDoctor: 'Leonard McKoy'
       },
       {
         firstName: 'Boot',
@@ -664,7 +664,7 @@ const familySeed = [
         gradeLevel: 5,
         disabilities:
           'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
-        studentDoctor: 'Boot McElwee'
+        studentDoctor: 'Leonard McKoy'
       }
     ]
   }

@@ -15,20 +15,20 @@ class Admin extends Component {
     timestamp: new Date().toTimeString()
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     // test emits when the component mounts
     this.handleLoadEmit('adminTime', this.state.timestamp)
     this.handleLoadEmit('adminID', this.state.adminId)
     this.setState({ adminId: 'Joe Clark' })
   }
 
-  handleEmit = function(method, data) {
+  handleEmit = (method, data) => {
     console.log('data:', data)
     console.log('method:', method)
     // method is the websocket Tag, {message: data} is the data sent
     socket.emit(method, { message: data })
   }
-  handleLoadEmit = function(method, data) {
+  handleLoadEmit = (method, data) => {
     console.log('data:', data)
     console.log('method:', method)
     if (data !== undefined) {

@@ -1,29 +1,29 @@
 import React from 'react'
-import { Row, Col, Container, Column } from '../Grid'
+import {ListItem} from '../List'
 import Card from '../Card'
-import StudentContainer from '../StudentContainer'
+import { CheckInBtn } from '../Buttons'
+import './style.css'
 
-const ParentsContainer = (props) => {
-  return <>
-    <Container>
-      <Row>
-        <Column>
-          <Card>
-            <div className="card-body">
-              <h5 className="card-title">Name: {props.name}</h5>
-              <h5 className="card-title">Relation: {props.relation}</h5>
-              <h5 className="card-title">Home Phone: {props.home}</h5>
-              <h5 className="card-title">Work Phone: {props.work}</h5>
-              <h5 className="card-title">Cell Phone: {props.cell}</h5>
-              <h5 className="card-title">Email: {props.email}</h5>
-            </div>
+const ParentsContainer = props => {
+  return (
+    <>
+      <ListItem styling='list-inline-item m-0'>
+        <Card>
+          <div className='card-body'>
+            <p className='card-title'>Name: {props.name}</p>
+            <p className='card-title'>Relation: {props.relation}</p>
+            <p className='card-title'>Home Phone: {props.home}</p>
+            <p className='card-title'>Work Phone: {props.work}</p>
+            <p className='card-title'>Cell Phone: {props.cell}</p>
+            <p className='card-title'>Email: {props.email}</p>
+          </div>
+          <div className='card-footer'>
+            <CheckInBtn {...props} />
+          </div>
         </Card>
-        </Column>
-    </Row>
-
-    </Container>
-    
-  </>
+      </ListItem>
+    </>
+  )
 }
 
 export default ParentsContainer
