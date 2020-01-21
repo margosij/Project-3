@@ -1,38 +1,52 @@
-import React from 'react'
+import testFamilyData from '../utils/socket/testData'
+import React, { useState, useEffect } from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
-import Chat from '../components/Chat'
 import Admin from '../utils/socket/admin'
 import API from '../utils/Api'
-const adminID = '5e23fd723d93932da04241f6'
-const AdminDashboard = props => {
-  const getAnAdmin = () => {
-    API.getAnAdminById(adminID)
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => console.log(err))
-  }
+import TeacherContainer from '../components/TeacherContainer'
+const adminID = '55e2670f6f2b3c22940cb99fb'
+const testFamilyID = '5e2670f6f2b3c22940cb99f1'
 
-  const getAllAdmins = () => {
-    API.getAllFamilies()
-      .then(res => {
-        console.log(res)
-      })
-      .catch(err => console.log(err))
-  }
-  getAnAdmin()
-  getAllAdmins()
+const AdminDashboard = props => {
+  const [familyId, setFamilyId] = useState(testFamilyID)
+  const [allFamilies, setAllFamilies] = useState([])
+  const [allAdminH, setAllAdminsH] = useState([])
+  const [singleFamilyData, setSingleFamilyData] = useState({})
+  // const [parents, setParents] = useState([])
+  // const [students, setStudents] = useState([])
+  // const [singleParent, setSingleParents] = useState({})
+
+ 
+useEffect(() => {
+  API.getAllFamilies()
+    .then(res => {
+      console.log(res)
+      setAllFamilies(res)
+    })
+    .catch(err => console.log(err))
+}, [])
+  
+useEffect(() => {
+  API.getAllAdmins()
+    .then(res => {
+      console.log(res)
+      setAllAdminsH(res)
+    })
+    .catch(err => console.log(err))
+}, [])
+
+
   return (
     <>
       <Container>
         <Row styling='row align-self-center'>
           <Column>
             <Jumbotron title='Welcome to Harmony' lead='Admin Dashboard' />
+            <TeacherContainer familyData={testFamilyData} />
           </Column>
         </Row>
-        <Admin {...props} />
-        <Chat />
+        {/* <Admin {...props} /> */}
       </Container>
     </>
   )
