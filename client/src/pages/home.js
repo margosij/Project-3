@@ -1,9 +1,8 @@
 import React from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
-// import Geolocated from '../components/Geolocated/Geolocated'
+import Geolocated from '../components/Geolocated/Geolocated'
 import Login from './Login'
-
 
 const Home = () => {
   return (
@@ -13,9 +12,9 @@ const Home = () => {
           <Column>
             <Jumbotron title='Welcome to Harmony' lead='Homepage' />
           </Column>
-          {/* <Geolocated /> */}
         </Row>
         <Login />
+        <Geolocated />
       </Container>
     </>
   )
