@@ -8,93 +8,67 @@ import CardHeader from '../CardHeader'
 import ParentsContainer from '../parentsContainer'
 import { List } from '../List'
 import StudentContainer from '../StudentContainer'
-import Api from '../../utils/Api'
-const parentTestId = '5e25cddb8325d037e01f4557'
+const parentTestId = '5e2670f6f2b3c22940cb99f1'
+
 
 const TeacherContainer = props => {
-    // state={
-    //     familyArrived: []
-    // }
-    // componentDidMount() {
-    //     API.getFamilyById()
-    // .then(res => {this.setState({ familyArrived: res })})
-    // .catch(err => console.log(err))
-    // }
-    return (
-        <>
+console.log('props:', props)
+
+
+  return (
+    <>
+      <Container>
+        <Row styling='row-cols-1 row-cols-md-2"'>
+          <Card>
+            <CardHeader title={'Child Pickup'} />
             <Container>
-                <Row styling='row-cols-1 row-cols-md-2"'>
-                    <Card>
-                        <CardHeader
-                title={ 'Child Pickup' }
-              />
-                        <Container>
-                            <Row styling='row-cols-1 row-cols-md-2'>
-                                <Column styling='px-0'>
-                                    <Card styling='teacherContainer'>
-                                        <CardHeader title='Parent to Pick up Child' />
-                                        <List>
-                                            {/* {Api.getFamilyById().parentTestId.familyLastName} */}
-                                        </List>
-                                        {/* <List styling='list-inline'>
-                                            {props.familyData.guardians ? (
-                          props.familyData.guardians.map((parents, index) => (
-                              <ParentsContainer
-                              key={ Math.floor(Math.random() * 1000 + 1) }
-                              name={ `${ parents.firstName } ${ parents.lastName }` }
-                              relation={ parents.relation }
-                            />
-                          ))
-                        ) : (
-                            <div className='text-center'>
-                                <div className='spinner-border' role='status'>
-                                    <span className='sr-only'>Loading...</span>
-                                </div>
-                            </div>
-                        )}
-                                        </List> */}
-                                    </Card>
-                                </Column>
-                                <Column styling='px-0 mx-0'>
-                                    <Card styling='studentCard'>
-                                        <CardHeader title='Children' />
-                                        <List></List>
-                                        {/* <List styling='list-inline'>
-                                            {props.familyData.students ? (
-                          props.familyData.students.map((students, index) => (
-                              <StudentContainer
-                              key={ Math.floor(Math.random() * 1000 + 1) }
-                              firstName={ students.firstName }
-                              middleName={ students.middleName }
-                              lastName={ students.lastName }
-                              gender={ students.gender }
-                              gradeLevel={ students.gradeLevel }
-                            />
-                          ))
-                        ) : (
-                            <div className='text-center'>
-                                <div className='spinner-border' role='status'>
-                                    <span className='sr-only'>Loading...</span>
-                                </div>
-                            </div>
-                        )}
-                                        </List> */}
-                                    </Card>
-                                </Column>
-                            </Row>
-                            {/* <Row>
-                                <Column>
-                                    <Card styling='card-body mx-0'>
-                                        <CardHeader title='Geolocation Section or Whatever....' />
-                                    </Card>
-                                </Column>
-                            </Row> */}
-                        </Container>
-                    </Card>
-                </Row>
+              <Row styling='row-cols-1 row-cols-md-2'>
+                <Column styling='px-0'>
+                  <Card styling='teacherContainer'>
+                    <CardHeader title='Parent to Pick up Child' />
+                    <List>
+                      {props.familyData.guardians ? (
+                        props.familyData.guardians.map((parents, index) => (
+                          <ParentsContainer
+                            key={Math.floor(Math.random() * 1000 + 1)}
+                            name={`${parents.firstName} ${parents.lastName}`}
+                            work={parents.workPhone}
+                            home={parents.homePhone}
+                            cell={parents.cellPhone}
+                            email={parents.email}
+                            relation={parents.relation}
+                          />
+                        ))
+                      ) : (
+                        <div className='text-center'>
+                          <div className='spinner-border' role='status'>
+                            <span className='sr-only'>Loading...</span>
+                          </div>
+                        </div>
+                      )}
+                    </List>
+                  </Card>
+                </Column>
+                <Column styling='px-0 mx-0'>
+                  <Card styling='studentCard'>
+                    <CardHeader title='Children' />
+                    <List>
+                      {/* {props.familyData.guardians.map((parents) => 
+                                                <ParentsContainer
+                                                id=parentTestId
+                                                students={ parents.students }
+                                                />
+                                                )} */}
+                    </List>
+                  </Card>
+                </Column>
+              </Row>
             </Container>
-        </>
-    )
-  }
+          </Card>
+        </Row>
+      </Container>
+    </>
+  )
+}
 
 export default TeacherContainer
