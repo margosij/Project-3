@@ -1,40 +1,32 @@
-/* eslint-disable react/jsx-indent */
 import React, { useState } from 'react'
 import Container from '../../components/Container'
 import Col from '../../components/Col'
 import Row from '../../components/Row'
 import API from '../../utils/Api'
-import Api from '../../utils/Api'
-// import * as userService from '../../services/userService';
-// import auth from '../../services/authService'
 
 const Signup = () => {
-  const [email, setemail] = useState()
+  const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const [familyName, setfamilyName] = useState()
+  const [familyName, setFamilyName] = useState()
 
   // useEffect(() => {
   // }, [search]);
 
   const handleSubmit = async e => {
     e.preventDefault()
-    try {
-      const newUser = {
-        username: email,
-        password: password
-      }
-      API.saveAUser(newUser).then(result =>{
-        console.log(result)
-      }).catch(err => console.log(err))
-
-      // const { data: jwt } = await userService.register({ 'email':email,'password':password,'familyName':familyName });
-      // auth.loginWithJwt(jwt);
-      // window.location = '/';
-    } catch (ex) {
-      if (ex.response) {
-        alert(ex.response.data)
-      }
-    }
+      
+      !(email || password || familyName)
+      ? alert('All fields required')
+      : API.saveAUser({ email, password, familyName })
+          .then(result => {
+            console.log(result)
+          })
+          .catch(err => {
+            console.log(err.response.data)
+            if (err.response) {
+              alert(err.response.data.message)
+            }
+          })
   }
 
   return (
@@ -51,7 +43,7 @@ const Signup = () => {
                 type='text'
                 placeholder='email'
                 name='email'
-                onChange={e => setemail(e.target.value)}
+                onChange={e => setEmail(e.target.value)}
               />
             </Col>
           </Row>
@@ -71,9 +63,9 @@ const Signup = () => {
               <input
                 className='form-control'
                 type='text'
-                placeholder='First Name'
+                placeholder='Family Name'
                 name='familyName'
-                onChange={e => setfamilyName(e.target.value)}
+                onChange={e => setFamilyName(e.target.value)}
               />
             </Col>
           </Row>

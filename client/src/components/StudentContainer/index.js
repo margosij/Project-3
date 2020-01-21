@@ -16,9 +16,7 @@ const StudentContainer = props => {
             <h6 className='card-title'>Grade:</h6>
             <p>{props.gradeLevel}</p>
           </div>
-          <div className='card-footer'>
-            <CheckInBtn name={props.firstName} {...props} />
-          </div>
+       
         </Card>
       </ListItem>
     </>
