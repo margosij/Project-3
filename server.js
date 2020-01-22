@@ -81,8 +81,13 @@ io.on('connection', socket => {
   socket.on('arrived', data => {
     console.log('\nArrival Message:', gradient.summer(data.message))
     io.emit('hello', { message: 'We see you' })
+    io.emit('/waiting', data ) // sending data to Waiting Container
   })
 
+  socket.on('/Admin/GeoArrived', data => {
+    console.log('data received by', data)
+    io.emit('/waiting', data) // sending data to Waiting Container
+  })
   socket.on('testTime', data => {
     console.log('\nTest Time Data Received:', gradient.summer(data.message))
     // socket.emit('im here', data)
