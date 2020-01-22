@@ -33,7 +33,12 @@ export function CheckInBtn(props) {
           <button
             type='button'
             className='btn btn-primary my-2'
-            onClick={() => handleEmit('/Admin/Geoarrived', { name: props.name, range: props.range })}
+            onClick={() => handleEmit('/Admin/GeoArrived',
+              {
+               // change this however you want
+                name: props.name, // Parent name goes here
+                range: props.range // range of the parent to the school
+              })}
           >
             Check In
           </button>
