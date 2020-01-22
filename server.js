@@ -8,7 +8,7 @@ const app = express()
 const bcrypt = require('bcrypt')
 const cors = require('cors')
 const gradient = require('gradient-string')
-// var whitelist =
+
 
 const PORT = process.env.PORT || 3001
 
@@ -19,26 +19,26 @@ console.log('MONGODB_URI:', MONGODB_URI)
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-// app.use(function(req, res, next) {
-//   // Website you wish to allow to connect
-//   res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`)
+app.use(function(req, res, next) {
+  // Website you wish to allow to connect
+  res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`)
 
-//   // Request methods you wish to allow
-//   res.setHeader(
-//     'Access-Control-Allow-Methods',
-//     'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-//     )
+  // Request methods you wish to allow
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
+    )
 
-//     // Request headers you wish to allow
-//     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+    // Request headers you wish to allow
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
 
-//     // Set to true if you need the website to include cookies in the requests sent
-//     // to the API (e.g. in case you use sessions)
-//     res.setHeader('Access-Control-Allow-Credentials', true)
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    res.setHeader('Access-Control-Allow-Credentials', true)
 
-//     // Pass to next layer of middleware
-//     next()
-//   })
+    // Pass to next layer of middleware
+    next()
+  })
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
@@ -56,6 +56,10 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true })
 const server = app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
 })
+
+// =============================================================================
+// Socket.IO Routes
+// =============================================================================
 const io = require('socket.io')(server)
 
 // This is what the socket.io syntax is like, we will work this later

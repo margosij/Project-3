@@ -1,10 +1,3 @@
 import React, { createContext, useReducer, useContext } from 'react'
+const GlobalState = createContext()
 
-const ArrivalsContext = createContext({
-  // parents checked in and waiting
-  waiting: []
-})
-
-const { Provider } = ArrivalsContext
-
-export default ArrivalsContext
