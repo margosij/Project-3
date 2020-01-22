@@ -1,6 +1,7 @@
 import React from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
+import Waiting from '../components/WaitingContainer'
 
 const Dismissal = () => {
   return (
@@ -11,6 +12,7 @@ const Dismissal = () => {
             <Jumbotron title='Welcome to Harmony' lead='Dismissal' />
           </Column>
         </Row>
+        <Waiting/>
       </Container>
     </>
   )

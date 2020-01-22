@@ -1,5 +1,6 @@
 import React from 'react'
 import { geolocated } from 'react-geolocated'
+// import GeoCheckInBtn from '../Buttons'
 
 const schoolLat = 29.9396558
 const schoolLon = -95.4252249
@@ -39,7 +40,7 @@ class Geolocation extends React.Component {
         pickupLon = props.coords.longitude
       }
 
-      var range = distance(pickupLat, pickupLon, pickupLat, pickupLon, 'M')
+      var range = distance(schoolLat, schoolLon, pickupLat, pickupLon, 'M')
 
       console.log('Range: ', range)
       if (range <= 0.5) {

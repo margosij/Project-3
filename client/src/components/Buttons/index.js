@@ -33,6 +33,24 @@ export function CheckInBtn(props) {
           <button
             type='button'
             className='btn btn-primary my-2'
+            onClick={() => handleEmit('/Admin/Geoarrived', { name: props.name, range: props.range })}
+          >
+            Check In
+          </button>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export function GeoCheckInBtn(props) {
+  return (
+    <>
+      <div className='row container d-flex align-self-end'>
+        <div className='d-flex justify-content-end'>
+          <button
+            type='button'
+            className='btn btn-primary my-2'
             onClick={()=> handleEmit('arrived', props.name)}
           >
             Check In

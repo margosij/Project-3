@@ -81,6 +81,7 @@ io.on('connection', socket => {
   socket.on('arrived', data => {
     console.log('\nArrival Message:', gradient.summer(data.message))
     io.emit('hello', { message: 'We see you' })
+    io.emit('/waiting', data )
   })
 
   socket.on('testTime', data => {
