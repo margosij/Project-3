@@ -7,9 +7,17 @@ router
   .get(userController.findAllUsers)
   .post(userController.createUser)
 
-// Matches with "/api/users/login"
+  // Matches with "/api/families/:id"
+router
+  .route('/:id')
+  .get(userController.findAUserById)
+  .put(userController.updateUser)
+  .delete(userController.removeUser)
+
+  // Matches with "/api/users/login"
 router
   .route('/login')
+  .get(userController.findAllUsers)
   .post(userController.logInUser)
 
 module.exports = router

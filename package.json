@@ -2,6 +2,7 @@
   "name": "dismissed",
   "version": "1.0.0",
   "description": "A School Dismissal App",
+  "proxy": "http://localhost:3001/",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -53,6 +54,7 @@
     "gradient-string": "^1.2.0",
     "if-env": "^1.0.4",
     "mongoose": "^5.8.9",
+    "mongoose-unique-validator": "^2.0.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "react-geolocated": "^3.0.1",
