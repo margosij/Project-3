@@ -18,6 +18,9 @@ const Loading = ({ isLoading, children }) =>
 const App = () => (
   <Provider fetchUser={fetchUser}>
     {({ authenticating, authenticated }) => (
+      authenticated = true,
+      authenticating ? (<Loading />) : (
+        authenticated ? (
       /* Render your application */
       <div className='mx-auto'>
         <Router>
@@ -35,6 +38,9 @@ const App = () => (
           </Switch>
         </Router>
       </div>
+
+        ) : ( <Login />)
+      )
     )}
   </Provider>
 )

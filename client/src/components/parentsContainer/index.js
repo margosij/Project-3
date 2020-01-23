@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListItem } from '../List'
 import Card from '../Card'
-import { CheckInBtn } from '../Buttons'
+import CheckInBtn from '../Buttons'
 import './style.css'
 
 const ParentsContainer = props => {
@@ -17,9 +17,9 @@ const ParentsContainer = props => {
                       <p className='card-title'>Cell Phone: {props.cell}</p>
                       <p className='card-title'>Email: {props.email}</p>
                   </div>
-                  {/* <div className='card-footer'>
-            <CheckInBtn {...props} />
-          </div> */}
+                  <div className='card-footer'>
+            <CheckInBtn name={props.name} {...props} />
+          </div>
               </Card>
           </ListItem>
       </>

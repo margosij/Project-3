@@ -25,7 +25,7 @@ const Login = () => {
     
   }
   return (
-    <div>
+    <div className='container'>
       <div className='mt-4'>
         <h2>Dismissed!</h2>
       </div>

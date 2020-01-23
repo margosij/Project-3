@@ -13,7 +13,7 @@ const Home = () => {
                       <Jumbotron title='Welcome to Harmony' lead='Homepage' />
                   </Column>
               </Row>
-              <Login />
+              {/* <Login /> */}
               {/* <Geolocated /> */}
           </Container>
       </>

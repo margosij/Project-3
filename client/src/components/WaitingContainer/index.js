@@ -10,8 +10,8 @@ const Waiting = () => {
   const [ waitList, setWaitList ] = useState([ 'No Parents waiting' ])
 
   socket.on('/waiting', data => {
-    console.log(data)
-     setWaitList(waitList.push(data))
+    console.log(JSON.stringify(data, null, 2))
+     setWaitList([data.message.name])
   })
   console.log('waitlist checking', waitList)
   return (
