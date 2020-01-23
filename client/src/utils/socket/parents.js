@@ -33,24 +33,24 @@ class Parents extends Component {
 
   render() {
     return (
-      <>
-        <Card>
-          <div className='card-body'>
-            <h5 className='card-title'>Socket Emitter Test Parents</h5>
-            <p className='card-text'>
-              {this.state.message}
-              <br />
+        <>
+            <Card>
+                <div className='card-body'>
+                    <h5 className='card-title'>Socket Emitter Test Parents</h5>
+                    <p className='card-text'>
+                        {this.state.message}
+                        <br />
               This is the timer value: {this.state.timestamp}
-            </p>
-            <button
+                    </p>
+                    <button
               className='btn btn-primary'
-              onClick={() => this.handleEmit('arrived', this.state.message)}
+              onClick={ () => this.handleEmit('arrived', this.state.message) }
             >
               I'm here
-            </button>
-          </div>
-        </Card>
-      </>
+                    </button>
+                </div>
+            </Card>
+        </>
     )
   }
 }

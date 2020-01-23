@@ -6,17 +6,17 @@ import Login from './Login'
 
 const Home = () => {
   return (
-    <>
-      <Container>
-        <Row styling='row align-self-center'>
-          <Column>
-            <Jumbotron title='Welcome to Harmony' lead='Homepage' />
-          </Column>
-        </Row>
-        <Login />
-        <Geolocated />
-      </Container>
-    </>
+      <>
+          <Container>
+              <Row styling='row align-self-center'>
+                  <Column>
+                      <Jumbotron title='Welcome to Harmony' lead='Homepage' />
+                  </Column>
+              </Row>
+              <Login />
+              {/* <Geolocated /> */}
+          </Container>
+      </>
   )
 }
 
