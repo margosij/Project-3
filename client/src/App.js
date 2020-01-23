@@ -25,7 +25,7 @@ const App = () => (
       <div className='mx-auto'>
         <Router>
           <Navbar />
-          {/* <Login /> */}
+          <Login />
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/dismissal' component={Dismissal} />

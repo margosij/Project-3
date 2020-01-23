@@ -4,25 +4,32 @@ import API from '../../utils/Api'
 const Login = () => {
   const [username, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [isAuthenticated, setAuth] = useState(false)
   // const [responseErrors, setResponseErrors] = useState({})
 
   const handleSubmit = async e => {
     console.log('Login button hit')
     e.preventDefault()
     API.login({ username, password })
+      // .then(res => {
+      //   console.log(res)
+      //   if (res) {
+      //     alert(res)
+      //   } else {
+      //     window.location = '/'
+      //   }
+      // })
       .then(res => {
-        console.log(res)
-        if (res) {
-          alert(res)
-        } else {
-          window.location = '/'
+        const jwtToken = res.headers.get('Authorization')
+        if (jwtToken !== null) {
+          sessionStorage.setItem('jwt', jwtToken)
+          setAuth(true)
         }
       })
       .catch(ex => {
         // setResponseErrors(response.data)
         console.log(ex)
       })
-    
   }
   return (
     <div className='container'>

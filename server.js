@@ -8,6 +8,21 @@ const app = express()
 const bcrypt = require('bcrypt')
 const cors = require('cors')
 const gradient = require('gradient-string')
+const session = require('express-session')
+
+//sessions
+app.use(
+  session({
+    secret: 'ironmansucks', //pick a random string to make the hash that is generated secure
+     resave: false, //required
+  saveUninitialized: false //required
+  })
+)
+
+// app.use( (req, res, next) => {
+//   console.log('req.session', req.session);
+//   return next();
+// });
 
 
 const PORT = process.env.PORT || 3001
@@ -19,32 +34,39 @@ console.log('MONGODB_URI:', MONGODB_URI)
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-app.use(function(req, res, next) {
+// Add routes, both API and view
+app.use(routes)
+
+// Serve up static assets (usually on heroku)
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'))
+}
+app.use(function (req, res, next) {
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`)
-
+  
   // Request methods you wish to allow
   res.setHeader(
     'Access-Control-Allow-Methods',
     'GET, POST, OPTIONS, PUT, PATCH, DELETE'
     )
-
+    
     // Request headers you wish to allow
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
-
+    
     // Set to true if you need the website to include cookies in the requests sent
     // to the API (e.g. in case you use sessions)
     res.setHeader('Access-Control-Allow-Credentials', true)
-
+    
+    console.log('req.session', req.session)
     // Pass to next layer of middleware
     next()
+})
+  app.post('/user', (req, res) => {
+    console.log('user signup')
+    req.session.username = req.body.username
+    res.end()
   })
-// Serve up static assets (usually on heroku)
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'))
-}
-// Add routes, both API and view
-app.use(routes)
 
 // Connect to the Mongo DB
 mongoose.Promise = global.Promise
