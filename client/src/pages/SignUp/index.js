@@ -13,6 +13,7 @@ const Signup = () => {
   // }, [search]);
 
   const handleSubmit = async e => {
+    console.log('sign up button hit')
     e.preventDefault()
       
       !(email || password || familyName)
