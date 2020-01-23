@@ -39,23 +39,23 @@ class Admin extends Component {
     // listen for data with a 'hello tag
     socket.on('hello', data => console.log(data.message))
     return (
-      <>
-        <Card>
-          <div className='card-body'>
-            <h5 className='card-title'>Socket Emitter Test Admin</h5>
-            <p className='card-text'>
-              {this.state.adminId} is signed in. This is the timer value:{' '}
-              {this.state.timestamp}
-            </p>
-            <button
+        <>
+            <Card>
+                <div className='card-body'>
+                    <h5 className='card-title'>Socket Emitter Test Admin</h5>
+                    <p className='card-text'>
+                        {this.state.adminId} is signed in. This is the timer value:{' '}
+                        {this.state.timestamp}
+                    </p>
+                    <button
               className='btn btn-primary'
-              onClick={() => this.handleEmit('adminGreet', 'i hate you all')}
+              onClick={ () => this.handleEmit('adminGreet', 'i hate you all') }
             >
               I hate my job
-            </button>
-          </div>
-        </Card>
-      </>
+                    </button>
+                </div>
+            </Card>
+        </>
     )
   }
 }

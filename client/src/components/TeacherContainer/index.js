@@ -8,7 +8,6 @@ import CardHeader from '../CardHeader'
 import ParentsContainer from '../parentsContainer'
 import { List } from '../List'
 import StudentContainer from '../StudentContainer'
-const parentTestId = '5e2670f6f2b3c22940cb99f1'
 
 const TeacherContainer = props => {
 console.log('props:', props)

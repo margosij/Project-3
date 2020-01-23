@@ -7,24 +7,24 @@ import openSocket from 'socket.io-client'
 const socket = openSocket('http://localhost:3001')
 
 const Waiting = () => {
-  const [waitList, setWaitList] = useState(['No Parents waiting'])
+  const [ waitList, setWaitList ] = useState([ 'No Parents waiting' ])
 
   socket.on('/waiting', data => {
     console.log(data)
      setWaitList(waitList.push(data))
   })
-  console.log(waitList)
+  console.log('waitlist checking', waitList)
   return (
-    <>
-      <Card>
-        <CardHeader title='Waiting' />
-        {waitList.length ? (
-          waitList.map((parent, index) => <p key={index}>{parent} is here</p>)
+      <>
+          <Card>
+              <CardHeader title='Waiting' />
+              {waitList.length ? (
+          waitList.map((parent, index) => <p key={ index }>{parent} is here</p>)
         ) : (
-          <h1>No parents waiting</h1>
+            <h1>No parents waiting</h1>
         )}
-      </Card>
-    </>
+          </Card>
+      </>
   )
 }
 

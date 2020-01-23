@@ -12,21 +12,21 @@ import AdminDashboard from './pages/adminDashboard'
 
 const App = () => {
   return (
-    <div className='mx-auto'>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path='/' component={Home} />
-          <Route exact path='/dismissal' component={Dismissal} />
-          <Route exact path='/database' component={Database} />
-          <Route exact path='/signup' component={SignUp} />
-          <Route exact path='/family' component={FamilyDashboard} />
-          <Route exact path='/admin' component={AdminDashboard} />
-          <Route exact path='/socket' component={SocketBoilerPlate} />
-          <Route exact path='*' component={NoMatch} />
-        </Switch>
-      </Router>
-    </div>
+      <div className='mx-auto'>
+          <Router>
+              <Navbar />
+              <Switch>
+                  <Route exact path='/' component={ Home } />
+                  <Route exact path='/dismissal' component={ Dismissal } />
+                  <Route exact path='/database' component={ Database } />
+                  <Route exact path='/signup' component={ SignUp } />
+                  <Route exact path='/family' component={ FamilyDashboard } />
+                  <Route exact path='/admin' component={ AdminDashboard } />
+                  <Route exact path='/socket' component={ SocketBoilerPlate } />
+                  <Route exact path='*' component={ NoMatch } />
+              </Switch>
+          </Router>
+      </div>
   )
 }
 
