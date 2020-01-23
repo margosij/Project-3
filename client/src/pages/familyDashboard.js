@@ -5,7 +5,7 @@ import FamilyContainer from '../components/FamilyContainer'
 import API from '../utils/Api'
 import Geolocated from '../components/Geolocated/Geolocated'
 import Container from '../components/Container'
-const testFamilyID = '5e28a91ba67da12288679ac3'
+const testFamilyID = '5e2670f6f2b3c22940cb99f1'
 
 const FamilyDashboard = props => {
   const [ familyId, setFamilyId ] = useState(testFamilyID)

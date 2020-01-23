@@ -7,7 +7,7 @@ import API from '../../utils/Api'
 const Signup = () => {
   const [email, setEmail] = useState()
   const [password, setPassword] = useState()
-  const [familyName, setFamilyName] = useState()
+  const [id, setId] = useState()
 
   // useEffect(() => {
   // }, [search]);
@@ -16,9 +16,9 @@ const Signup = () => {
     console.log('sign up button hit')
     e.preventDefault()
       
-      !(email || password || familyName)
+      !(email || password || id)
       ? alert('All fields required')
-      : API.saveAUser({ email, password, familyName })
+      : API.saveAUser({ email, password, id })
           .then(result => {
             console.log(result)
           })
@@ -64,9 +64,9 @@ const Signup = () => {
               <input
                 className='form-control'
                 type='text'
-                placeholder='Family Name'
-                name='familyName'
-                onChange={e => setFamilyName(e.target.value)}
+                placeholder='School ID Code'
+                name='id'
+                onChange={e => setId(e.target.value)}
               />
             </Col>
           </Row>
