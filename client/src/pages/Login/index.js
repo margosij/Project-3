@@ -54,7 +54,7 @@ const Login = () => {
             </Column>
           </Row>
           <button
-            className='btn btn-success'
+            className='btn btn-success my-2'
             type='submit'
             onClick={() => handleSubmit}
           >

@@ -57,6 +57,7 @@
     "mongoose-unique-validator": "^2.0.3",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "react-auth-guard": "^0.1.7",
     "react-geolocated": "^3.0.1",
     "socket.io": "^2.3.0"
   }
