@@ -25,104 +25,104 @@ const handleEmit = (method, data) => {
 //   }
 // }
 // Socket.io Check In button
-export function CheckInBtn(props) {
+export default function CheckInBtn(props) {
   return (
-    <>
-      <div className='row container d-flex align-self-end'>
-        <div className='d-flex justify-content-end'>
-          <button
+      <>
+          <div className='row container d-flex align-self-end'>
+              <div className='d-flex justify-content-end'>
+                  <button
             type='button'
             className='btn btn-primary my-2'
-            onClick={() => handleEmit('/Admin/GeoArrived',
+            onClick={ () => handleEmit('/Admin/GeoArrived',
               {
                // change this however you want
                 name: props.name, // Parent name goes here
                 range: props.range // range of the parent to the school
-              })}
+              }) }
           >
             Check In
-          </button>
-        </div>
-      </div>
-    </>
+                  </button>
+              </div>
+          </div>
+      </>
   )
 }
 
 export function GeoCheckInBtn(props) {
   return (
-    <>
-      <div className='row container d-flex align-self-end'>
-        <div className='d-flex justify-content-end'>
-          <button
+      <>
+          <div className='row container d-flex align-self-end'>
+              <div className='d-flex justify-content-end'>
+                  <button
             type='button'
             className='btn btn-primary my-2'
-            onClick={()=> handleEmit('arrived', props.name)}
+            onClick={ ()=> handleEmit('arrived', props.name) }
           >
             Check In
-          </button>
-        </div>
-      </div>
-    </>
+                  </button>
+              </div>
+          </div>
+      </>
   )
 }
 
 export const SubmitBtn = props => {
   return (
-    <>
-      <div className='row container d-flex align-self-end'>
-        <div className='d-flex justify-content-end'>
-          <button
+      <>
+          <div className='row container d-flex align-self-end'>
+              <div className='d-flex justify-content-end'>
+                  <button
             type='button'
             className='btn btn-primary my-2'
-            onClick={props.handleSubmit}
+            onClick={ props.handleSubmit }
           >
             Submit
-          </button>
-        </div>
-      </div>
-    </>
+                  </button>
+              </div>
+          </div>
+      </>
   )
 }
 
 export const SaveBtn = props => {
   return (
-    <>
-      <button
+      <>
+          <button
         type='button'
-        className={`btn btn-primary mx-2 ${props['data-value']}`}
-        {...props}
+        className={ `btn btn-primary mx-2 ${ props[ 'data-value' ] }` }
+        { ...props }
       >
         Save
-      </button>
-    </>
+          </button>
+      </>
   )
 }
 
 export const ViewBtn = props => {
   return (
-    <>
-      <a
+      <>
+          <a
         className='btn btn-success active'
-        href={props.link}
-        target={'_blank'}
-        onClick={props.onClick}
-        {...props}
+        href={ props.link }
+        target={ '_blank' }
+        onClick={ props.onClick }
+        { ...props }
       >
         View
-      </a>
-    </>
+          </a>
+      </>
   )
 }
 
 export const DeleteBtn = props => {
   return (
-    <span
+      <span
       className='btn btn-info mx-2 delete-btn float-right'
-      {...props}
+      { ...props }
       role='button'
       tabIndex='0'
     >
       ✗
-    </span>
+      </span>
   )
 }

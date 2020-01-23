@@ -9,13 +9,13 @@ const StudentContainer = props => {
           <ListItem styling='list-inline-item m-0'>
               <Card styling='studentProfile'>
                   <div className='card-body'>
-                      <h5 className='card-title'>Name:</h5>
+                      <h6 className='card-title'>Name:</h6>
                       <p>{`${ props.firstName } ${ props.middleName } ${ props.lastName } ${ props.suffix }`}</p>
-                      <h6 className='card-title'>Gender:</h6>
+                      <h8 className='card-title'>Gender:</h8>
                       <p>{props.gender}</p>
-                      <h6 className='card-title'>Grade:</h6>
+                      <h8 className='card-title'>Grade:</h8>
                       <p>{props.gradeLevel}</p>
-                      <h6 className='card-title'>Has the student been picked up?</h6>
+                      <h8 className='card-title'>Picked up?</h8>
                       <input type='checkbox' value='pickedUp'></input>
                   </div>
               </Card>

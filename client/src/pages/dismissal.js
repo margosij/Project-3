@@ -5,16 +5,16 @@ import Waiting from '../components/WaitingContainer'
 
 const Dismissal = () => {
   return (
-    <>
-      <Container>
-        <Row styling='row align-self-center'>
-          <Column>
-            <Jumbotron title='Welcome to Harmony' lead='Dismissal' />
-          </Column>
-        </Row>
-        <Waiting/>
-      </Container>
-    </>
+      <>
+          <Container>
+              <Row styling='row align-self-center'>
+                  <Column>
+                      <Jumbotron title='Welcome to Harmony' lead='Dismissal' />
+                  </Column>
+              </Row>
+              <Waiting/>
+          </Container>
+      </>
   )
 }
 
