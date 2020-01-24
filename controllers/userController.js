@@ -1,6 +1,6 @@
 const db = require('../models')
 const bcrypt = require('bcrypt')
-const User = require('../models/user')
+const User = require('../models/User')
 const passport = require('../config/passport')
 
 // Defining methods for the UserController

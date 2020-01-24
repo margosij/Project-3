@@ -1,77 +1,63 @@
 require('dotenv').config()
 const path = require('path')
 const express = require('express')
-const session = require('express-session')
-const cors = require('cors')
+const passport = require('passport')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const routes = require('./routes')
-const app = express()
-const bcrypt = require('bcrypt')
-const passport = require('passport')
-const dbConnection = require('./models/connection')
-const MongoStore = require('connect-mongo')(session)
-const gradient = require('gradient-string')
 const morgan = require('morgan')
-const isAuthenticated = require('./config/middleware/isAuthenticated')
+const gradient = require('gradient-string')
+const cors = require('cors')
 
-//sessions
-app.use(
-  session({
-    secret: 'ironmansucks', //pick a random string to make the hash that is generated secure
-    store: new MongoStore({ mongooseConnection: dbConnection }),
-    resave: false, //required
-    saveUninitialized: false //required
-  })
-)
-
-app.use(passport.initialize())
-app.use(passport.session()) // calls serializeUser and deserializeUser
-require('./config/passport')(passport)
-
+// Start the API server
 const PORT = process.env.PORT || 3001
+const app = express()
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(morgan('dev'))
-// Add routes, both API and view
-app.use(routes)
+// DB Config
+const db = require('./config/keys').mongoURI
+mongoose.Promise = global.Promise
+// mongoose.set('useNewUrlParser', true)
+// mongoose.set('useFindAndModify', false)
+mongoose.set('useCreateIndex', true)
+mongoose
+  .connect(db)
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err))
 
 // Serve up static assets (usually on heroku)
+// Server static assets if in production
 if (process.env.NODE_ENV === 'production') {
+  // Set static folder
   app.use(express.static('client/build'))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
 }
-app.use(function(req, res, next) {
-  // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`)
+// Passport Middleware
+app.use(passport.initialize())
+require('./config/passport')(passport) // require our local strategy
 
-  // Request methods you wish to allow
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-  )
+// Add routes, and API
+app.use(routes)
 
-  // Request headers you wish to allow
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
-
-  // Set to true if you need the website to include cookies in the requests sent
-  // to the API (e.g. in case you use sessions)
-  res.setHeader('Access-Control-Allow-Credentials', true)
-
-  console.log('req.session', req.session)
-  // Pass to next layer of middleware
+app.use((req, res, next) => {
+  if (req.path !== '/' && !req.path.includes('.')) {
+    res.header({
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Allow-Origin': req.headers.origin || '*',
+      'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type, Accept',
+      'Access-Control-Allow-Methods': 'PUT, POST, GET, DELETE, OPTIONS',
+      'Content-Type': 'application/json; charset=utf-8'
+    })
+  }
   next()
 })
 
-app.post('/user', (req, res) => {
-  console.log('user signup')
-  req.session.username = req.body.username
-  res.end()
-})
-
-
-// Start the API server
 const server = app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
 })

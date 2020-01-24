@@ -13,6 +13,7 @@ class Signup extends Component {
       username: '',
       id: '',
       password: '',
+      password2: '',
       errors: ''
     }
     this.onChange = this.onChange.bind(this)
@@ -79,6 +80,18 @@ class Signup extends Component {
                   placeholder='Password'
                   name='password'
                   value={this.state.password}
+                  onChange={this.onChange}
+                />
+              </Column>
+            </Row>
+            <Row className='form-group'>
+              <Column size='12'>
+                <input
+                  className='form-control'
+                  type='password'
+                  placeholder='password must match'
+                  name='password'
+                  value={this.state.password2}
                   onChange={this.onChange}
                 />
               </Column>

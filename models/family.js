@@ -3,6 +3,10 @@ const Schema = mongoose.Schema
 
 // Family Schema
 const familySchema = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
+  },
   familyLastName: {
     type: String,
     required: true
@@ -106,11 +110,7 @@ const familySchema = new Schema({
     {
       type: String
     }
-  ],
-  User: {
-    type: Schema.Types.ObjectID,
-    ref: 'User'
-  }
+  ]
 })
 
 const Family = mongoose.model('Family', familySchema)

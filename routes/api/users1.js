@@ -1,21 +1,17 @@
-
-const keys = require('../config/keys')
-const router = require('express').Router()
-const apiRoutes = require('./api')
+const express = require('express')
+const router = express.Router()
 const gravatar = require('gravatar')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const keys = require('../../config/keys')
 const passport = require('passport')
 
 // Load Input Validation
-const validateRegisterInput = require('../validation/register')
-const validateLoginInput = require('../validation/login')
-
-// API Routes
-router.use('/api', apiRoutes)
+const validateRegisterInput = require('../../validation/register')
+const validateLoginInput = require('../../validation/login')
 
 // Load User model
-const User = require('../models/User')
+const User = require('../../models/User')
 
 // @route   GET api/users/test
 // @desc    Tests users route
@@ -47,6 +43,7 @@ router.post('/register', (req, res) => {
       const newUser = new User({
         name: req.body.name,
         email: req.body.email,
+        username: req.body.username,
         avatar,
         password: req.body.password
       })
@@ -76,14 +73,15 @@ router.post('/login', (req, res) => {
     return res.status(400).json(errors)
   }
 
-  const email = req.body.email
+  const username = req.body.username
   const password = req.body.password
 
   // Find user by email
-  User.findOne({ email }).then(user => {
+  User.findOne({ username }).then(user => {
+    console.log(username)
     // Check for user
     if (!user) {
-      errors.email = 'User not found'
+      errors.username = 'User not found'
       return res.status(404).json(errors)
     }
 
@@ -91,17 +89,20 @@ router.post('/login', (req, res) => {
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
         // User Matched
-        const payload = { id: user.id, name: user.name, avatar: user.avatar } // Create JWT Payload
+        const payload = { id: user.id, name: user.name, avatar: user.avatar, username: user.username, admin: user.admin } // Create JWT Payload
 
         // Sign Token
         jwt.sign(
           payload,
           keys.secretOrKey,
-          { expiresIn: 3600 },
+          // expires in 2 hours
+          { expiresIn: 7200 },
           (err, token) => {
             res.json({
               success: true,
               token: 'Bearer ' + token
+              // Postman Troubleshooting
+              // token: token
             })
           }
         )
@@ -123,10 +124,9 @@ router.get(
     res.json({
       id: req.user.id,
       name: req.user.name,
-      email: req.user.email
+      admin: req.user.admin
     })
   }
 )
 
 module.exports = router
-

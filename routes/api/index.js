@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const adminRoutes = require('./admins')
 const familyRoutes = require('./families')
-const userRoutes = require('./users')
+const userRoutes = require('./users1')
 
 // admin routes
 router.use('/admins', adminRoutes)
