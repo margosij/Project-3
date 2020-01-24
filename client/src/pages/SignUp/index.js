@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Container from '../../components/Container'
-import Col from '../../components/Col'
-import Row from '../../components/Row'
+import { PropTypes } from 'prop-types'
+import { withRouter } from 'react-router-dom'
+import { Container, Row, Column } from '../../components/Grid'
 import API from '../../utils/Api'
 import { connect } from 'react-redux'
 import { registerUser } from '../../actions/authActions'
@@ -22,15 +21,15 @@ class Signup extends Component {
 
   // componentDidMount() {
   //   if (this.props.auth.isAuthenticated) {
-  //     this.props.history.push('/dashboard')
+  //     this.props.history.push('/home')
   //   }
   // }
 
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.errors) {
-  //     this.setState({ errors: nextProps.errors })
-  //   }
-  // }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors })
+    }
+  }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
@@ -39,14 +38,14 @@ class Signup extends Component {
   onSubmit(e) {
     e.preventDefault()
     console.log('submit hit')
+
     const newUser = {
       username: this.state.username,
       id: this.state.id,
-      password: this.state.password,
-      errors: {}
+      password: this.state.password
     }
 
-    this.props.registerUser(newUser)
+    this.props.registerUser(newUser, this.props.history)
   }
 
   render() {
@@ -61,7 +60,7 @@ class Signup extends Component {
         <form onSubmit={() => this.handleSubmit}>
           <Container className='mt-3 px-5'>
             <Row className='form-group'>
-              <Col size='12'>
+              <Column size='12'>
                 <input
                   className='form-control'
                   type='text'
@@ -70,10 +69,10 @@ class Signup extends Component {
                   value={this.state.username}
                   onChange={this.onChange}
                 />
-              </Col>
+              </Column>
             </Row>
             <Row className='form-group'>
-              <Col size='12'>
+              <Column size='12'>
                 <input
                   className='form-control'
                   type='password'
@@ -82,10 +81,10 @@ class Signup extends Component {
                   value={this.state.password}
                   onChange={this.onChange}
                 />
-              </Col>
+              </Column>
             </Row>
             <Row className='form-group'>
-              <Col size='12'>
+              <Column size='12'>
                 <input
                   className='form-control'
                   type='text'
@@ -94,7 +93,7 @@ class Signup extends Component {
                   value={this.state.id}
                   onChange={this.onChange}
                 />
-              </Col>
+              </Column>
             </Row>
             <button className='btn btn-success' type='submit'>
               Submit

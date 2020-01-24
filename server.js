@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 const routes = require('./routes')
 const app = express()
 const bcrypt = require('bcrypt')
-const passport = require('./config/passport/index.js')
+const passport = require('passport')
 const dbConnection = require('./models/connection')
 const MongoStore = require('connect-mongo')(session)
 const gradient = require('gradient-string')
@@ -25,8 +25,9 @@ app.use(
   })
 )
 
-// app.use(passport.initialize())
-// app.use(passport.session()) // calls serializeUser and deserializeUser
+app.use(passport.initialize())
+app.use(passport.session()) // calls serializeUser and deserializeUser
+require('./config/passport')(passport)
 
 const PORT = process.env.PORT || 3001
 
