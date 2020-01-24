@@ -1,16 +1,27 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import { Container, Row, Column } from '../../components/Grid'
+import { Redirect } from 'react-router-dom'
 import API from '../../utils/Api'
-const Login = () => {
-  const [username, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [isAuthenticated, setAuth] = useState(false)
-  // const [responseErrors, setResponseErrors] = useState({})
 
-  const handleSubmit = async e => {
+class Login extends Component {
+  state = {
+    username: '',
+    password: '',
+    isAuthenticated: false, 
+    user: {},
+    path: null
+  }
+  
+  //   componentDidMount() {
+  //   if (this.props.auth.isAuthenticated) {
+  //     this.props.history.push('/dashboard');
+  //   }
+  // }
+
+   handleSubmit = async e => {
     console.log('Login button hit')
     e.preventDefault()
-    API.login({ username, password })
+    API.login(this.state.username, this.state.password)
       // .then(res => {
       //   console.log(res)
       //   if (res) {
@@ -19,11 +30,14 @@ const Login = () => {
       //     window.location = '/'
       //   }
       // })
-      .then(res => {
-        const jwtToken = res.headers.get('Authorization')
-        if (jwtToken !== null) {
-          sessionStorage.setItem('jwt', jwtToken)
-          setAuth(true)
+      .then(response => {
+        console.log('login response: ', response)
+        if (response.status === 200) {
+          this.setState({
+            isAuthenticated: true,
+            user: response.data.username,
+            path: '/'
+          })
         }
       })
       .catch(ex => {
@@ -31,50 +45,61 @@ const Login = () => {
         console.log(ex)
       })
   }
-  return (
-    <div className='container'>
-      <div className='mt-4'>
-        <h2>Dismissed!</h2>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <Container className='mt-3 px-5'>
-          <Row className='form-group'>
-            <Column size='12'>
-              <input
-                className='form-control'
-                type='text'
-                placeholder='username'
-                name='username'
-                onChange={e => setEmail(e.target.value)}
-              />
-            </Column>
-          </Row>
-          <Row className='form-group'>
-            <Column size='12'>
-              <input
-                className='form-control'
-                type='password'
-                placeholder='Password'
-                name='password'
-                onChange={e => setPassword(e.target.value)}
-              />
-            </Column>
-          </Row>
-          <button
-            className='btn btn-success my-2'
-            type='submit'
-            onClick={() => handleSubmit}
-          >
-            Submit
-          </button>
-        </Container>
-        {/* <Container className="mt-4">
-          <h3>Hello {email}!</h3>
-          <p>I probably shouldn't tell you this, but your password is {password}!</p>
-        </Container> */}
-      </form>
-    </div>
+  render() {
+    
+    return (
+      <>
+      {this.state.path ? (
+        <Redirect to={{ pathname: this.state.path }} />
+        ) : (
+          <>
+          <div className='container'>
+            <div className='mt-4'>
+              <h2>Dismissed!</h2>
+            </div>
+            <form>
+              <Container className='mt-3 px-5'>
+                <Row className='form-group'>
+                  <Column size='12'>
+                    <input
+                      className='form-control'
+                      type='text'
+                      placeholder='username'
+                      name='username'
+                          onChange={e => this.setState({ username: e.target.value })}
+                      />
+                  </Column>
+                </Row>
+                <Row className='form-group'>
+                  <Column size='12'>
+                    <input
+                      className='form-control'
+                      type='password'
+                      placeholder='Password'
+                      name='password'
+                      onChange={e => this.setState(e.target.value)}
+                      />
+                  </Column>
+                </Row>
+                <button
+                  className='btn btn-success my-2'
+                  type='submit'
+                  onClick={this.handleSubmit}
+                  >
+                  Submit
+                </button>
+              </Container>
+              {/* <Container className="mt-4">
+            <h3>Hello {email}!</h3>
+            <p>I probably shouldn't tell you this, but your password is {password}!</p>
+          </Container> */}
+            </form>
+          </div>
+        </>
+      )}
+    </>
   )
+}
 }
 
 export default Login

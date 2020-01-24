@@ -1,39 +1,39 @@
 require('dotenv').config()
 const path = require('path')
 const express = require('express')
+const session = require('express-session')
+const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const routes = require('./routes')
 const app = express()
 const bcrypt = require('bcrypt')
-const cors = require('cors')
+const passport = require('./config/passport/index.js')
+const dbConnection = require('./models/connection')
+const MongoStore = require('connect-mongo')(session)
 const gradient = require('gradient-string')
-const session = require('express-session')
+const morgan = require('morgan')
+const isAuthenticated = require('./config/middleware/isAuthenticated')
 
 //sessions
 app.use(
   session({
     secret: 'ironmansucks', //pick a random string to make the hash that is generated secure
-     resave: false, //required
-  saveUninitialized: false //required
+    store: new MongoStore({ mongooseConnection: dbConnection }),
+    resave: false, //required
+    saveUninitialized: false //required
   })
 )
 
-// app.use( (req, res, next) => {
-//   console.log('req.session', req.session);
-//   return next();
-// });
-
+// app.use(passport.initialize())
+// app.use(passport.session()) // calls serializeUser and deserializeUser
 
 const PORT = process.env.PORT || 3001
-
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/dismissal'
-console.log('MONGODB_URI:', MONGODB_URI)
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
-
+app.use(morgan('dev'))
 // Add routes, both API and view
 app.use(routes)
 
@@ -41,42 +41,38 @@ app.use(routes)
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'))
 }
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`)
-  
+
   // Request methods you wish to allow
   res.setHeader(
     'Access-Control-Allow-Methods',
     'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-    )
-    
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
-    
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true)
-    
-    console.log('req.session', req.session)
-    // Pass to next layer of middleware
-    next()
-})
-  app.post('/user', (req, res) => {
-    console.log('user signup')
-    req.session.username = req.body.username
-    res.end()
-  })
+  )
 
-// Connect to the Mongo DB
-mongoose.Promise = global.Promise
-mongoose.set('useNewUrlParser', true)
-mongoose.set('useFindAndModify', false)
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true })
+  // Request headers you wish to allow
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
+
+  // Set to true if you need the website to include cookies in the requests sent
+  // to the API (e.g. in case you use sessions)
+  res.setHeader('Access-Control-Allow-Credentials', true)
+
+  console.log('req.session', req.session)
+  // Pass to next layer of middleware
+  next()
+})
+
+app.post('/user', (req, res) => {
+  console.log('user signup')
+  req.session.username = req.body.username
+  res.end()
+})
+
 
 // Start the API server
 const server = app.listen(PORT, () => {
-  console.log(`🌎  ==> API Server now listening on PORT ${ PORT }!`)
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
 })
 
 // =============================================================================
@@ -107,7 +103,7 @@ io.on('connection', socket => {
   socket.on('arrived', data => {
     console.log('\nArrival Message:', gradient.summer(data.message))
     io.emit('hello', { message: 'We see you' })
-    io.emit('/waiting', data ) // sending data to Waiting Container
+    io.emit('/waiting', data) // sending data to Waiting Container
   })
 
   socket.on('/Admin/GeoArrived', data => {

@@ -17,7 +17,8 @@ router
   // Matches with "/api/users/login"
 router
   .route('/login')
-  .get(userController.findAllUsers)
+  .get(userController.findOneUser)
   .post(userController.logInUser)
+
 
 module.exports = router
