@@ -11,7 +11,7 @@ import {
 
 // Get current family
 export const getCurrentFamily = () => dispatch => {
-  dispatch(setFamilyLoading());
+  // dispatch(setFamilyLoading());
   axios
     .get('/api/family')
     .then(res =>
@@ -30,7 +30,7 @@ export const getCurrentFamily = () => dispatch => {
 
 // Get family by handle
 export const getFamilyById = id => dispatch => {
-  dispatch(setFamilyLoading());
+  // dispatch(setFamilyLoading());
   axios
     .get(`/api/family/handle/${id}`)
     .then(res =>
@@ -90,6 +90,6 @@ export const setProfileLoading = () => {
 // Clear family
 export const clearCurrentFamily = () => {
   return {
-    type: CLEAR_CURRENT_PROFILE
+    // type: CLEAR_CURRENT_PROFILE
   };
 };
