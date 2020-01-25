@@ -20,11 +20,11 @@ class Signup extends Component {
     this.onSubmit = this.onSubmit.bind(this)
   }
 
-  componentDidMount() {
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/')
-    }
-  }
+  // componentDidMount() {
+  //   if (this.props.auth.isAuthenticated) {
+  //     this.props.history.push('/home')
+  //   }
+  // }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
@@ -58,8 +58,7 @@ class Signup extends Component {
         <div className='mt-4'>
           <h2>Dismissed!</h2>
         </div>
-        <form noValidate onSubmit={() => this.handleSubmit}>
-          {/* User Name */}
+        <form onSubmit={() => this.handleSubmit}>
           <Container className='mt-3 px-5'>
             <Row className='form-group'>
               <Column size='12'>
@@ -73,7 +72,6 @@ class Signup extends Component {
                 />
               </Column>
             </Row>
-              {/* Password */}
             <Row className='form-group'>
               <Column size='12'>
                 <input
@@ -86,14 +84,13 @@ class Signup extends Component {
                 />
               </Column>
             </Row>
-            {/* Password 2 */}
             <Row className='form-group'>
               <Column size='12'>
                 <input
                   className='form-control'
                   type='password'
                   placeholder='password must match'
-                  name='password2'
+                  name='password'
                   value={this.state.password2}
                   onChange={this.onChange}
                 />
@@ -116,10 +113,10 @@ class Signup extends Component {
             </button>
           </Container>
           <Container className='mt-4'>
-            <h3>Hello {this.state.username}!</h3>
+            {/* <h3>Hello {this.state.username}!</h3> */}
             <p>
               I probably shouldn't tell you this, but your password is
-              {this.state.password}!
+              {/* {this.state.password}! */}
             </p>
           </Container>
         </form>
@@ -137,4 +134,4 @@ const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 })
-export default connect(mapStateToProps, { registerUser })(withRouter(Signup))
+export default connect(null, { registerUser })(Signup)
