@@ -1,60 +1,65 @@
 require('dotenv').config()
 const path = require('path')
 const express = require('express')
+const passport = require('passport')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const routes = require('./routes')
-const app = express()
-const bcrypt = require('bcrypt')
-const cors = require('cors')
+const morgan = require('morgan')
 const gradient = require('gradient-string')
+const cors = require('cors')
 
-
+// Start the API server
 const PORT = process.env.PORT || 3001
-
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/dismissal'
-console.log('MONGODB_URI:', MONGODB_URI)
+const app = express()
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(morgan('dev'))
+// DB Config
+const db = require('./config/keys').mongoURI
+mongoose.Promise = global.Promise
+// mongoose.set('useNewUrlParser', true)
+// mongoose.set('useFindAndModify', false)
+mongoose.set('useCreateIndex', true)
+mongoose
+  .connect(db)
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err))
 
-app.use(function(req, res, next) {
-  // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', `http://localhost:${PORT}`)
-
-  // Request methods you wish to allow
-  res.setHeader(
-    'Access-Control-Allow-Methods',
-    'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-    )
-
-    // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type')
-
-    // Set to true if you need the website to include cookies in the requests sent
-    // to the API (e.g. in case you use sessions)
-    res.setHeader('Access-Control-Allow-Credentials', true)
-
-    // Pass to next layer of middleware
-    next()
-  })
 // Serve up static assets (usually on heroku)
+// Server static assets if in production
 if (process.env.NODE_ENV === 'production') {
+  // Set static folder
   app.use(express.static('client/build'))
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+  })
 }
-// Add routes, both API and view
+// Passport Middleware
+app.use(passport.initialize())
+require('./config/passport')(passport) // require our local strategy
+
+// Add routes, and API
 app.use(routes)
 
-// Connect to the Mongo DB
-mongoose.Promise = global.Promise
-mongoose.set('useNewUrlParser', true)
-mongoose.set('useFindAndModify', false)
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useCreateIndex: true })
+app.use((req, res, next) => {
+  if (req.path !== '/' && !req.path.includes('.')) {
+    res.header({
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Allow-Origin': req.headers.origin || '*',
+      'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type, Accept',
+      'Access-Control-Allow-Methods': 'PUT, POST, GET, DELETE, OPTIONS',
+      'Content-Type': 'application/json; charset=utf-8'
+    })
+  }
+  next()
+})
 
-// Start the API server
 const server = app.listen(PORT, () => {
-  console.log(`🌎  ==> API Server now listening on PORT ${ PORT }!`)
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
 })
 
 // =============================================================================
@@ -85,7 +90,7 @@ io.on('connection', socket => {
   socket.on('arrived', data => {
     console.log('\nArrival Message:', gradient.summer(data.message))
     io.emit('hello', { message: 'We see you' })
-    io.emit('/waiting', data ) // sending data to Waiting Container
+    io.emit('/waiting', data) // sending data to Waiting Container
   })
 
   socket.on('/Admin/GeoArrived', data => {

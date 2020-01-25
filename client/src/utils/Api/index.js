@@ -69,11 +69,23 @@ export default {
     let res = await axios.delete(`/api/users/${id}`)
     return res.data || []
   },
+  // ===========================================================================
+  // Login Routes
+  // ===========================================================================
   // login a user
+  // login: async credentials => {
+  //   console.log('credentials from the front end', credentials)
+  //   let res = await axios.post(`/api/users/login`, credentials)
+  //   return res.data || [] 
+  // }
   login: async credentials => {
-    console.log('credentials', credentials)
+    console.log('credentials from the front end', credentials)
     let res = await axios.post(`/api/users/login`, credentials)
     return res.data || [] 
+  },
+  register: async credentials => {
+    let res = await axios.post('/register', credentials)
+    return res.data || []
   }
 
 }

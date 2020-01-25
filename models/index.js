@@ -1,6 +1,6 @@
 
 module.exports = {
-  Family: require('./family.js'),
-  Admin: require('./admin.js'),
-  User: require('./user.js'),
+  User: require('./User.js'),
+  Family: require('./Family.js'),
+  Admin: require('./Admin.js')
 }

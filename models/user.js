@@ -1,9 +1,18 @@
 const mongoose = require('mongoose')
-const uniqueValidator = require('mongoose-unique-validator')
+const bcrypt = require('bcryptjs')
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
+  name: {
+    type: String,
+    unique: true
+  },
   username: {
+    type: String,
+    // required: true,
+    unique: true
+  },
+  email: {
     type: String,
     // required: true,
     unique: true
@@ -11,10 +20,17 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+  avatar: {
+    type: String,
+    required: true
+  },
+  admin: {
+    type: Boolean,
+    default: false
   }
 })
 
-userSchema.plugin(uniqueValidator, { message: ' username is already taken.' });
-const User = mongoose.model('User', userSchema)
+const User = mongoose.model('users', UserSchema)
 
 module.exports = User
