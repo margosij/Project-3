@@ -9,7 +9,8 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      user: {}
+      user: {},
+      path: '/'
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
