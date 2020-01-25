@@ -12,6 +12,7 @@ const validateLoginInput = require('../../validation/login')
 
 // Load User model
 const User = require('../../models/User')
+const Family = require('../../models/Family')
 
 // @route   GET api/users/test
 // @desc    Tests users route
@@ -45,7 +46,8 @@ router.post('/register', (req, res) => {
         email: req.body.email,
         username: req.body.username,
         avatar,
-        password: req.body.password
+        password: req.body.password,
+        family_id: req.body.family_id
       })
 
       bcrypt.genSalt(10, (err, salt) => {
@@ -54,6 +56,12 @@ router.post('/register', (req, res) => {
           newUser.password = hash
           newUser
             .save()
+            .then(user => { 
+
+              console.log('This is the user created', user)
+              return Family.findOneAndUpdate({ _id: family_id },
+                { $push: { user: user._id } }, { new: true })
+              })
             .then(user => res.json(user))
             .catch(err => console.log(err))
         })

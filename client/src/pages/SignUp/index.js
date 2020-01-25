@@ -14,6 +14,7 @@ class Signup extends Component {
       id: '',
       password: '',
       password2: '',
+      family_id: '',
       errors: ''
     }
     this.onChange = this.onChange.bind(this)
@@ -42,9 +43,9 @@ class Signup extends Component {
 
     const newUser = {
       username: this.state.username,
-      id: this.state.id,
+      id: this.state.family_id,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
     }
     console.log(newUser) 
     this.props.registerUser(newUser, this.props.history)
@@ -107,7 +108,7 @@ class Signup extends Component {
                   type='text'
                   placeholder='School ID Code'
                   name='id'
-                  value={this.state.id}
+                  value={this.state.family_id}
                   onChange={this.onChange}
                 />
               </Column>
