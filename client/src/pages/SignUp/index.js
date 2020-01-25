@@ -43,9 +43,10 @@ class Signup extends Component {
     const newUser = {
       username: this.state.username,
       id: this.state.id,
-      password: this.state.password
+      password: this.state.password,
+      password2: this.state.password2
     }
-
+    console.log(newUser) 
     this.props.registerUser(newUser, this.props.history)
   }
 

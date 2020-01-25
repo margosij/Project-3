@@ -32,12 +32,10 @@ class Navbar extends Component {
     const authLinks = (
       <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
         <NavLink navTitle='Home' to='/' />
-        <NavLink navTitle='Sign Up' to='/signup' />
         <NavLink navTitle='Dismissal' to='/dismissal' />
         <NavLink navTitle='Database Dashboard' to='/database' />
         <NavLink navTitle='Family Dashboard' to='/family' />
         <NavLink navTitle='Admin Dashboard' to='/admin' />
-        <NavLink navTitle='Socket.io Boiler Plate' to='/socket' />
       </ul>
     )
     const familyLinks = (
