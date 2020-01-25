@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Container, Row, Column } from '../../components/Grid'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { loginUser} from '../../actions/authActions'
+import { loginUser } from '../../actions/authActions'
 class Login extends Component {
   constructor() {
     super()
@@ -18,51 +18,24 @@ class Login extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      // this.props.history.push(this.state.path)
+        console.log(this.props)
+        // this.props.history.push('/')
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
-      // this.props.history.push(this.state.path)
-    }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.auth.isAuthenticated) {
+  //     this.props.history.push('/')
+  //   }
 
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors })
-    }
-  }
+  //   if (nextProps.errors) {
+  //     this.setState({ errors: nextProps.errors })
+  //   }
+  // }
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  // handleSubmit = async e => {
-  //   console.log('Login button hit')
-  //   e.preventDefault()
-  //   API.login(this.state.username, this.state.password)
-  //     // .then(res => {
-  //     //   console.log(res)
-  //     //   if (res) {
-  //     //     alert(res)
-  //     //   } else {
-  //     //     window.location = '/'
-  //     //   }
-  //     // })
-  //     .then(response => {
-  //       console.log('login response: ', response)
-  //       if (response.status === 200) {
-  //         this.setState({
-  //           isAuthenticated: true,
-  //           user: response.data.username,
-  //           path: '/'
-  //         })
-  //       }
-  //     })
-  //     .catch(ex => {
-  //       // setResponseErrors(response.data)
-  //       console.log(ex)
-  //     })
-  // }
-  
   onSubmit(e) {
     e.preventDefault()
     console.log('submit hit')
@@ -71,8 +44,8 @@ class Login extends Component {
       username: this.state.username,
       password: this.state.password
     }
-
-     this.props.loginUser(userData)
+    console.log('UserData', userData)
+    this.props.loginUser(userData)
   }
   render() {
     const { errors } = this.state
@@ -84,6 +57,7 @@ class Login extends Component {
           </div>
           <form onSubmit={this.onSubmit}>
             <Container className='mt-3 px-5'>
+              <h6>Username:</h6>
               <Row className='form-group'>
                 <Column size='12'>
                   <input
@@ -97,6 +71,7 @@ class Login extends Component {
                 </Column>
               </Row>
               <Row className='form-group'>
+                <h6>Password:</h6>
                 <Column size='12'>
                   <input
                     className='form-control'

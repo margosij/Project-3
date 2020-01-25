@@ -1,52 +1,65 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Modal = () => {
-  return (
-    <>
+class Modal extends Component {
+  state = {
+    show: false
+  }
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+  render() {
+    
+    return (
+      <>
       {/* Button trigger modal */}
       <button
         type='button'
-        class='btn btn-primary'
+        className='btn btn-primary'
         data-toggle='modal'
-        data-target='#exampleModal'
-      >
+          data-target='#exampleModal'
+          onclick={this.showModal}
+        >
         Launch demo modal
       </button>
 
       {/*  Modal  */}
       <div
-        class='modal fade'
+        className='modal fade'
         id='exampleModal'
         tabindex='-1'
         role='dialog'
         aria-labelledby='exampleModalLabel'
         aria-hidden='true'
-      >
-        <div class='modal-dialog' role='document'>
-          <div class='modal-content'>
-            <div class='modal-header'>
-              <h5 class='modal-title' id='exampleModalLabel'>
+        >
+        <div className='modal-dialog' role='document'>
+          <div className='modal-content'>
+            <div className='modal-header'>
+              <h5 className='modal-title' id='exampleModalLabel'>
                 Modal title
               </h5>
               <button
                 type='button'
-                class='close'
+                className='close'
                 data-dismiss='modal'
                 aria-label='Close'
-              >
-                <span aria-hidden='true'>&times;</span>
+                >
+                  <span aria-hidden='true'>&times;</span>
               </button>
             </div>
-            <div class='modal-body'>...</div>
-            <div class='modal-footer'>
+            <div className='modal-body'>...</div>
+            <div className='modal-footer'>
               <button
                 type='button'
-                class='btn btn-secondary'
+                className='btn btn-secondary'
                 data-dismiss='modal'
-              >
+                >
                 Close
               </button>
-              <button type='button' class='btn btn-primary'>
+              <button type='button' className='btn btn-primary'>
                 Save changes
               </button>
             </div>
@@ -56,3 +69,6 @@ const Modal = () => {
     </>
   )
 }
+}
+
+export default Modal
