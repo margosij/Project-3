@@ -10,7 +10,7 @@ class Login extends Component {
       username: '',
       password: '',
       user: {},
-      path: null
+      path: '/'
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -18,13 +18,13 @@ class Login extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/dashboard')
+      // this.props.history.push(this.state.path)
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/dashboard')
+      // this.props.history.push(this.state.path)
     }
 
     if (nextProps.errors) {
