@@ -3,11 +3,13 @@ import { connect } from 'react-redux'
 import { logoutUser } from '../../actions/authActions'
 import NavLink from '../NavLink'
 import { PropTypes } from 'prop-types'
+import { clearCurrentProfile } from '../../actions/familyActions'
 import './style.css'
 
 class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault()
+    this.props.clearCurrentProfile()
     this.props.logoutUser()
   }
   state = {
