@@ -1,7 +1,6 @@
 import React from 'react'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
-import Modal from '../components/Modal'
 
 const Home = () => {
   return (
@@ -13,7 +12,6 @@ const Home = () => {
           </Column>
         </Row>
       </Container>
-      <Modal />
     </>
   )
 }
