@@ -2,7 +2,6 @@
   "name": "dismissed",
   "version": "1.0.0",
   "description": "A School Dismissal App",
-  "proxy": "http://localhost:3001",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
