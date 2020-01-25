@@ -9,8 +9,7 @@ class Login extends Component {
     this.state = {
       username: '',
       password: '',
-      user: {},
-      path: '/'
+      user: {}
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -18,8 +17,8 @@ class Login extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-        console.log(this.props)
-        // this.props.history.push('/')
+      console.log(this.props)
+      // this.props.history.push('/')
     }
   }
 
@@ -33,7 +32,7 @@ class Login extends Component {
   //   }
   // }
   onChange(e) {
-    this.setState({ [ e.target.name ]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value })
   }
 
   onSubmit(e) {
@@ -50,46 +49,46 @@ class Login extends Component {
   render() {
     const { errors } = this.state
     return (
-        <>
-            <div className='container'>
-                <div className='mt-4'>
-                    <h2>Dismissed!</h2>
-                </div>
-                <form onSubmit={ this.onSubmit }>
-                    <Container className='mt-3 px-5'>
-                        <h6>Username:</h6>
-                        <Row className='form-group'>
-                            <Column size='12'>
-                                <input
+      <>
+        <div className='container'>
+          <div className='mt-4'>
+            <h2>Dismissed!</h2>
+          </div>
+          <form onSubmit={this.onSubmit}>
+            <Container className='mt-3 px-5'>
+              <h6>Username:</h6>
+              <Row className='form-group'>
+                <Column size='12'>
+                  <input
                     className='form-control'
                     type='text'
                     placeholder='username'
                     name='username'
-                    onChange={ this.onChange }
+                    onChange={this.onChange}
                     // error={errors.username}
                   />
-                            </Column>
-                        </Row>
-                        <h6>Password:</h6>
-                        <Row className='form-group'>
-                            <Column size='12'>
-                                <input
+                </Column>
+              </Row>
+              <Row className='form-group'>
+                <h6>Password:</h6>
+                <Column size='12'>
+                  <input
                     className='form-control'
                     type='password'
                     placeholder='Password'
                     name='password'
-                    onChange={ this.onChange }
+                    onChange={this.onChange}
                     // error={errors.password}
                   />
-                            </Column>
-                        </Row>
-                        <button className='btn btn-success my-2' type='submit'>
+                </Column>
+              </Row>
+              <button className='btn btn-success my-2' type='submit'>
                 Submit
-                        </button>
-                    </Container>
-                </form>
-            </div>
-        </>
+              </button>
+            </Container>
+          </form>
+        </div>
+      </>
     )
   }
 }

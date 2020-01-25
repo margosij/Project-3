@@ -21,7 +21,7 @@ class Modal extends Component {
         className='btn btn-primary'
         data-toggle='modal'
           data-target='#exampleModal'
-          onclick={this.showModal}
+          onClick={this.showModal}
         >
         Launch demo modal
       </button>
