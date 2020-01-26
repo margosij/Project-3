@@ -7,7 +7,7 @@ const adminSchema = new Schema({
     required: true
   },
   User: {
-    type: Schema.Types.ObjectID,
+    type: Schema.Types.ObjectId,
     ref: 'User'
   }
 })

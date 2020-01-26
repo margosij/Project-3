@@ -17,6 +17,7 @@ import FamilyDashboard from './pages/familyDashboard'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
 import AdminDashboard from './pages/adminDashboard'
 import Login from './pages/Login'
+import { clearCurrentFamily } from './actions/familyActions'
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -38,7 +39,6 @@ if (localStorage.jwtToken) {
     // Logout user
     store.dispatch(logoutUser())
   
-    // TODO: Clear current Profile
 
     // Redirect to login
     window.location.href = '/login'
