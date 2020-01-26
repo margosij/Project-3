@@ -11,11 +11,11 @@ const StudentContainer = props => {
                   <div className='card-body'>
                       <h6 className='card-title'>Name:</h6>
                       <p>{`${ props.firstName } ${ props.middleName } ${ props.lastName } ${ props.suffix }`}</p>
-                      <h8 className='card-title'>Gender:</h8>
+                      <h6 className='card-title'>Gender:</h6>
                       <p>{props.gender}</p>
-                      <h8 className='card-title'>Grade:</h8>
+                      <h6 className='card-title'>Grade:</h6>
                       <p>{props.gradeLevel}</p>
-                      <h8 className='card-title'>Picked up?</h8>
+                      <h6 className='card-title'>Picked up?</h6>
                       <input type='checkbox' value='pickedUp'></input>
                   </div>
               </Card>

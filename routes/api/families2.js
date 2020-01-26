@@ -21,12 +21,12 @@ router.get('/test', (req, res) => res.json({ msg: 'Family Works' }))
 // @access  Private
 router.get(
   '/',
-  passport.authenticate('jwt', { session: false }),
+  // passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const errors = {}
 
     Family.findOne({ user: req.user.id })
-      .populate('user', ['name', 'avatar'])
+      .populate('user', [ 'name', 'avatar' ])
       .then(Family => {
         if (!Family) {
           errors.noprofile = 'There is no Family for this user'
@@ -45,7 +45,7 @@ router.get('/all', (req, res) => {
   const errors = {}
 
   Family.find()
-    .populate('user', ['name', 'avatar'])
+    .populate('user', [ 'name', 'avatar' ])
     .then(profiles => {
       if (!profiles) {
         errors.noprofile = 'There are no profiles'
@@ -65,7 +65,7 @@ router.get('/handle/:handle', (req, res) => {
   const errors = {}
 
   Family.findOne({ handle: req.params.handle })
-    .populate('user', ['name', 'avatar'])
+    .populate('user', [ 'name', 'avatar' ])
     .then(Family => {
       if (!Family) {
         errors.noprofile = 'There is no Family for this user'
@@ -85,7 +85,7 @@ router.get('/user/:user_id', (req, res) => {
   const errors = {}
 
   Family.findOne({ user: req.params.user_id })
-    .populate('user', ['name', 'avatar'])
+    .populate('user', [ 'name', 'avatar' ])
     .then(Family => {
       if (!Family) {
         errors.noprofile = 'There is no Family for this user'
