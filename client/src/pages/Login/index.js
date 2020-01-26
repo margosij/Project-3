@@ -34,7 +34,7 @@ class Login extends Component {
     }
   }
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [ e.target.name ]: e.target.value })
   }
 
   onSubmit(e) {
@@ -51,50 +51,50 @@ class Login extends Component {
   render() {
     const { errors } = this.state
     return (
-      <>
-        <div className='container'>
-          <div className='mt-4'>
-            <h2>Dismissed!</h2>
-          </div>
-          <form onSubmit={this.onSubmit}>
-            <Container className='mt-3 px-5'>
-              <h6>Username:</h6>
-              <Row className='form-group'>
-                <Column size='12'>
-                  <input
-                    className={classnames('', {
+        <>
+            <div className='container'>
+                <div className='mt-4'>
+                    <h2>Dismissed!</h2>
+                </div>
+                <form onSubmit={ this.onSubmit }>
+                    <Container className='mt-3 px-5'>
+                        <h6>Username:</h6>
+                        <Row className='form-group'>
+                            <Column size='12'>
+                                <input
+                    className={ classnames('', {
                       invalid: errors.username
-                    })}
+                    }) }
                     type='text'
                     placeholder='username'
                     name='username'
-                    onChange={this.onChange}
+                    onChange={ this.onChange }
                   />
-                  <span className='invalid-feedback'>{errors.username}</span>
-                </Column>
-              </Row>
-              <Row className='form-group'>
-                <h6>Password:</h6>
-                <Column size='12'>
-                  <input
-                    className={classnames('', {
+                                <span className='invalid-feedback'>{errors.username}</span>
+                            </Column>
+                        </Row>
+                        <h6>Password:</h6>
+                        <Row className='form-group'>
+                            <Column size='12'>
+                                <input
+                    className={ classnames('', {
                       invalid: errors.password
-                    })}
+                    }) }
                     type='password'
                     placeholder='Password'
                     name='password'
-                    onChange={this.onChange}
+                    onChange={ this.onChange }
                   />
-                  <span className='invalid-feedback'>{errors.password}</span>
-                </Column>
-              </Row>
-              <button className='btn btn-success my-2' type='submit'>
+                                <span className='invalid-feedback'>{errors.password}</span>
+                            </Column>
+                        </Row>
+                        <button className='btn btn-success my-2' type='submit'>
                 Submit
-              </button>
-            </Container>
-          </form>
-        </div>
-      </>
+                        </button>
+                    </Container>
+                </form>
+            </div>
+        </>
     )
   }
 }
