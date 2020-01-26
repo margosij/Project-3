@@ -2,7 +2,7 @@ import axios from 'axios'
 import setAuthToken from '../utils/setAuthToken'
 import jwt_decode from 'jwt-decode'
 
-import { GET_ERRORS, SET_CURRENT_USER } from './types'
+import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING, GET_CURRENT_FAMILY } from './types'
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -48,6 +48,12 @@ export const setCurrentUser = decoded => {
     payload: decoded
   }
 }
+// User loading
+export const setUserLoading = () => {
+  return {
+    type: USER_LOADING
+  };
+};
 
 // Log user out
 export const logoutUser = () => dispatch => {
@@ -57,4 +63,21 @@ export const logoutUser = () => dispatch => {
   setAuthToken(false)
   // Set current user to {} which will set isAuthenticated to false
   dispatch(setCurrentUser({}))
+}
+
+export const getCurrentFamily = () => dispatch => {
+   axios
+    .get('/current/family')
+    .then(res =>
+      dispatch({
+        type: GET_CURRENT_FAMILY,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    )
 }

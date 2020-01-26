@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { Container, Row, Column } from '../../components/Grid'
-import API from '../../utils/Api'
 import { connect } from 'react-redux'
 import { registerUser } from '../../actions/authActions'
-
+import classnames from 'classnames'
 class Signup extends Component {
   constructor() {
     super()
@@ -14,7 +13,9 @@ class Signup extends Component {
       id: '',
       password: '',
       password2: '',
-      errors: ''
+      family_id: '',
+      errors: '', 
+      admin:'false'
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -22,7 +23,7 @@ class Signup extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/')
+      this.props.history.push('/dismissal')
     }
   }
 
@@ -42,9 +43,10 @@ class Signup extends Component {
 
     const newUser = {
       username: this.state.username,
-      id: this.state.id,
+      id: this.state.family_id,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
+      family_id: this.state.family_id
     }
     console.log(newUser) 
     this.props.registerUser(newUser, this.props.history)
@@ -65,51 +67,63 @@ class Signup extends Component {
             <Row className='form-group'>
               <Column size='12'>
                 <input
-                  className='form-control'
+                  className={classnames('form-control', {
+                    invalid: errors.username
+                  })}
                   type='text'
                   placeholder='email'
                   name='username'
                   value={this.state.username}
                   onChange={this.onChange}
                 />
+                <span className='invalid-feedback'>{errors.username}</span>
               </Column>
             </Row>
-              {/* Password */}
-            <Row className='form-group'>
+            {/* Password */}
+            <Row>
               <Column size='12'>
                 <input
-                  className='form-control'
+                  className={classnames('form-control', {
+                    invalid: errors.password
+                  })}
                   type='password'
                   placeholder='Password'
                   name='password'
                   value={this.state.password}
                   onChange={this.onChange}
                 />
+                <span className='invalid-feedback'>{errors.password}</span>
               </Column>
             </Row>
             {/* Password 2 */}
             <Row className='form-group'>
               <Column size='12'>
                 <input
-                  className='form-control'
+                  className={classnames('form-control', {
+                    invalid: errors.password2
+                  })}
                   type='password'
                   placeholder='password must match'
                   name='password2'
                   value={this.state.password2}
                   onChange={this.onChange}
                 />
+                <span className='invalid-feedback'>{errors.password2}</span>
               </Column>
             </Row>
+            {/* Family Id Code */}
             <Row className='form-group'>
               <Column size='12'>
                 <input
-                  className='form-control'
+                  className={classnames('family-control', {
+                    invalid: errors.family_id
+                  })}
                   type='text'
-                  placeholder='School ID Code'
-                  name='id'
-                  value={this.state.id}
+                  placeholder='Family ID Code'
+                  name='family_id'
+                  value={this.state.family_id}
                   onChange={this.onChange}
-                />
+                /><span className='invalid-feedback'>{errors.family_id}</span>
               </Column>
             </Row>
             <button className='btn btn-success' type='submit'>

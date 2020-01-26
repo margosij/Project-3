@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
 import {
   GET_FAMILY,
@@ -7,11 +7,11 @@ import {
   CLEAR_CURRENT_FAMILY,
   GET_ERRORS,
   SET_CURRENT_USER
-} from './types';
+} from './types'
 
 // Get current family
 export const getCurrentFamily = () => dispatch => {
-  // dispatch(setFamilyLoading());
+  dispatch(setFamilyLoading())
   axios
     .get('/api/family')
     .then(res =>
@@ -25,12 +25,12 @@ export const getCurrentFamily = () => dispatch => {
         type: GET_FAMILY,
         payload: {}
       })
-    );
-};
+    )
+}
 
 // Get family by handle
 export const getFamilyById = id => dispatch => {
-  // dispatch(setFamilyLoading());
+  dispatch(setFamilyLoading())
   axios
     .get(`/api/family/handle/${id}`)
     .then(res =>
@@ -44,8 +44,8 @@ export const getFamilyById = id => dispatch => {
         type: GET_FAMILY,
         payload: null
       })
-    );
-};
+    )
+}
 
 // Create family
 export const createFamily = (familyData, history) => dispatch => {
@@ -57,8 +57,8 @@ export const createFamily = (familyData, history) => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    );
-};
+    )
+}
 
 // Delete account & family
 export const deleteAccount = () => dispatch => {
@@ -76,20 +76,38 @@ export const deleteAccount = () => dispatch => {
           type: GET_ERRORS,
           payload: err.response.data
         })
-      );
+      )
   }
-};
+}
 
 // family loading
-export const setProfileLoading = () => {
+export const setFamilyLoading = () => {
   return {
     type: FAMILY_LOADING
-  };
-};
+  }
+}
 
 // Clear family
 export const clearCurrentFamily = () => {
   return {
-    // type: CLEAR_CURRENT_PROFILE
-  };
+    type: CLEAR_CURRENT_FAMILY
+  }
+}
+// Get all profiles
+export const getFamilies = () => dispatch => {
+  dispatch(setFamilyLoading());
+  axios
+    .get('/api/family/all')
+    .then(res =>
+      dispatch({
+        type: GET_FAMILIES,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_FAMILIES,
+        payload: null
+      })
+    );
 };
