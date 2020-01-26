@@ -75,9 +75,6 @@ router.post('/register', (req, res) => {
     // })
     .catch(err => console.log(err))
 
-
-
-
 })
 
 // @route   GET api/users/login
@@ -95,7 +92,7 @@ router.post('/login', (req, res) => {
   const password = req.body.password
 
   // Find user by email
-  User.findOne({ username }).then(user => {
+  User.findOne({ email: req.body.username }).then(user => {
     console.log(username)
     // Check for user
     if (!user) {
