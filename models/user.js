@@ -3,15 +3,15 @@ const bcrypt = require('bcryptjs')
 const Schema = mongoose.Schema
 const autoPopulate = require('mongoose-autopopulate')
 const UserSchema = new Schema({
-  name: {
-    type: String,
-    unique: true
-  },
-  username: {
-    type: String,
-    // required: true,
-    unique: true
-  },
+  // name: {
+  //   type: String,
+  //   unique: true
+  // },
+  // username: {
+  //   type: String,
+  //   // required: true,
+  //   unique: true
+  // },
   email: {
     type: String,
     // required: true,

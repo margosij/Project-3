@@ -1,4 +1,3 @@
-
 const keys = require('../config/keys')
 const router = require('express').Router()
 const apiRoutes = require('./api')
@@ -76,11 +75,12 @@ router.post('/login', (req, res) => {
     return res.status(400).json(errors)
   }
 
-  const email = req.body.email
+  const email = req.body.username
   const password = req.body.password
-
+console.log('LOOK AT MY CONSOLE', req.body.username)
   // Find user by email
-  User.findOne({ email }).then(user => {
+  User.findOne({ email:req.body.username }).then(user => {
+    console.log('consoling the user', user)
     // Check for user
     if (!user) {
       errors.email = 'User not found'
@@ -129,4 +129,3 @@ router.get(
 )
 
 module.exports = router
-

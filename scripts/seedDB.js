@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const db = require('../models')
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/dismissal'
 console.log('MONGODB_URI:', MONGODB_URI)
+const bcrypt = require('bcrypt')
 
 mongoose.Promise = global.Promise
 //  console.log('global:', global.Promise)
@@ -71,7 +72,8 @@ const familySeed = [
         studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
-    ]
+    ],
+    familyId: 1
   },
   {
     familyLastName: 'Shade',
@@ -122,7 +124,8 @@ const familySeed = [
         studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
-    ]
+    ],
+    familyId: 2
   },
   {
     familyLastName: 'Wayne',
@@ -173,7 +176,8 @@ const familySeed = [
           'Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.\n\nSed ante. Vivamus tortor. Duis mattis egestas metus.',
         studentDoctor: 'Leonard McKoy'
       }
-    ]
+    ],
+    familyId: 3
   },
   {
     familyLastName: 'Richards',
@@ -225,7 +229,8 @@ const familySeed = [
         studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
-    ]
+    ],
+    familyId: 4
   },
   {
     familyLastName: 'Parker',
@@ -306,7 +311,8 @@ const familySeed = [
           }
         ]
       }
-    ]
+    ],
+    familyId: 5
   },
   {
     familyLastName: 'Allen',
@@ -370,7 +376,8 @@ const familySeed = [
         studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
-    ]
+    ],
+    familyId: 6
   },
   {
     familyLastName: 'Lucas',
@@ -452,7 +459,8 @@ const familySeed = [
         studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
-    ]
+    ],
+    familyId: 7
   },
   {
     familyLastName: 'Fleck',
@@ -518,7 +526,8 @@ const familySeed = [
         studentDoctor: 'Leonard McKoy',
         authorizedPickup: []
       }
-    ]
+    ],
+    familyId: 8
   },
   {
     familyLastName: 'Rogers',
@@ -594,7 +603,8 @@ const familySeed = [
           'Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.',
         studentDoctor: 'Leonard McKoy'
       }
-    ]
+    ],
+    familyId: 9
   },
   {
     familyLastName: 'Parr',
@@ -666,7 +676,8 @@ const familySeed = [
           'Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.',
         studentDoctor: 'Leonard McKoy'
       }
-    ]
+    ],
+    familyId: 10
   }
 ]
 const adminSeed = [
@@ -680,6 +691,59 @@ const adminSeed = [
     name: 'Ezmeralda Hamments'
   }
 ]
+
+const userSeed = [
+  {
+    email: 'kent@email.com',
+    password: bcrypt.hashSync('password1', 10),
+  },
+  {
+    email: 'shade@email.com',
+    password: bcrypt.hashSync('password2', 10),
+  },
+  {
+    email: 'wayne@email.com',
+    password: bcrypt.hashSync('password3', 10),
+  },
+  {
+    email: 'richards@email.com',
+    password: bcrypt.hashSync('password4', 10),
+  },
+  {
+    email: 'parker@email.com',
+    password: bcrypt.hashSync('password5', 10),
+  },
+  {
+    email: 'allen@email.com',
+    password: bcrypt.hashSync('password6', 10),
+  },
+  {
+    email: 'lucas@email.com',
+    password: bcrypt.hashSync('password7', 10),
+  },
+  {
+    email: 'fleck@email.com',
+    password: bcrypt.hashSync('password8', 10),
+  },
+  {
+    email: 'rogers@email.com',
+    password: bcrypt.hashSync('password9', 10),
+  },
+  {
+    email: 'parr@email.com',
+    password: bcrypt.hashSync('password10', 10),
+  }
+]
+
+db.User.remove({})
+  .then(() => db.User.collection.insert(userSeed))
+  .then(data => {
+    console.log(data.result.n + ' records inserted!')
+    process.exit(0)
+  }).catch(err => {
+    console.error(err)
+    process.exit(1)
+  })
 
 db.Family.remove({})
   .then(() => db.Family.collection.insertMany(familySeed))
