@@ -68,5 +68,14 @@ export default {
   deleteAUser: async id => {
     let res = await axios.delete(`/api/users/${id}`)
     return res.data || []
+  },
+
+
+  // ===========================================================================
+  // Get User and populate familyid
+  // ===========================================================================
+  getUserFamily: async id => {
+    let res = await axios.get(`/api/users/current/family`, id)
+    return res.data || []
   }
 }

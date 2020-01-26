@@ -157,11 +157,7 @@ router.get('/current/family', passport.authenticate('jwt', { session: false }), 
     .then((data) => res.json(data))
   console.log(res.data)
   res.json
-  // res.json({
-  //   id: req.user.id,
-  //   name: req.user.name,
-  //   admin: req.user.admin
-  // })
+  
 })
 
 module.exports = router

@@ -73,7 +73,7 @@ class Login extends Component {
                   <span className='invalid-feedback'>{errors.username}</span>
                 </Column>
               </Row>
-              < Row className='form-group'>
+              <Row className='form-group'>
                 <h6>Password:</h6>
                 <Column size='12'>
                   <input
@@ -87,7 +87,7 @@ class Login extends Component {
                   />
                   <span className='invalid-feedback'>{errors.password}</span>
                 </Column>
-              </>
+              </Row>
               <button className='btn btn-success my-2' type='submit'>
                 Submit
               </button>
