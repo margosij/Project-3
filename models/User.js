@@ -29,8 +29,8 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false
   },
-  userId: {
-    type: String,
+  familyId: {
+    type: Number,
     required: true
   }
 })
