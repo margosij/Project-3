@@ -18,8 +18,8 @@ const ParentsContainer = props => {
                       <p className='card-title'>Email: {props.email}</p>
                   </div>
                   <div className='card-footer'>
-            <CheckInBtn name={props.name} {...props} />
-          </div>
+                      <CheckInBtn name={ props.name } { ...props } />
+                  </div>
               </Card>
           </ListItem>
       </>

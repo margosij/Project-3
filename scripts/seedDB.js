@@ -696,42 +696,52 @@ const userSeed = [
   {
     email: 'kent@email.com',
     password: bcrypt.hashSync('password1', 10),
+    userId: 1
   },
   {
     email: 'shade@email.com',
     password: bcrypt.hashSync('password2', 10),
+    userId: 2
   },
   {
     email: 'wayne@email.com',
     password: bcrypt.hashSync('password3', 10),
+    userId: 3
   },
   {
     email: 'richards@email.com',
     password: bcrypt.hashSync('password4', 10),
+    userId: 4
   },
   {
     email: 'parker@email.com',
     password: bcrypt.hashSync('password5', 10),
+    userId: 5
   },
   {
     email: 'allen@email.com',
     password: bcrypt.hashSync('password6', 10),
+    userId: 6
   },
   {
     email: 'lucas@email.com',
     password: bcrypt.hashSync('password7', 10),
+    userId: 7
   },
   {
     email: 'fleck@email.com',
     password: bcrypt.hashSync('password8', 10),
+    userId: 8
   },
   {
     email: 'rogers@email.com',
     password: bcrypt.hashSync('password9', 10),
+    userId: 9
   },
   {
     email: 'parr@email.com',
     password: bcrypt.hashSync('password10', 10),
+    userId: 10
   }
 ]
 
