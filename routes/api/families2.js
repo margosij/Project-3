@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 
 // Load Validation
-const validateProfileInput = require('../../validation/Profile')
+const validateProfileInput = require('../../validation/profile')
 
 // Load Family Model
 const Family = require('../../models/Family')
