@@ -13,7 +13,7 @@
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
-    "db:seed": "node scripts/seedDb.js"
+    "db:seed": "node scripts/seedDB.js"
   },
   "repository": {
     "type": "git",
