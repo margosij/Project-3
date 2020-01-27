@@ -14,8 +14,8 @@ class Signup extends Component {
       password: '',
       password2: '',
       family_id: '',
-      errors: '', 
-      admin:'false'
+      errors: {},
+      admin: 'false'
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -38,8 +38,8 @@ class Signup extends Component {
   }
 
   onSubmit(e) {
-    e.preventDefault()
     console.log('submit hit')
+    e.preventDefault()
 
     const newUser = {
       username: this.state.username,
@@ -48,43 +48,40 @@ class Signup extends Component {
       password2: this.state.password2,
       family_id: this.state.family_id
     }
-    console.log(newUser) 
+    console.log('new user', newUser)
     this.props.registerUser(newUser, this.props.history)
   }
 
   render() {
     const { errors } = this.state
-    
 
     return (
-      <div>
-        <div className='mt-4'>
-          <h2>Dismissed!</h2>
-        </div>
-        <form noValidate onSubmit={() => this.handleSubmit}>
-          {/* User Name */}
-          <Container className='mt-3 px-5'>
-            <Row className='form-group'>
-              <Column size='12'>
+      <div className='container'>
+        <Column size='12'>
+          <div className='mt-4 mx-3'>
+            <h2>Dismissed!</h2>
+          </div>
+          <form  onSubmit={this.onSubmit}>
+            {/* User Name */}
+            <Container>
+              <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    invalid: errors.username
+                    'is-invalid': errors.username
                   })}
                   type='text'
-                  placeholder='email'
+                  placeholder='Email'
                   name='username'
                   value={this.state.username}
                   onChange={this.onChange}
                 />
-                <span className='invalid-feedback'>{errors.username}</span>
-              </Column>
-            </Row>
-            {/* Password */}
-            <Row>
-              <Column size='12'>
+                {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
+              </div>
+              {/* Password */}
+              <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    invalid: errors.password
+                    'is-invalid': errors.password
                   })}
                   type='password'
                   placeholder='Password'
@@ -92,52 +89,49 @@ class Signup extends Component {
                   value={this.state.password}
                   onChange={this.onChange}
                 />
-                <span className='invalid-feedback'>{errors.password}</span>
-              </Column>
-            </Row>
-            {/* Password 2 */}
-            <Row className='form-group'>
-              <Column size='12'>
+                {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
+              </div>
+              {/* Password 2 */}
+              <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    invalid: errors.password2
+                    'is-invalid': errors.password2
                   })}
                   type='password'
-                  placeholder='password must match'
+                  placeholder='Passwords must match'
                   name='password2'
                   value={this.state.password2}
                   onChange={this.onChange}
                 />
-                <span className='invalid-feedback'>{errors.password2}</span>
-              </Column>
-            </Row>
-            {/* Family Id Code */}
-            <Row className='form-group'>
-              <Column size='12'>
+                {errors.password2 && <div className='invalid-feedback'>{errors.password2}</div>}
+              </div>
+              {/* Family Id Code */}
+              <div className='form-group'>
                 <input
-                  className={classnames('family-control', {
-                    invalid: errors.family_id
+                  className={classnames('form-control', {
+                    'is-invalid': errors.family_id
                   })}
                   type='text'
                   placeholder='Family ID Code'
                   name='family_id'
                   value={this.state.family_id}
                   onChange={this.onChange}
-                /><span className='invalid-feedback'>{errors.family_id}</span>
-              </Column>
-            </Row>
-            <button className='btn btn-success' type='submit'>
-              Submit
-            </button>
-          </Container>
-          <Container className='mt-4'>
-            <h3>Hello {this.state.username}!</h3>
-            <p>
-              I probably shouldn't tell you this, but your password is
-              {this.state.password}!
-            </p>
-          </Container>
-        </form>
+                />
+                {errors.family_id && <div className='invalid-feedback'>{errors.family_id}</div>}
+              </div>
+              <button className='btn btn-success' type='submit'>
+                Submit
+              </button>
+            </Container>
+            <Container className='mt-4'>
+              <h3>Hello {this.state.username}!</h3>
+              <p>
+                I probably shouldn't tell you this, but your password is
+                {this.state.password}!
+              </p>
+            </Container>
+          </form>
+        </Column>
       </div>
     )
   }
