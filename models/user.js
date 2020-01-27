@@ -29,17 +29,11 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false
   },
-  familyId: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Family',
-      // The below option tells this plugin to always call `populate()` on
-      // `populatedField`
-      autopopulate: true
-    }
-  ]
+  userId: {
+    type: String,
+    required: true
+  }
 })
 const User = mongoose.model('users', UserSchema)
 UserSchema.plugin(autoPopulate)
-
 module.exports = User
