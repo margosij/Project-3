@@ -2,7 +2,7 @@ import familyTestData from './testData'
 import Card from '../../components/Card'
 import React, { Component } from 'react'
 import openSocket from 'socket.io-client'
-const socket = openSocket('http://localhost:3001')
+const socket = openSocket('https://dismissal-app.herokuapp.com/')
 
 class Parents extends Component {
   state = {

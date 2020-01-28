@@ -6,7 +6,7 @@ import Parents from '../utils/socket/parents'
 // import socket.io client -- A client-side build of Socket.io
 import openSocket from 'socket.io-client'
 // open a webSocket on this port --this will change when deployed
-const socket = openSocket('http://localhost:3001')
+const socket = openSocket('https://dismissal-app.herokuapp.com/')
 
 // this is a development plate I built to test Socket IO
 
@@ -17,17 +17,17 @@ const socket = openSocket('http://localhost:3001')
 socket.on('SocketBoilerPlate', () => console.log('Socket Boiler Page hit'))
 const SocketBoilerPlate = props => {
   return (
-    <>
-      <Container>
-        <Row styling='row align-self-center'>
-          <Column>
-            <Jumbotron title='Welcome to Harmony' lead='Socket Boiler Plate' />
-          </Column>
-        </Row>
-        <Admin {...props} />
-        <Parents {...props} />
-      </Container>
-    </>
+      <>
+          <Container>
+              <Row styling='row align-self-center'>
+                  <Column>
+                      <Jumbotron title='Welcome to Harmony' lead='Socket Boiler Plate' />
+                  </Column>
+              </Row>
+              <Admin { ...props } />
+              <Parents { ...props } />
+          </Container>
+      </>
   )
 }
 
