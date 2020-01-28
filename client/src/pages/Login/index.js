@@ -21,13 +21,13 @@ class Login extends Component {
 
   componentDidMount() {
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/dismissal')
+      this.props.history.push('/family')
     }
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/dismissal')
+      this.props.history.push('/family')
     }
 
     if (nextProps.errors) {
@@ -36,7 +36,7 @@ class Login extends Component {
   }
 
   onChange(e) {
-    this.setState({ [e.target.name]: e.target.value })
+    this.setState({ [ e.target.name ]: e.target.value })
   }
   // when submit button is clicked
   onSubmit(e) {
@@ -54,47 +54,47 @@ class Login extends Component {
     const { errors } = this.state
     console.log('errors', errors)
     return (
-      <>
-        <div className='container'>
-          <div className='mt-4 mx-3'>
-            <h2>Dismissed!</h2>
-          </div>
-          <form onSubmit={this.onSubmit}>
-            <Container className='mt-3 px-5'>
-              <label for='username'>Username:</label>
-              <div className='form-group'>
-                <input
-                  className={classnames('form-control', {
+        <>
+            <div className='container'>
+                <div className='mt-4 mx-3'>
+                    <h2>Dismissed!</h2>
+                </div>
+                <form onSubmit={ this.onSubmit }>
+                    <Container className='mt-3 px-5'>
+                        <label for='username'>Username:</label>
+                        <div className='form-group'>
+                            <input
+                  className={ classnames('form-control', {
                     'is-invalid': errors.username
-                  })}
+                  }) }
                   type='text'
                   placeholder='Username'
                   name='username'
-                  onChange={this.onChange}
+                  onChange={ this.onChange }
                   id='username'
                 />
-                {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
-              </div>
-              <label>Password:</label>
-              <div className='form-group'>
-                <input
-                  className={classnames('form-control', {
+                            {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
+                        </div>
+                        <label>Password:</label>
+                        <div className='form-group'>
+                            <input
+                  className={ classnames('form-control', {
                     'is-invalid': errors.password
-                  })}
+                  }) }
                   type='password'
                   placeholder='Password'
                   name='password'
-                  onChange={this.onChange}
+                  onChange={ this.onChange }
                 />
-                {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
-              </div>
-              <button className='btn btn-success my-2' type='submit'>
+                            {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
+                        </div>
+                        <button className='btn btn-success my-2' type='submit'>
                 Submit
-              </button>
-            </Container>
-          </form>
-        </div>
-      </>
+                        </button>
+                    </Container>
+                </form>
+            </div>
+        </>
     )
   }
 }
