@@ -39,7 +39,7 @@ class Navbar extends Component {
             <NavLink navTitle='Family Dashboard' to='/family' />
             <NavLink navTitle='Admin Dashboard' to='/admin' />
             <li className='nav-item float-right'>
-                <a href='' onClick={ this.onLogoutClick.bind(this) } className='nav-link text-light'>
+                <a href='' onClick={ this.onLogoutClick.bind(this) } className='nav-link text-light float-left'>
                     <img
               className='rounded-circle'
               src={ user.avatar }
