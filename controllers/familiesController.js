@@ -14,7 +14,7 @@ module.exports = {
     db.Family.findOne({ familyId: parseInt(req.params.id) })
       .then(dbModel => {
         console.log('DB MODEL CONSOLE', dbModel)
-        res.json(dbModel)
+        res.send(dbModel)
       })
       .catch(err => res.status(422).json(err));
   },
