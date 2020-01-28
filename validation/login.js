@@ -8,7 +8,7 @@ module.exports = function validateLoginInput(data) {
   data.password = !isEmpty(data.password) ? data.password : '';
 
   if (!Validator.isEmail(data.username)) {
-    errors.username = 'Username is invalid';
+    errors.username = 'Username must be in the form of an email';
   }
 
   if (Validator.isEmpty(data.username)) {

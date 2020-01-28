@@ -42,6 +42,9 @@ const FamilyDashboard = props => {
     }
   }, [user]);
 
+  // ===========================================================================
+  //  Uncomment this to pull a single family
+  // ===========================================================================
   // const getParent = () => {
   //   API.getFamilyById(familyId)
   //     .then(res => {
@@ -51,6 +54,9 @@ const FamilyDashboard = props => {
   //     .catch(err => console.log(err))
   // }
 
+  // ===========================================================================
+  // Uncomment this to pull all families
+  // ===========================================================================
   // const getAllParents = () => {
   //   API.getAllFamilies()
   //     .then(res => {
@@ -69,6 +75,7 @@ const FamilyDashboard = props => {
             size="sm-4 md-6 lg-8 xl-10"
             styling="align-self-center no-gutters"
           >
+
             <FamilyContainer familyData={singleFamilyData} />
           </Column>
         </Row>
@@ -76,5 +83,6 @@ const FamilyDashboard = props => {
     </>
   );
 };
+
 
 export default FamilyDashboard;
