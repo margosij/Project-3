@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from "axios";
 
 import {
   GET_FAMILY,
@@ -6,14 +6,15 @@ import {
   FAMILY_LOADING,
   CLEAR_CURRENT_FAMILY,
   GET_ERRORS,
-  SET_CURRENT_USER
-} from './types'
+  SET_CURRENT_USER,
+  ADD_FAMILY_TO_WAITLIST
+} from "./types";
 
 // Get current family
 export const getCurrentFamily = () => dispatch => {
-  dispatch(setFamilyLoading())
+  dispatch(setFamilyLoading());
   axios
-    .get('/api/family')
+    .get("/api/family")
     .then(res =>
       dispatch({
         type: GET_FAMILY,
@@ -25,12 +26,12 @@ export const getCurrentFamily = () => dispatch => {
         type: GET_FAMILY,
         payload: {}
       })
-    )
-}
+    );
+};
 
 // Get family by handle
 export const getFamilyById = id => dispatch => {
-  dispatch(setFamilyLoading())
+  dispatch(setFamilyLoading());
   axios
     .get(`/api/family/handle/${id}`)
     .then(res =>
@@ -44,27 +45,27 @@ export const getFamilyById = id => dispatch => {
         type: GET_FAMILY,
         payload: null
       })
-    )
-}
+    );
+};
 
 // Create family
 export const createFamily = (familyData, history) => dispatch => {
   axios
-    .post('/api/family', familyData)
-    .then(res => history.push('/family'))
+    .post("/api/family", familyData)
+    .then(res => history.push("/family"))
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
       })
-    )
-}
+    );
+};
 
 // Delete account & family
 export const deleteAccount = () => dispatch => {
-  if (window.confirm('Are you sure? This can NOT be undone!')) {
+  if (window.confirm("Are you sure? This can NOT be undone!")) {
     axios
-      .delete('/api/family')
+      .delete("/api/family")
       .then(res =>
         dispatch({
           type: SET_CURRENT_USER,
@@ -76,28 +77,28 @@ export const deleteAccount = () => dispatch => {
           type: GET_ERRORS,
           payload: err.response.data
         })
-      )
+      );
   }
-}
+};
 
 // family loading
 export const setFamilyLoading = () => {
   return {
     type: FAMILY_LOADING
-  }
-}
+  };
+};
 
 // Clear family
 export const clearCurrentFamily = () => {
   return {
     type: CLEAR_CURRENT_FAMILY
-  }
-}
+  };
+};
 // Get all profiles
 export const getFamilies = () => dispatch => {
   dispatch(setFamilyLoading());
   axios
-    .get('/api/family/all')
+    .get("/api/family/all")
     .then(res =>
       dispatch({
         type: GET_FAMILIES,
@@ -110,4 +111,12 @@ export const getFamilies = () => dispatch => {
         payload: null
       })
     );
+};
+
+// Add family to waitlist
+export const addFamilyToWaitlist = name => {
+  return {
+    type: ADD_FAMILY_TO_WAITLIST,
+    payload: name
+  };
 };
