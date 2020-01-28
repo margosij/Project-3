@@ -1,5 +1,8 @@
 # Project-3
 
+http://dismissal-app.herokuapp.com/
+https://github.com/margosij/Project-3
+
 The creators for Project 3 "Dismissed" were Kimberlyn Creary, Joel Margosian, Armon Roberts and Matt Wilson.
 
 The purpose of "Dismissed" is to give schools a more efficient way to move through the carpool process.  We used one school in particular as a case for our app.  The Harmony School in Houston, TX has over 1800 students and they don't use any forms of mass transportation.  Right now they have an archaic pick-up proccess that leads to traffic back-ups for miles and long wait times.
