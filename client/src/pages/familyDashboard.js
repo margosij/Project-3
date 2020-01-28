@@ -8,9 +8,9 @@ import Container from '../components/Container'
 const testFamilyID = '5e2e12b94e026a0a2cf08f65'
 
 const FamilyDashboard = props => {
-  const [ familyId, setFamilyId ] = useState(testFamilyID)
-  const [ allFamilies, setAllFamilies ] = useState([])
-  const [ singleFamilyData, setSingleFamilyData ] = useState({})
+  const [familyId, setFamilyId] = useState(testFamilyID)
+  const [allFamilies, setAllFamilies] = useState([])
+  const [singleFamilyData, setSingleFamilyData] = useState({})
   // const [parents, setParents] = useState([])
   // const [students, setStudents] = useState([])
   // const [singleParent, setSingleParents] = useState({})
@@ -33,6 +33,9 @@ const FamilyDashboard = props => {
       .catch(err => console.log(err))
   }, [])
 
+  // ===========================================================================
+  //  Uncomment this to pull a single family
+  // ===========================================================================
   // const getParent = () => {
   //   API.getFamilyById(familyId)
   //     .then(res => {
@@ -42,6 +45,9 @@ const FamilyDashboard = props => {
   //     .catch(err => console.log(err))
   // }
 
+  // ===========================================================================
+  // Uncomment this to pull all families
+  // ===========================================================================
   // const getAllParents = () => {
   //   API.getAllFamilies()
   //     .then(res => {
@@ -51,20 +57,17 @@ const FamilyDashboard = props => {
   // }
 
   return (
-      <>
-          <Container styling='align-self-center'>
-              <h1 className='text-center'>Family Dashboard</h1>
-              <Geolocated />
-              <Row styling='align-items-center justify-content-center my-5'>
-                  <Column
-            size='sm-4 md-6 lg-8 xl-10'
-            styling='align-self-center no-gutters'
-          >
-                      <FamilyContainer familyData={ singleFamilyData } />
-                  </Column>
-              </Row>
-          </Container>
-      </>
+    <>
+      <Container styling='align-self-center'>
+        <h1 className='text-center'>Family Dashboard</h1>
+        <Geolocated />
+        <Row styling='align-items-center justify-content-center my-5'>
+          <Column size='sm-4 md-6 lg-8 xl-10' styling='align-self-center no-gutters'>
+            <FamilyContainer familyData={singleFamilyData} />
+          </Column>
+        </Row>
+      </Container>
+    </>
   )
 }
 

@@ -6,7 +6,7 @@ import { setCurrentUser, logoutUser } from './actions/authActions'
 //Redux
 import { Provider } from 'react-redux'
 import store from './store'
-
+//Pages
 import Dismissal from './pages/dismissal'
 import Database from './pages/database'
 import Home from './pages/home'
@@ -17,9 +17,10 @@ import FamilyDashboard from './pages/familyDashboard'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
 import AdminDashboard from './pages/adminDashboard'
 import Login from './pages/Login'
-import { clearCurrentFamily } from './actions/familyActions'
+// import { clearCurrentFamily } from './actions/familyActions'
 
-// Check for token
+
+// Checking browser for token
 if (localStorage.jwtToken) {
 
   // Set auth token header auth

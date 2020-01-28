@@ -4,6 +4,7 @@ import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import { loginUser } from '../../actions/authActions'
 import { withRouter } from 'react-router-dom'
+// packages allows conditionals in classNames
 import classnames from 'classnames'
 class Login extends Component {
   constructor() {
@@ -33,13 +34,14 @@ class Login extends Component {
       this.setState({ errors: nextProps.errors })
     }
   }
-  onChange(e) {
-    this.setState({ [ e.target.name ]: e.target.value })
-  }
 
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value })
+  }
+  // when submit button is clicked
   onSubmit(e) {
-    e.preventDefault()
     console.log('submit hit')
+    e.preventDefault()
 
     const userData = {
       username: this.state.username,
@@ -50,60 +52,59 @@ class Login extends Component {
   }
   render() {
     const { errors } = this.state
+    console.log('errors', errors)
     return (
-        <>
-            <div className='container'>
-                <div className='mt-4'>
-                    <h2>Dismissed!</h2>
-                </div>
-                <form onSubmit={ this.onSubmit }>
-                    <Container className='mt-3 px-5'>
-                        <h6>Username:</h6>
-                        <Row className='form-group'>
-                            <Column size='12'>
-                                <input
-                    className={ classnames('', {
-                      invalid: errors.username
-                    }) }
-                    type='text'
-                    placeholder='username'
-                    name='username'
-                    onChange={ this.onChange }
-                  />
-                                <span className='invalid-feedback'>{errors.username}</span>
-                            </Column>
-                        </Row>
-                        <h6>Password:</h6>
-                        <Row className='form-group'>
-                            <Column size='12'>
-                                <input
-                    className={ classnames('', {
-                      invalid: errors.password
-                    }) }
-                    type='password'
-                    placeholder='Password'
-                    name='password'
-                    onChange={ this.onChange }
-                  />
-                                <span className='invalid-feedback'>{errors.password}</span>
-                            </Column>
-                        </Row>
-                        <button className='btn btn-success my-2' type='submit'>
+      <>
+        <div className='container'>
+          <div className='mt-4 mx-3'>
+            <h2>Dismissed!</h2>
+          </div>
+          <form onSubmit={this.onSubmit}>
+            <Container className='mt-3 px-5'>
+              <label for='username'>Username:</label>
+              <div className='form-group'>
+                <input
+                  className={classnames('form-control', {
+                    'is-invalid': errors.username
+                  })}
+                  type='text'
+                  placeholder='Username'
+                  name='username'
+                  onChange={this.onChange}
+                  id='username'
+                />
+                {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
+              </div>
+              <label>Password:</label>
+              <div className='form-group'>
+                <input
+                  className={classnames('form-control', {
+                    'is-invalid': errors.password
+                  })}
+                  type='password'
+                  placeholder='Password'
+                  name='password'
+                  onChange={this.onChange}
+                />
+                {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
+              </div>
+              <button className='btn btn-success my-2' type='submit'>
                 Submit
-                        </button>
-                    </Container>
-                </form>
-            </div>
-        </>
+              </button>
+            </Container>
+          </form>
+        </div>
+      </>
     )
   }
 }
+// defining proptypes
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 }
-
+// mapping global state to local state
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
