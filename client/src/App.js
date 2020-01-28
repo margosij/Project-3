@@ -42,7 +42,7 @@ if (localStorage.jwtToken) {
     store.dispatch(logoutUser());
 
     // Redirect to login
-    location.href = '/';
+    window.location.href = '/';
   }
 }
 
