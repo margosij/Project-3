@@ -39,6 +39,6 @@ We have created a database with all the students and parents/guardians.  Each st
 
 #### Future Releases coming soon...
 
-Hosted on [Heroku](http://dismissal-app.herokuapp.com/)
+Hosted on [Heroku](https://dismissed.herokuapp.com/)
 Forked from [Project-3](https://github.com/margosij/Project-3)
 Created in collaboration with [Kimberlyn Creary](https://github.com/kimocreary), [Joel Margosian](https://github.com/margosij), [Armon Roberts](https://github.com/armonkahil) and [Matt Wilson](https://github.com/matt-wilson78).
