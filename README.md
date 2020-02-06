@@ -10,12 +10,13 @@ We have created a database with all the students and parents/guardians.  Each st
 ___
 ### Technologies used:
 - JavaScript ES6
+- ReactJS
+- Express
+- MongoDB
+- Bootstrap
 - Socket IO
 - Bcrypt
-- ReactJS
-- Bootstrap
 - Passport
-- MongoDB
 - Morgan
 - Path
 - ESlint
@@ -25,7 +26,6 @@ ___
 - Heroku
 - Postman
 - Body Parser
-- Express
 - Cors
 - Mongoose
 - JSON web token
