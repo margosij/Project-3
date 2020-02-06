@@ -4,7 +4,8 @@ import { logoutUser } from '../../actions/authActions'
 import NavLink from '../NavLink'
 import PropTypes from 'prop-types'
 import './style.css'
-
+import Logo from '../Logo'
+import { Link } from 'react-router-dom'
 class Navbar extends Component {
   state = {
     collapsed: true
@@ -74,8 +75,8 @@ class Navbar extends Component {
       </ul>
     )
     return (
-      <>
-        <nav className='navbar navbar-expand-lg text-light m-0'>
+      <div>
+        <nav className='navbar navbar-expand-lg text-light'>
           <button
             onClick={this.toggleNavbar}
             className={`${classTwo} bg-light`}
@@ -89,19 +90,11 @@ class Navbar extends Component {
             <span className='navbar-toggler-icon' />
           </button>
           <div className={`${classOne} pl-2 text-light`} id='navbarResponsive'>
-            <a className='navbar-brand' href='https://hsenrichment.harmonytx.org/' target='_blank'>
-              <img
-                src='https://harmonypublicschools.network/hsenrichment-new/wp-content/uploads/sites/111/2019/03/hsenrichment-houston-white-300px.png'
-                width='150'
-                height='80'
-                alt='Harmony Logo'
-               
-              />
-            </a>
+            <Logo />
             {isAuthenticated ? authLinks : guestLinks}
           </div>
         </nav>
-      </>
+      </div>
     )
   }
 }

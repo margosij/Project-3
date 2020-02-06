@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react'
 import { Row, Column } from '../components/Grid'
 import FamilyContainer from '../components/FamilyContainer'
 import API from '../utils/Api'
-import Geolocated from '../components/Geolocated/Geolocated'
 import Container from '../components/Container'
 import { useSelector } from 'react-redux'
 
@@ -17,19 +16,6 @@ const FamilyDashboard = props => {
   const [singleFamilyData, setSingleFamilyData] = useState({})
   console.log('singleFamilyData:', singleFamilyData)
   console.log('user!!!!!!:', user)
-
-  // const [parents, setParents] = useState([])
-  // const [students, setStudents] = useState([])
-  // const [singleParent, setSingleParents] = useState({})
-
-  // useEffect(() => {
-  //   API.getAllFamilies()
-  //     .then(res => {
-  //       console.log(res);
-  //       setAllFamilies(res);
-  //     })
-  //     .catch(err => console.log(err));
-  // }, []);
 
   useEffect(() => {
     if (user) {
@@ -68,15 +54,12 @@ const FamilyDashboard = props => {
 
   return (
     <>
-      <Container styling='align-self-center'>
-        <h1 className='text-center'>Family Dashboard</h1>
-        <Geolocated />
-        <Row styling='align-items-center justify-content-center my-5'>
-          <Column size='sm-4 md-6 lg-8 xl-10' styling='align-self-center no-gutters'>
-            <FamilyContainer familyData={singleFamilyData} />
-          </Column>
-        </Row>
-      </Container>
+      <h1 className='text-center'>Family Dashboard</h1>
+      <Row styling='align-items-center justify-content-center my-5'>
+        <Column size='sm-4 md-6 lg-8 xl-10' styling='align-self-center no-gutters'>
+          <FamilyContainer familyData={singleFamilyData} />
+        </Column>
+      </Row>
     </>
   )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
-import './jumbotron.css'
+import './style.css'
 
 const Jumbotron = ({ children, title, lead, styling }) => {
   return (
-    <div className={`jumbotron jumbotron-fluid text-light ${styling}`}>
+    <div className={`jumbotron text-light my-3 ${styling}`}>
       <div className='container text-center'>
         <h1 className='display-3'>{title}</h1>
         <h2 className='display-5 display-md-6'>{lead}</h2>
