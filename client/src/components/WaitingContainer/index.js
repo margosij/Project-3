@@ -1,7 +1,5 @@
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-indent */
-/* eslint-disable array-bracket-spacing */
-import React, { useState } from 'react';
+
+import React from 'react';
 import Card from '../Card';
 import CardHeader from '../CardHeader';
 import { addFamilyToWaitlist } from '../../actions/familyActions';
