@@ -38,7 +38,7 @@ class Navbar extends Component {
         <NavLink navTitle='Family Dashboard' to='/family' />
         <NavLink navTitle='Admin Dashboard' to='/admin' />
         <li className='nav-item float-right'>
-          <a href='' onClick={this.onLogoutClick.bind(this)} className='nav-link text-light'>
+          <a href='/profile' onClick={this.onLogoutClick.bind(this)} className='nav-link text-light'>
             <img
               className='rounded-circle'
               src={ user.avatar }
@@ -66,10 +66,10 @@ class Navbar extends Component {
       <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
         <NavLink navTitle='Home' to='/' />
         {/* <NavLink navTitle='Sign Up' to='/signup' /> */}
-        <NavLink navTitle='Dismissal' to='/dismissal' />
-        <NavLink navTitle='Database Dashboard' to='/database' />
-        <NavLink navTitle='Family Dashboard' to='/family' />
-        <NavLink navTitle='Admin Dashboard' to='/admin' />
+        {/* <NavLink navTitle='Dismissal' to='/dismissal' /> */}
+        {/* <NavLink navTitle='Database Dashboard' to='/database' /> */}
+        {/* <NavLink navTitle='Family Dashboard' to='/family' /> */}
+        {/* <NavLink navTitle='Admin Dashboard' to='/admin' /> */}
         {/* <NavLink navTitle='Socket.io Boiler Plate' to='/socket' /> */}
       </ul>
     )
@@ -89,13 +89,13 @@ class Navbar extends Component {
             <span className='navbar-toggler-icon' />
           </button>
           <div className={`${classOne} pl-2 text-light`} id='navbarResponsive'>
-            <a className='navbar-brand' href='https://hsenrichment.harmonytx.org/'>
+            <a className='navbar-brand' href='https://hsenrichment.harmonytx.org/' target='_blank'>
               <img
                 src='https://harmonypublicschools.network/hsenrichment-new/wp-content/uploads/sites/111/2019/03/hsenrichment-houston-white-300px.png'
                 width='150'
                 height='80'
                 alt='Harmony Logo'
-                target='_blank'
+               
               />
             </a>
             {isAuthenticated ? authLinks : guestLinks}

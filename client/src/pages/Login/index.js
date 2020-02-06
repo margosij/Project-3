@@ -55,10 +55,10 @@ class Login extends Component {
     const { errors } = this.state
     console.log('errors', errors)
     return (
-      <>
-        <div className='container col-4'>
+      <div className="row justify-content-center">
+        <div className='container col border-right'>
           <div className='mt-4 mx-3'>
-            <h2>Dismissed!</h2>
+            <h2>Family Login</h2>
           </div>
           <form onSubmit={this.onSubmit}>
             <Container className='mt-3 px-5'>
@@ -99,7 +99,50 @@ class Login extends Component {
             </Container>
           </form>
         </div>
-      </>
+        <div className='container col border-left'>
+          <div className='mt-4 mx-3'>
+            <h2>Admin Login</h2>
+          </div>
+          <form onSubmit={this.onSubmit}>
+            <Container className='mt-3 px-5'>
+              <div className='form-group'>
+                <input
+                  className={classnames('form-control', {
+                    'is-invalid': errors.username
+                  })}
+                  type='text'
+                  placeholder='Username'
+                  name='username'
+                  onChange={this.onChange}
+                  id='username'
+                />
+                {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
+              </div>
+              <div className='form-group'>
+                <input
+                  className={classnames('form-control', {
+                    'is-invalid': errors.password
+                  })}
+                  type='password'
+                  placeholder='Password'
+                  name='password'
+                  onChange={this.onChange}
+                />
+                {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
+              </div>
+              <div>
+
+              <button className='btn btn-success my-2' type='submit'>
+                Submit
+              </button>
+              <Link className='nav-link float-right' to='/signup' path='/signup'>
+                Sign Up
+              </Link>
+              </div>
+            </Container>
+          </form>
+        </div>
+      </div>
     )
   }
 }
