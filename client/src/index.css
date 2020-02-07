@@ -11,10 +11,11 @@
 html, body {
   height: 100%;
   overflow: auto;
-  background-color: #D1D3D4;
   font-family: 'Open Sans','HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;
   font-size: 17px;
   font-weight: 600;
+   background-color: #044694;
+
 }
 /* html {
   margin: 0px;
@@ -30,8 +31,12 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
+  }
+  
 .studentCard, .parentCard {
   max-height: 500px;
+}
+.navbar {
+  
+  background-color: #D1D3D4;
 }
