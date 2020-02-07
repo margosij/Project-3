@@ -65,7 +65,7 @@ class Navbar extends Component {
     )
     return (
       <div>
-        <nav className='navbar navbar-expand-lg navbar-light rounded-lg'>
+        <nav className='navbar navbar-expand-lg navbar-light rounded-lg my-4'>
           <button
             onClick={this.toggleNavbar}
             className={`${classTwo}`}

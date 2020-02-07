@@ -57,7 +57,7 @@ class Login extends Component {
       <Row styling ='justify-content-center'>
         <div className='container col-xl-4'>
           <div className='mt-4 mx-3'>
-            <h2>Login</h2>
+            <h2 className='text-light'>Login</h2>
           </div>
           <form onSubmit={this.onSubmit}>
             <Container className='mt-3 px-5'>
@@ -90,7 +90,7 @@ class Login extends Component {
                 <button className='btn btn-success my-2' type='submit'>
                   Submit
                 </button>
-                <Link className='nav-link float-right' to='/signup' path='/signup'>
+                <Link className='nav-link float-right text-light' to='/signup' path='/signup'>
                   Sign Up
                 </Link>
               </div>
