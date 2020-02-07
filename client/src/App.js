@@ -17,6 +17,7 @@ import SignUp from './pages/SignUp'
 import FamilyDashboard from './pages/FamilyDashboard'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
 import AdminDashboard from './pages/AdminDashboard'
+import Example from './components/NewNavBar'
 
 // Checking browser for token
 if (localStorage.jwtToken) {
@@ -49,6 +50,7 @@ class App extends Component {
           <div className='col-8 container'>
             <Router>
               <Navbar />
+              <Example />
               <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/dismissal' component={Dismissal} />

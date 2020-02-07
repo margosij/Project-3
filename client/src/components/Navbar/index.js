@@ -51,19 +51,9 @@ class Navbar extends Component {
         </li>
       </ul>
     )
-    // const familyLinks = (
-    //   <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
-    //     <NavLink navTitle='Home' to='/' />
-    //     <NavLink navTitle='Sign Up' to='/signup' />
-    //     <NavLink navTitle='Dismissal' to='/dismissal' />
-    //     <NavLink navTitle='Database Dashboard' to='/database' />
-    //     <NavLink navTitle='Family Dashboard' to='/family' />
-    //     <NavLink navTitle='Admin Dashboard' to='/admin' />
-    //     <NavLink navTitle='Socket.io Boiler Plate' to='/socket' />
-    //   </ul>
-    // )
+   
     const guestLinks = (
-      <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
+      <ul className='navbar-nav mr-auto'>
         {/* <NavLink navTitle='Home' to='/' /> */}
         {/* <NavLink navTitle='Sign Up' to='/signup' /> */}
         {/* <NavLink navTitle='Dismissal' to='/dismissal' /> */}
@@ -75,10 +65,10 @@ class Navbar extends Component {
     )
     return (
       <div>
-        <nav className='navbar navbar-expand-lg text-light'>
+        <nav className='navbar navbar-expand-lg navbar-light rounded-lg'>
           <button
             onClick={this.toggleNavbar}
-            className={`${classTwo} bg-light`}
+            className={`${classTwo}`}
             type='button'
             data-toggle='collapse'
             data-target='#navbarResponsive'
@@ -86,9 +76,9 @@ class Navbar extends Component {
             aria-expanded='false'
             aria-label='Toggle navigation'
           >
-            <span className='navbar-toggler-icon' />
+            <span className='navbar-toggler-icon'></span>
           </button>
-          <div className={`${classOne} pl-2 text-light`} id='navbarResponsive'>
+          <div className={`${classOne} pl-2 text-light navbar-brand`} id='navbarResponsive'>
             <Logo />
             {isAuthenticated ? authLinks : guestLinks}
           </div>

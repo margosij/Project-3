@@ -4,7 +4,7 @@ import logo from './hsenrichment-houston-white-300px.png'
 const Logo = () => {
   return (
     <a
-      className='navbar-brand'
+      className='navbar-brand mr-auto'
       href='https://hsenrichment.harmonytx.org'
       target='_blank'
       rel='noopener noreferrer'
