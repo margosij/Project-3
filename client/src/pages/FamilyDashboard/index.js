@@ -52,14 +52,14 @@ const FamilyDashboard = props => {
   // }
 
   return (
-    <>
+    <div>
       <h1 className='text-center'>Family Dashboard</h1>
-      <Row styling='align-items-center my-5'>
-        <Column size='sm-4 md-6 lg-8 xl-10' styling='align-self-center no-gutters'>
+      <Row styling='my-5'>
+        <Column  styling='align-self-center no-gutters'>
           <FamilyContainer familyData={singleFamilyData} />
         </Column>
       </Row>
-    </>
+    </div>
   )
 }
 

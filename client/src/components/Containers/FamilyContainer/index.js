@@ -9,8 +9,8 @@ import Geolocated from '../../Geolocated/Geolocated'
 
 const FamilyContainer = props => {
   return (
-    <div className='col-8'>
-      <Row styling='row-cols-1 row-cols-md-2"'>
+    <div>
+      <Row styling='justify-content-center'>
         <Card>
           <CardHeader title={`The ${props.familyData.familyLastName} Family`} />
           <Container>
