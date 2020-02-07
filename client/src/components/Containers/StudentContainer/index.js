@@ -1,6 +1,6 @@
 import React from 'react'
-import Card from '../Card'
-import { ListItem } from '../List'
+import Card from '../../Card'
+import { ListItem } from '../../List'
 import './style.css'
 const StudentContainer = props => {
   return (

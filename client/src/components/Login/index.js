@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-import { Container, Row, Column } from '../../components/Grid'
+import { Container, Row } from '../../components/Grid'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import { loginUser } from '../../actions/authActions'
 import { withRouter, Link } from 'react-router-dom'
 // packages allows conditionals in classNames
 import classnames from 'classnames'
-import SignUp from '../SignUp'
 class Login extends Component {
   constructor() {
     super()
@@ -55,10 +54,10 @@ class Login extends Component {
     const { errors } = this.state
     console.log('errors', errors)
     return (
-      <div className="row justify-content-center">
-        <div className='container col border-right'>
+      <Row styling ='justify-content-center'>
+        <div className='container col-4 border-right'>
           <div className='mt-4 mx-3'>
-            <h2>Family Login</h2>
+            <h2>Login</h2>
           </div>
           <form onSubmit={this.onSubmit}>
             <Container className='mt-3 px-5'>
@@ -88,65 +87,21 @@ class Login extends Component {
                 {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
               </div>
               <div>
-
-              <button className='btn btn-success my-2' type='submit'>
-                Submit
-              </button>
-              <Link className='nav-link float-right' to='/signup' path='/signup'>
-                Sign Up
-              </Link>
+                <button className='btn btn-success my-2' type='submit'>
+                  Submit
+                </button>
+                <Link className='nav-link float-right' to='/signup' path='/signup'>
+                  Sign Up
+                </Link>
               </div>
             </Container>
           </form>
         </div>
-        <div className='container col border-left'>
-          <div className='mt-4 mx-3'>
-            <h2>Admin Login</h2>
-          </div>
-          <form onSubmit={this.onSubmit}>
-            <Container className='mt-3 px-5'>
-              <div className='form-group'>
-                <input
-                  className={classnames('form-control', {
-                    'is-invalid': errors.username
-                  })}
-                  type='text'
-                  placeholder='Username'
-                  name='username'
-                  onChange={this.onChange}
-                  id='username'
-                />
-                {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
-              </div>
-              <div className='form-group'>
-                <input
-                  className={classnames('form-control', {
-                    'is-invalid': errors.password
-                  })}
-                  type='password'
-                  placeholder='Password'
-                  name='password'
-                  onChange={this.onChange}
-                />
-                {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
-              </div>
-              <div>
-
-              <button className='btn btn-success my-2' type='submit'>
-                Submit
-              </button>
-              <Link className='nav-link float-right' to='/signup' path='/signup'>
-                Sign Up
-              </Link>
-              </div>
-            </Container>
-          </form>
-        </div>
-      </div>
+      </Row>
     )
   }
 }
-// defining proptypes
+// defining propTypes
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,

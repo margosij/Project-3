@@ -1,25 +1,29 @@
 import React from 'react'
-import { Row, Column, Container } from '../Grid'
-import Card from '../Card'
-import CardHeader from '../CardHeader'
+import { Container, Column, Row } from '../../Grid'
+// import { AppProvider, Page } from '@shopify/polaris'
+// import DataTable from './DataTable'
+// import './style.css'
+import Card from '../../Card'
+import CardHeader from '../../CardHeader'
 import ParentsContainer from '../parentsContainer'
-import { List } from '../List'
+import { List } from '../../List'
 import StudentContainer from '../StudentContainer'
-import Geolocated from '../Geolocated/Geolocated';
 
-const FamilyContainer = props => {
+const TeacherContainer = props => {
+  console.log('props:', props)
+
   return (
     <>
       <Container>
         <Row styling='row-cols-1 row-cols-md-2"'>
           <Card>
-            <CardHeader title={`The ${props.familyData.familyLastName} Family`} />
+            <CardHeader title={'Child Pickup'} />
             <Container>
               <Row styling='row-cols-1 row-cols-md-2'>
                 <Column styling='px-0'>
-                  <Card styling='guardianContainer'>
-                    <CardHeader title='Guardians' />
-                    <List styling='list-inline'>
+                  <Card styling='teacherContainer'>
+                    <CardHeader title='Parent to Pick up Child' />
+                    <List>
                       {props.familyData.guardians ? (
                         props.familyData.guardians.map((parents, index) => (
                           <ParentsContainer
@@ -44,8 +48,8 @@ const FamilyContainer = props => {
                 </Column>
                 <Column styling='px-0 mx-0'>
                   <Card styling='studentCard'>
-                    <CardHeader title='Students' />
-                    <List styling='list-inline'>
+                    <CardHeader title='Children' />
+                    <List>
                       {props.familyData.students ? (
                         props.familyData.students.map((students, index) => (
                           <StudentContainer
@@ -69,11 +73,12 @@ const FamilyContainer = props => {
                     </List>
                   </Card>
                 </Column>
-              </Row>
-              <Row>
-                <Column>
-                  <Card styling='card-body mx-0'><Geolocated /></Card>
-                </Column>
+                {/* <Column>
+                                  <Card>
+                                      <CardHeader title='Child Pickup'/>
+                                      <input type='checkbox' value='pickedUp'></input>
+                                  </Card>
+                              </Column> */}
               </Row>
             </Container>
           </Card>
@@ -83,4 +88,4 @@ const FamilyContainer = props => {
   )
 }
 
-export default FamilyContainer
+export default TeacherContainer

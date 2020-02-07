@@ -1,8 +1,8 @@
 
 import React from 'react';
-import Card from '../Card';
-import CardHeader from '../CardHeader';
-import { addFamilyToWaitlist } from '../../actions/familyActions';
+import Card from '../../Card';
+import CardHeader from '../../CardHeader';
+import { addFamilyToWaitlist } from '../../../actions/familyActions';
 // import socket.io client -- A client-side build of Socket.io
 import openSocket from 'socket.io-client';
 import { useSelector, useDispatch } from 'react-redux';

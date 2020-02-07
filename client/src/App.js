@@ -8,17 +8,15 @@ import { setCurrentUser, logoutUser } from './actions/authActions'
 import { Provider } from 'react-redux'
 import store from './store'
 //Pages
-import Dismissal from './pages/dismissal'
-import Database from './pages/database'
-import Home from './pages/home'
-import NoMatch from './pages/nomatch'
+import Dismissal from './pages/Dismissal'
+import Database from './pages/Database'
+import Home from './pages/Home'
+import NoMatch from './pages/NoMatch'
 import Navbar from './components/Navbar'
 import SignUp from './pages/SignUp'
-import FamilyDashboard from './pages/familyDashboard'
+import FamilyDashboard from './pages/FamilyDashboard'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
-import AdminDashboard from './pages/adminDashboard'
-import Login from './pages/Login'
-// import { clearCurrentFamily } from './actions/familyActions'
+import AdminDashboard from './pages/AdminDashboard'
 
 // Checking browser for token
 if (localStorage.jwtToken) {
@@ -50,7 +48,6 @@ class App extends Component {
         <div className='col-8 mx-auto'>
           <Router>
             <Navbar />
-            {/* <Login /> */}
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/dismissal' component={Dismissal} />

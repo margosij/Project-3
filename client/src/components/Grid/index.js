@@ -3,7 +3,7 @@ import React from 'react'
 export const Container = props => {
   
   return (
-    <div className={`container-fluid ${props.styling}`}>{props.children}</div>
+    <div className={`container ${props.styling}`}>{props.children}</div>
   )
 }
 

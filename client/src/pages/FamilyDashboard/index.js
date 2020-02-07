@@ -1,10 +1,9 @@
 /* eslint-disable quotes */
 import React, { useState, useEffect } from 'react'
 // import Jumbotron from '../components/Jumbotron'
-import { Row, Column } from '../components/Grid'
-import FamilyContainer from '../components/FamilyContainer'
-import API from '../utils/Api'
-import Container from '../components/Container'
+import { Row, Column } from '../../components/Grid'
+import FamilyContainer from '../../components/Containers/FamilyContainer'
+import API from '../../utils/Api'
 import { useSelector } from 'react-redux'
 
 const FamilyDashboard = props => {
@@ -55,7 +54,7 @@ const FamilyDashboard = props => {
   return (
     <>
       <h1 className='text-center'>Family Dashboard</h1>
-      <Row styling='align-items-center justify-content-center my-5'>
+      <Row styling='align-items-center my-5'>
         <Column size='sm-4 md-6 lg-8 xl-10' styling='align-self-center no-gutters'>
           <FamilyContainer familyData={singleFamilyData} />
         </Column>

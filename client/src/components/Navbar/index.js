@@ -5,7 +5,6 @@ import NavLink from '../NavLink'
 import PropTypes from 'prop-types'
 import './style.css'
 import Logo from '../Logo'
-import { Link } from 'react-router-dom'
 class Navbar extends Component {
   state = {
     collapsed: true
@@ -65,7 +64,7 @@ class Navbar extends Component {
     // )
     const guestLinks = (
       <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
-        <NavLink navTitle='Home' to='/' />
+        {/* <NavLink navTitle='Home' to='/' /> */}
         {/* <NavLink navTitle='Sign Up' to='/signup' /> */}
         {/* <NavLink navTitle='Dismissal' to='/dismissal' /> */}
         {/* <NavLink navTitle='Database Dashboard' to='/database' /> */}
