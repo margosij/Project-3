@@ -17,7 +17,7 @@ import SignUp from './pages/SignUp'
 import FamilyDashboard from './pages/FamilyDashboard'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
 import AdminDashboard from './pages/AdminDashboard'
-import Example from './components/NewNavBar'
+// import Example from './components/NewNavBar'
 
 // Checking browser for token
 if (localStorage.jwtToken) {
