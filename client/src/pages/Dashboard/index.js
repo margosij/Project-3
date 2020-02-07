@@ -7,14 +7,8 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Container>
-          <Row styling='row align-self-center'>
-            <Column>
-              <Jumbotron title='Welcome to Harmony' lead='Homepage' />
-            </Column>
-          </Row>
-          <Login/>
-        </Container>
+        <Jumbotron title='Dismissed' lead='Harmony School of Enrichment' />
+        <Login />
       </div>
     )
   }

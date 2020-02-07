@@ -1,7 +1,7 @@
 import React from 'react'
-import { ListItem } from '../List'
-import Card from '../Card'
-import CheckInBtn from '../Buttons'
+import { ListItem } from '../../List'
+import Card from '../../Card'
+import CheckInBtn from '../../Buttons'
 import './style.css'
 
 const ParentsContainer = props => {

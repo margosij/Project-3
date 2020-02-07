@@ -11,6 +11,10 @@
 html, body {
   height: 100%;
   overflow: auto;
+  background-color: #D1D3D4;
+  font-family: 'Open Sans','HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;
+  font-size: 17px;
+  font-weight: 600;
 }
 /* html {
   margin: 0px;

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { Container, Row, Column } from '../../components/Grid'
+import { Container, Row } from '../../components/Grid'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import { loginUser } from '../../actions/authActions'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 // packages allows conditionals in classNames
 import classnames from 'classnames'
 class Login extends Component {
@@ -25,7 +25,7 @@ class Login extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push('/family')
     }
@@ -36,7 +36,7 @@ class Login extends Component {
   }
 
   onChange(e) {
-    this.setState({ [ e.target.name ]: e.target.value })
+    this.setState({ [e.target.name]: e.target.value })
   }
   // when submit button is clicked
   onSubmit(e) {
@@ -54,51 +54,54 @@ class Login extends Component {
     const { errors } = this.state
     console.log('errors', errors)
     return (
-        <>
-            <div className='container'>
-                <div className='mt-4 mx-3'>
-                    <h2>Dismissed!</h2>
-                </div>
-                <form onSubmit={ this.onSubmit }>
-                    <Container className='mt-3 px-5'>
-                        <label for='username'>Username:</label>
-                        <div className='form-group'>
-                            <input
-                  className={ classnames('form-control', {
+      <Row styling ='justify-content-center'>
+        <div className='container col-xl-4'>
+          <div className='mt-4 mx-3'>
+            <h2>Login</h2>
+          </div>
+          <form onSubmit={this.onSubmit}>
+            <Container className='mt-3 px-5'>
+              <div className='form-group'>
+                <input
+                  className={classnames('form-control', {
                     'is-invalid': errors.username
-                  }) }
+                  })}
                   type='text'
                   placeholder='Username'
                   name='username'
-                  onChange={ this.onChange }
+                  onChange={this.onChange}
                   id='username'
                 />
-                            {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
-                        </div>
-                        <label>Password:</label>
-                        <div className='form-group'>
-                            <input
-                  className={ classnames('form-control', {
+                {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
+              </div>
+              <div className='form-group'>
+                <input
+                  className={classnames('form-control', {
                     'is-invalid': errors.password
-                  }) }
+                  })}
                   type='password'
                   placeholder='Password'
                   name='password'
-                  onChange={ this.onChange }
+                  onChange={this.onChange}
                 />
-                            {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
-                        </div>
-                        <button className='btn btn-success my-2' type='submit'>
-                Submit
-                        </button>
-                    </Container>
-                </form>
-            </div>
-        </>
+                {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
+              </div>
+              <div>
+                <button className='btn btn-success my-2' type='submit'>
+                  Submit
+                </button>
+                <Link className='nav-link float-right' to='/signup' path='/signup'>
+                  Sign Up
+                </Link>
+              </div>
+            </Container>
+          </form>
+        </div>
+      </Row>
     )
   }
 }
-// defining proptypes
+// defining propTypes
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,

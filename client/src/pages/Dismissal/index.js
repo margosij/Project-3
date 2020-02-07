@@ -1,7 +1,7 @@
 import React from 'react'
 // import Jumbotron from '../components/Jumbotron'
-import { Row, Column, Container } from '../components/Grid'
-import Waiting from '../components/WaitingContainer'
+import { Row, Column, Container } from '../../components/Grid'
+import Waiting from '../../components/Containers/WaitingContainer'
 
 const Dismissal = () => {
   return (
