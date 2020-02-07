@@ -50,7 +50,7 @@ class App extends Component {
           <div className='col-8 container'>
             <Router>
               <Navbar />
-              <Example />
+              {/* <Example /> */}
               <Switch>
                 <Route exact path='/' component={Home} />
                 <Route exact path='/dismissal' component={Dismissal} />
