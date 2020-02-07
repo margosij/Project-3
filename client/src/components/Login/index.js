@@ -55,7 +55,7 @@ class Login extends Component {
     console.log('errors', errors)
     return (
       <Row styling ='justify-content-center'>
-        <div className='container col-4 border-right'>
+        <div className='container col-xl-4'>
           <div className='mt-4 mx-3'>
             <h2>Login</h2>
           </div>
