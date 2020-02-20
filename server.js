@@ -16,6 +16,23 @@ const app = express()
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use((req, res, next) => {
+  if (req.path !== '/' && !req.path.includes('.')) {
+    res.header({
+      'Access-Control-Allow-Credentials': true,
+      'Access-Control-Allow-Origin': req.headers.origin || '*',
+      'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type, Accept',
+      'Access-Control-Allow-Methods': 'PUT, POST, GET, DELETE, OPTIONS',
+      'Content-Type': 'application/json; charset=utf-8',
+      'set-cookie': [
+        'same-site-cookie=bar; SameSite=Lax',
+        'cross-site-cookie=foo; SameSite=None; Secure'
+      ]
+    })
+    
+  }
+  next()
+})
 app.use(morgan('dev'))
 // DB Config
 const db = require('./config/keys').mongoURI
@@ -24,9 +41,9 @@ mongoose.set('useNewUrlParser', true)
 // mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)
 mongoose
-  .connect(db)
-  .then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err))
+.connect(db)
+.then(() => console.log('MongoDB Connected'))
+.catch(err => console.log(err))
 
 // Serve up static assets (usually on heroku)
 // Server static assets if in production
@@ -45,18 +62,6 @@ require('./config/passport')(passport) // require our local strategy
 // Add routes, and API
 app.use(routes)
 
-app.use((req, res, next) => {
-  if (req.path !== '/' && !req.path.includes('.')) {
-    res.header({
-      'Access-Control-Allow-Credentials': true,
-      'Access-Control-Allow-Origin': req.headers.origin || '*',
-      'Access-Control-Allow-Headers': 'X-Requested-With, Content-Type, Accept',
-      'Access-Control-Allow-Methods': 'PUT, POST, GET, DELETE, OPTIONS',
-      'Content-Type': 'application/json; charset=utf-8'
-    })
-  }
-  next()
-})
 
 const server = app.listen(PORT, () => {
   console.log(`🌎  ==> API Server now listening on PORT ${ PORT }!`)

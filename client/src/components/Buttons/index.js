@@ -2,7 +2,8 @@ import React from 'react'
 // import socket.io client -- A client-side build of Socket.io
 import openSocket from 'socket.io-client'
 // open a webSocket on this port --this will change when deployed
-const socket = openSocket('https://dismissal-app.herokuapp.com/')
+import devSocket from '../../utils/setdev'
+const socket = openSocket(devSocket)
 
 // const componentDidMount = () => {
 //   // test emits when the component mounts

@@ -3,7 +3,8 @@ import Card from '../../components/Card'
 // import socket.io client -- A client-side build of Socket.io
 import openSocket from 'socket.io-client'
 // open a webSocket on this port --this will change when deployed
-const socket = openSocket('https://dismissal-app.herokuapp.com/')
+import devSocket from '../../utils/setdev'
+const socket = openSocket(devSocket)
 
 // "socket.on('Hello there', function()) ---listen for a data with a 'Hello there' tag, and then complete function---the function is whatever you want it to be or do.
 // "socket.emit('Hello there', data) --- emit a broadcast to all browsers with a tag of 'Hello there'. data has to be in the form of an object ex. {data:'I Heard you'}
@@ -39,23 +40,22 @@ class Admin extends Component {
     // listen for data with a 'hello tag
     socket.on('hello', data => console.log(data.message))
     return (
-        <>
-            <Card>
-                <div className='card-body'>
-                    <h5 className='card-title'>Socket Emitter Test Admin</h5>
-                    <p className='card-text'>
-                        {this.state.adminId} is signed in. This is the timer value:{' '}
-                        {this.state.timestamp}
-                    </p>
-                    <button
+      <>
+        <Card>
+          <div className='card-body'>
+            <h5 className='card-title'>Socket Emitter Test Admin</h5>
+            <p className='card-text'>
+              {this.state.adminId} is signed in. This is the timer value: {this.state.timestamp}
+            </p>
+            <button
               className='btn btn-primary'
-              onClick={ () => this.handleEmit('adminGreet', 'i hate you all') }
+              onClick={() => this.handleEmit('adminGreet', 'i hate you all')}
             >
               I hate my job
-                    </button>
-                </div>
-            </Card>
-        </>
+            </button>
+          </div>
+        </Card>
+      </>
     )
   }
 }

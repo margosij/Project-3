@@ -15,11 +15,7 @@ const Chat = () => {
                 </div>
                 <div className='srch_bar'>
                   <div className='stylish-input-group'>
-                    <input
-                      type='text'
-                      className='search-bar'
-                      placeholder='Search'
-                    />
+                    <input type='text' className='search-bar' placeholder='Search' />
                     <span className='input-group-addon'>
                       <button type='button'>
                         {' '}
@@ -44,8 +40,8 @@ const Chat = () => {
                         John Smith <span className='chat_date'>Dec 25</span>
                       </h5>
                       <p>
-                        Test, which is a new approach to have all solutions
-                        astrology under one roof.
+                        Test, which is a new approach to have all solutions astrology under one
+                        roof.
                       </p>
                     </div>
                   </div>
@@ -64,8 +60,8 @@ const Chat = () => {
                         John Smith <span className='chat_date'>Dec 25</span>
                       </h5>
                       <p>
-                        Test, which is a new approach to have all solutions
-                        astrology under one roof.
+                        Test, which is a new approach to have all solutions astrology under one
+                        roof.
                       </p>
                     </div>
                   </div>
@@ -84,8 +80,8 @@ const Chat = () => {
                         John Smith <span className='chat_date'>Dec 25</span>
                       </h5>
                       <p>
-                        Test, which is a new approach to have all solutions
-                        astrology under one roof.
+                        Test, which is a new approach to have all solutions astrology under one
+                        roof.
                       </p>
                     </div>
                   </div>
@@ -104,8 +100,8 @@ const Chat = () => {
                         John Smith <span className='chat_date'>Dec 25</span>
                       </h5>
                       <p>
-                        Test, which is a new approach to have all solutions
-                        astrology under one roof.
+                        Test, which is a new approach to have all solutions astrology under one
+                        roof.
                       </p>
                     </div>
                   </div>
@@ -124,8 +120,8 @@ const Chat = () => {
                         John Smith <span className='chat_date'>Dec 25</span>
                       </h5>
                       <p>
-                        Test, which is a new approach to have all solutions
-                        astrology under one roof.
+                        Test, which is a new approach to have all solutions astrology under one
+                        roof.
                       </p>
                     </div>
                   </div>
@@ -144,8 +140,8 @@ const Chat = () => {
                         John Smith <span className='chat_date'>Dec 25</span>
                       </h5>
                       <p>
-                        Test, which is a new approach to have all solutions
-                        astrology under one roof.
+                        Test, which is a new approach to have all solutions astrology under one
+                        roof.
                       </p>
                     </div>
                   </div>
@@ -164,8 +160,8 @@ const Chat = () => {
                         John Smith <span className='chat_date'>Dec 25</span>
                       </h5>
                       <p>
-                        Test, which is a new approach to have all solutions
-                        astrology under one roof.
+                        Test, which is a new approach to have all solutions astrology under one
+                        roof.
                       </p>
                     </div>
                   </div>
@@ -227,9 +223,8 @@ const Chat = () => {
                   <div className='received_msg'>
                     <div className='received_withd_msg'>
                       <p>
-                        We work directly with our designers and suppliers, and
-                        sell direct to you, which means quality, exclusive
-                        products, at a price anyone can afford.
+                        We work directly with our designers and suppliers, and sell direct to you,
+                        which means quality, exclusive products, at a price anyone can afford.
                       </p>
                       <span className='time_date'> 11:01 AM | Today</span>
                     </div>
@@ -238,11 +233,7 @@ const Chat = () => {
               </div>
               <div className='type_msg'>
                 <div className='input_msg_write'>
-                  <input
-                    type='text'
-                    className='write_msg'
-                    placeholder='Type a message'
-                  />
+                  <input type='text' className='write_msg' placeholder='Type a message' />
                   <button className='msg_send_btn' type='button'>
                     <i className='fa fa-paper-plane-o' aria-hidden='true'></i>
                   </button>

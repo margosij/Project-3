@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
@@ -18,6 +19,8 @@ import FamilyDashboard from './pages/FamilyDashboard'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
 import AdminDashboard from './pages/AdminDashboard'
 // import Example from './components/NewNavBar'
+
+import 'animate.css/animate.css'
 
 // Checking browser for token
 if (localStorage.jwtToken) {

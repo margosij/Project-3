@@ -2,7 +2,8 @@ import familyTestData from './testData'
 import Card from '../../components/Card'
 import React, { Component } from 'react'
 import openSocket from 'socket.io-client'
-const socket = openSocket('https://dismissal-app.herokuapp.com/')
+import devSocket from '../../utils/setdev'
+const socket = openSocket(devSocket)
 
 class Parents extends Component {
   state = {
@@ -15,7 +16,6 @@ class Parents extends Component {
     this.handleLoadEmit('testTime', this.state.timestamp)
     this.handleLoadEmit('testFamily', this.state.familyId.lastName)
     this.handleLoadEmit('arrived', this.state.message)
-    
   }
 
   handleEmit = function(method, data) {
@@ -33,24 +33,24 @@ class Parents extends Component {
 
   render() {
     return (
-        <>
-            <Card>
-                <div className='card-body'>
-                    <h5 className='card-title'>Socket Emitter Test Parents</h5>
-                    <p className='card-text'>
-                        {this.state.message}
-                        <br />
+      <>
+        <Card>
+          <div className='card-body'>
+            <h5 className='card-title'>Socket Emitter Test Parents</h5>
+            <p className='card-text'>
+              {this.state.message}
+              <br />
               This is the timer value: {this.state.timestamp}
-                    </p>
-                    <button
+            </p>
+            <button
               className='btn btn-primary'
-              onClick={ () => this.handleEmit('arrived', this.state.message) }
+              onClick={() => this.handleEmit('arrived', this.state.message)}
             >
               I'm here
-                    </button>
-                </div>
-            </Card>
-        </>
+            </button>
+          </div>
+        </Card>
+      </>
     )
   }
 }
