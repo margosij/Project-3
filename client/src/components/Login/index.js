@@ -54,12 +54,11 @@ class Login extends Component {
     const { errors } = this.state
     console.log('errors', errors)
     return (
-      <Row styling ='justify-content-center'>
+      <Row styling='justify-content-center align-items-center'>
         <div className='container col-xl-4'>
-         
           <form onSubmit={this.onSubmit}>
             <Container className='mt-3 px-5'>
-            <h2 className='text-light'>Login</h2>
+              <h2 className='text-light'>Login</h2>
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {

@@ -73,7 +73,14 @@ export const SubmitBtn = props => {
     <>
       <div className='row container d-flex align-self-end'>
         <div className='d-flex justify-content-end'>
-          <button type='button' className='btn btn-primary my-2' onClick={props.handleSubmit}>
+          <button
+            type='button'
+            className='btn btn-primary my-2 shadow p-3 mb-5 bg-white rounded'
+            data-toggle='tooltip'
+            data-placement='top'
+            title='Tooltip on top'
+            onClick={props.handleSubmit}
+          >
             Submit
           </button>
         </div>

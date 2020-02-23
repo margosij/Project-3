@@ -49,8 +49,8 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className='row'>
-          <div className='col-md-6 container'>
+        <div className='row justify-content-center'>
+          <div className='col-md-6 col-sm-6 container align-self-center justify-content-center'>
             <Router>
               <Navbar />
               {/* <Example /> */}
