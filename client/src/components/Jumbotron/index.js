@@ -1,14 +1,14 @@
 import React from 'react'
 import './style.css'
 
-const Jumbotron = ({ children, title, lead, styling }) => {
+const Jumbotron = ({ children, title, lead }) => {
   return (
-    <div className={`jumbotron text-light my-3 d-sm-none d-md-block ${styling}`}>
+    <div className='jumbotron text-light my-3 d-none d-md-block'>
       <div className='text-center'>
-        <h1 className='display-3 display-md-4'>{title}</h1>
-        <h2 className='display-5 display-md-6'>
+        <h1 className='display-4 font-weight-bold'>{title}</h1>
+        <h5 className='display-5 display-md-6'>
           <em>{lead}</em>
-        </h2>
+        </h5>
       </div>
       {children}
     </div>

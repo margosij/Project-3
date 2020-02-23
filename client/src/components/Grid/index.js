@@ -1,9 +1,12 @@
 import React from 'react'
 
 export const Container = props => {
-  
   return (
-    <div className={`container ${props.styling}`}>{props.children}</div>
+    <>
+      {props.styling ? (<div className={`container ${props.styling}`}>{props.children}</div>)
+        : (<div className={`container`}>{props.children}</div>)
+      }
+    </>
   )
 }
 
@@ -19,10 +22,19 @@ export const Column = props => {
     : (size = 'col')
   let styling
   props.styling ?
-  (styling = props.styling) : (styling = 'col')
+  (styling = props.styling) : (styling = '')
   return <div className={`${size} ${styling}`}>{props.children}</div>
 }
 
-export const Row = props => {
-  return <div className={`row ${props.styling} `}>{props.children}</div>
+export const Row = ({styling, children}) => {
+  return (
+
+    <>
+     {styling ? (
+       <div className={`row ${styling}`}>{children}</div>
+       ) : (
+         <div className={`row`}>{children}</div>
+         )}
+   </>
+) 
 }

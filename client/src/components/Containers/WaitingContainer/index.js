@@ -7,7 +7,8 @@ import { addFamilyToWaitlist } from '../../../actions/familyActions';
 import openSocket from 'socket.io-client';
 import { useSelector, useDispatch } from 'react-redux';
 // open a webSocket on this port --this will change when deployed
-const socket = openSocket('https://dismissal-app.herokuapp.com/');
+import devSocket from '../../../utils/setdev'
+const socket = openSocket(devSocket)
 
 const Waiting = () => {
   const dispatch = useDispatch();

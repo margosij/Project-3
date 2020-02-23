@@ -46,7 +46,7 @@ class Geolocation extends React.Component {
       if (range <= 0.5) {
         return <CheckInBtn />
       } else {
-        return <h3>Not In Range</h3>
+        return <h3>Not In Range to check in</h3>
       }
     }
 

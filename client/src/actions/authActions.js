@@ -11,6 +11,7 @@ import {
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
+  console.log('userData:', userData)
   axios
     .post('/api/users/register', userData)
     .then(res => history.push('/login'))

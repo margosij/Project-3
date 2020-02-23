@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Row, Column } from './components/Grid'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
@@ -18,6 +19,8 @@ import FamilyDashboard from './pages/FamilyDashboard'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
 import AdminDashboard from './pages/AdminDashboard'
 // import Example from './components/NewNavBar'
+
+import 'animate.css/animate.css'
 
 // Checking browser for token
 if (localStorage.jwtToken) {
@@ -46,8 +49,8 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className='row'>
-          <div className='col-8 container'>
+        <Row className='justify-content-center'>
+          <Column size='10' styling='container-fluid align-self-center justify-content-center'>
             <Router>
               <Navbar />
               {/* <Example /> */}
@@ -62,8 +65,8 @@ class App extends Component {
                 <Route exact path='*' component={NoMatch} />
               </Switch>
             </Router>
-          </div>
-        </div>
+          </Column>
+        </Row>
       </Provider>
     )
   }

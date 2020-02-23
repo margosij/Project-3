@@ -23,13 +23,16 @@ router.get("/test", (req, res) => res.json({ msg: "Users Works" }));
 // @desc    Register user
 // @access  Public
 router.post("/register", (req, res) => {
+  console.log('req.body', req.body)
+  const { email, password, family_id  } = req.body
   const { errors, isValid } = validateRegisterInput(req.body);
+  console.log('errors:', errors)
   // Check Validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email: req.body.email })
+  User.findOne({ email: email })
     .then(user => {
       if (user) {
         errors.email = "Email already exists";
@@ -40,16 +43,15 @@ router.post("/register", (req, res) => {
           r: "pg", // Rating
           d: "mm" // Default
         });
-
+       
+        console.log(family_id)
         const newUser = new User({
-          name: req.body.name,
-          email: req.body.email,
-          username: req.body.username,
+          email: email,
           avatar,
-          familyId: req.body.family_Id,
-          password: req.body.password
+          familyId: family_id,
+          password: password
         });
-        console.log(newUser);
+        console.log('new user to add', newUser);
 
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(newUser.password, salt, (err, hash) => {

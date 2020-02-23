@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Container, Row } from '../../components/Grid'
+import { Container, Row, Column } from '../../components/Grid'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
 import { loginUser } from '../../actions/authActions'
@@ -54,13 +54,11 @@ class Login extends Component {
     const { errors } = this.state
     console.log('errors', errors)
     return (
-      <Row styling ='justify-content-center'>
-        <div className='container col-xl-4'>
-          <div className='mt-4 mx-3'>
-            <h2 className='text-light'>Login</h2>
-          </div>
+      <Row styling='justify-content-center align-items-center'>
+        <Column size='sm-12 md-4 lg-4 xl-4'>
           <form onSubmit={this.onSubmit}>
-            <Container className='mt-3 px-5'>
+            <div className=''>
+              <h2 className='text-light'>Login</h2>
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {
@@ -94,9 +92,9 @@ class Login extends Component {
                   Sign Up
                 </Link>
               </div>
-            </Container>
+            </div>
           </form>
-        </div>
+        </Column>
       </Row>
     )
   }

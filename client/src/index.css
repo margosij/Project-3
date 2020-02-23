@@ -12,22 +12,12 @@ html, body {
   height: 100%;
   overflow: auto;
   font-family: 'Open Sans','HelveticaNeue','Helvetica Neue',Helvetica,Arial,sans-serif;
-  font-size: 17px;
+  font-size: 10px;
   font-weight: 600;
    background-color: #044694;
 
 }
-/* html {
-  margin: 0px;
-  height: 100%;
-  width: 100%;
-}
 
-body {
-  margin: 0px;
-  min-height: 100%;
-  width: 100%;
-} */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

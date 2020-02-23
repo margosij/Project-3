@@ -1,6 +1,7 @@
 {
   "parser": "babel-eslint",
   "plugins": ["react"],
+  "extends": "airbnb",
   "rules": {
     "space-in-parens": [0, "always"],
     "template-curly-spacing": [2, "always"],

@@ -2,7 +2,8 @@ import React from 'react'
 // import socket.io client -- A client-side build of Socket.io
 import openSocket from 'socket.io-client'
 // open a webSocket on this port --this will change when deployed
-const socket = openSocket('https://dismissal-app.herokuapp.com/')
+import devSocket from '../../utils/setdev'
+const socket = openSocket(devSocket)
 
 // const componentDidMount = () => {
 //   // test emits when the component mounts
@@ -72,7 +73,14 @@ export const SubmitBtn = props => {
     <>
       <div className='row container d-flex align-self-end'>
         <div className='d-flex justify-content-end'>
-          <button type='button' className='btn btn-primary my-2' onClick={props.handleSubmit}>
+          <button
+            type='button'
+            className='btn btn-primary my-2 shadow p-3 mb-5 bg-white rounded'
+            data-toggle='tooltip'
+            data-placement='top'
+            title='Tooltip on top'
+            onClick={props.handleSubmit}
+          >
             Submit
           </button>
         </div>

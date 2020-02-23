@@ -1,6 +1,6 @@
 import testFamilyData from '../../utils/socket/testData'
 import React, { useState, useEffect } from 'react'
-// import Jumbotron from '../components/Jumbotron'
+import Jumbotron from '../../components/Jumbotron'
 import { Row, Column, Container } from '../../components/Grid'
 import API from '../../utils/Api'
 import TeacherContainer from '../../components/Containers/TeacherContainer'
@@ -36,14 +36,14 @@ const AdminDashboard = props => {
 
   return (
     <>
-      <Container styling='align-self-center'>
-        <Row styling='row align-self-center'>
+      {/* <Container styling='align-self-center'> */}
+        <Row styling='align-self-center'>
           <Column>
-            {/* <Jumbotron title='Welcome to Harmony' lead='Admin Dashboard' /> */}
+            <Jumbotron title='Welcome to Harmony' lead='Admin Dashboard' />
             <TeacherContainer familyData={testFamilyData} />
           </Column>
         </Row>
-      </Container>
+      {/* </Container> */}
     </>
   )
 }
