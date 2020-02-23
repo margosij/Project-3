@@ -9,7 +9,7 @@ class Signup extends Component {
   constructor() {
     super()
     this.state = {
-      username: '',
+      email: '',
       id: '',
       password: '',
       password2: '',
@@ -42,7 +42,7 @@ class Signup extends Component {
     e.preventDefault()
 
     const newUser = {
-      username: this.state.username,
+      email: this.state.email,
       id: this.state.family_id,
       password: this.state.password,
       password2: this.state.password2,
@@ -58,24 +58,24 @@ class Signup extends Component {
     return (
       <div className='container'>
         <Column size='12'>
-          <div className='mt-4 mx-3'>
+          <div className='mt-4 mx-3 text-light'>
             <h2>Dismissed!</h2>
           </div>
-          <form  onSubmit={this.onSubmit}>
+          <form onSubmit={this.onSubmit}>
             {/* User Name */}
             <Container>
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    'is-invalid': errors.username
+                    'is-invalid': errors.email
                   })}
                   type='text'
                   placeholder='Email'
-                  name='username'
-                  value={this.state.username}
+                  name='email'
+                  value={this.state.email}
                   onChange={this.onChange}
                 />
-                {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
+                {errors.email && <div className='invalid-feedback'>{errors.email}</div>}
               </div>
               {/* Password */}
               <div className='form-group'>
@@ -123,9 +123,9 @@ class Signup extends Component {
                 Submit
               </button>
             </Container>
-            <Container className='mt-4'>
-              <h3>Hello {this.state.username}!</h3>
-              <p>
+            <Container className='mt-4 text-light'>
+              <h3 className='text-light'>Hello {this.state.email}!</h3>
+              <p className='text-light'>
                 I probably shouldn't tell you this, but your password is
                 {this.state.password}!
               </p>

@@ -5,7 +5,7 @@ const NavLink = props => {
   return (
     <li className='nav-item active'>
       <Link className='nav-link text-light navbar-text' to={props.to}>
-        {props.navTitle}
+        <p>{props.navTitle}</p>
       </Link>
     </li>
   )
