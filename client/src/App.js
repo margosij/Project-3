@@ -50,7 +50,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <div className='row'>
-          <div className='col-8 container'>
+          <div className='col-md-6 container'>
             <Router>
               <Navbar />
               {/* <Example /> */}

@@ -56,11 +56,10 @@ class Login extends Component {
     return (
       <Row styling ='justify-content-center'>
         <div className='container col-xl-4'>
-          <div className='mt-4 mx-3'>
-            <h2 className='text-light'>Login</h2>
-          </div>
+         
           <form onSubmit={this.onSubmit}>
             <Container className='mt-3 px-5'>
+            <h2 className='text-light'>Login</h2>
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {
