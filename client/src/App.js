@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import { Row, Column } from './components/Grid'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import jwt_decode from 'jwt-decode'
 import setAuthToken from './utils/setAuthToken'
@@ -49,8 +49,8 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <div className='row justify-content-center'>
-          <div className='col-md-6 col-sm-6 container align-self-center justify-content-center'>
+        <Row className='justify-content-center'>
+          <Column size='10' styling='container-fluid align-self-center justify-content-center'>
             <Router>
               <Navbar />
               {/* <Example /> */}
@@ -65,8 +65,8 @@ class App extends Component {
                 <Route exact path='*' component={NoMatch} />
               </Switch>
             </Router>
-          </div>
-        </div>
+          </Column>
+        </Row>
       </Provider>
     )
   }
