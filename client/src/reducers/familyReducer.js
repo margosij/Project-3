@@ -14,7 +14,7 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  console.log("action:", action.payload);
+  // console.log("action:", action.payload);
   switch (action.type) {
     case FAMILY_LOADING:
       return {

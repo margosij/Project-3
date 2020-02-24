@@ -7,21 +7,20 @@ import API from '../../utils/Api'
 import { useSelector } from 'react-redux'
 
 const FamilyDashboard = props => {
-  console.log('props:', props)
   const user = useSelector(state => state.auth.user)
   const [familyId, setFamilyId] = useState(user.familyId)
   // const [allFamilies, setAllFamilies] = useState([]);
   // console.log("allFamilies:", allFamilies);
   const [singleFamilyData, setSingleFamilyData] = useState({})
-  console.log('singleFamilyData:', singleFamilyData)
-  console.log('user!!!!!!:', user)
+  // console.log('singleFamilyData:', singleFamilyData)
+  // console.log('user!!!!!!:', user)
 
   useEffect(() => {
     if (user) {
-      console.log('FAMILY ID', familyId)
+      // console.log('FAMILY ID', familyId)
       API.getFamilyById(familyId)
         .then(res => {
-          console.log(res)
+          // console.log(res)
           setSingleFamilyData(res)
         })
         .catch(err => console.log(err))

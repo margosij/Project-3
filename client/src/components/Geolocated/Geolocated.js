@@ -29,7 +29,7 @@ class Geolocation extends React.Component {
       return dist
     }
 
-    console.log('Coords: ', this.props.coords)
+    // console.log('Coords: ', this.props.coords)
 
     function createButton(props) {
       var pickupLat = ''

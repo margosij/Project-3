@@ -5,7 +5,6 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 const initialState = {}
 // thunk is a middle ware that makes calls asynchronous
 const middleware = [thunk]
-console.log(process.env)
 const store = createStore(
   rootReducer,
   initialState,
