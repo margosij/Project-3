@@ -67,7 +67,7 @@ class Navbar extends Component {
       <div>
         <nav className='navbar navbar-expand-lg navbar-light rounded-lg my-4'>
           <Logo />
-          <h1 className='mx-4 text-light d-block d-md-none'>Dismissed 2.0</h1>
+          <h1 className='mx-2 text-light d-block d-md-none'>Dismissed 2.0</h1>
           <button
             onClick={this.toggleNavbar}
             className={`${classTwo}`}
