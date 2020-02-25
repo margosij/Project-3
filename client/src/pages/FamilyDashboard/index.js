@@ -21,7 +21,7 @@ const FamilyDashboard = props => {
   console.log('error:', error)
 
   const user = useSelector(state => state.auth.user)
-  const [familyId, setFamilyId] = useState(user.familyId)
+  // const [familyId, setFamilyId] = useState(user.familyId)
   // const [allFamilies, setAllFamilies] = useState([]);
   // console.log("allFamilies:", allFamilies);
   const [singleFamilyData, setSingleFamilyData] = useState({})
@@ -31,7 +31,7 @@ const FamilyDashboard = props => {
   useEffect(() => {
     if (user) {
       // console.log('FAMILY ID', familyId)
-      API.getFamilyById(familyId)
+      API.getFamilyById(user.familyId)
         .then(res => {
           // console.log(res)
           setSingleFamilyData(res)

@@ -1,10 +1,13 @@
 import React from 'react'
 import { ListItem } from '../../List'
 import Card from '../../Card'
-import CheckInBtn from '../../Buttons'
+// import CheckInBtn from '../../Buttons'
+// import Geolocated from '../../Geolocated/Geolocated'
 import './style.css'
 
 const ParentsContainer = props => {
+  console.log('props:', props)
+
   return (
     <>
       <ListItem styling='list-inline-item m-0'>
@@ -17,9 +20,10 @@ const ParentsContainer = props => {
             <p className='card-title'>Cell Phone: {props.cell}</p>
             <p className='card-title'>Email: {props.email}</p>
           </div>
-          <div className='card-footer'>
+          {/* <div className='card-footer'>
             <CheckInBtn name={props.name} {...props} />
-          </div>
+            <Geolocated  {...props} />
+          </div> */}
         </Card>
       </ListItem>
     </>

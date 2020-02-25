@@ -20,7 +20,6 @@ class Login extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
     if (this.props.auth.isAuthenticated) {
       if (this.props.auth.admin) {
         this.props.history.push('/admin')
@@ -57,7 +56,7 @@ class Login extends Component {
   }
   render() {
     const { errors } = this.state
-    console.log('errors', errors)
+    // console.log('errors', errors)
     return (
       <Row styling='justify-content-center align-items-center'>
         <Column size='sm-12 md-4 lg-4 xl-4'>

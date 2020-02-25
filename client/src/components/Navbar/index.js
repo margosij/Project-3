@@ -32,14 +32,14 @@ class Navbar extends Component {
     const { isAuthenticated, user, admin } = this.props.auth
   
     const authLinks = (
-      <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
+      <ul className='navbar-nav justify-content-end'>
         <NavLink navTitle='Home' to='/' />
         <NavLink navTitle='Dismissal' to='/dismissal' />
-        <NavLink navTitle='Database Dashboard' to='/database' />
+        {/* <NavLink navTitle='Database Dashboard' to='/database' /> */}
         <NavLink navTitle='Family Dashboard' to='/family' />
-        <NavLink navTitle='Admin Dashboard' to='/admin' />
+        {/* <NavLink navTitle='Admin Dashboard' to='/admin' /> */}
         <li className='nav-item justify-content-end'>
-          <a href='/profile' onClick={this.onLogoutClick.bind(this)} className='nav-link text-light'>
+          <a href='/profile' onClick={this.onLogoutClick.bind(this)} className='nav-link'>
             <img
               className='rounded-circle'
               src={ user.avatar }
@@ -59,7 +59,7 @@ class Navbar extends Component {
         <NavLink navTitle='Dismissal' to='/dismissal' />
         <NavLink navTitle='Database Dashboard' to='/database' />
         <NavLink navTitle='Family Dashboard' to='/family' />
-        <NavLink navTitle='Admin Dashboard' to='/admin' />
+        {/* <NavLink navTitle='Admin Dashboard' to='/admin' /> */}
         <li className='nav-item justify-content-end'>
           <a href='/profile' onClick={this.onLogoutClick.bind(this)} className='nav-link text-light float-right'>
             <img
@@ -90,7 +90,7 @@ class Navbar extends Component {
       <div>
         <nav className='navbar navbar-expand-lg navbar-light rounded-lg my-4'>
           <Logo />
-          <h1 className='mx-2 text-light d-block d-md-none'>Dismissed 2.0</h1>
+          <h1 className='mx-2 d-block d-md-none'>Dismissed 2.0</h1>
           <button
             onClick={this.toggleNavbar}
             className={`${classTwo}`}
