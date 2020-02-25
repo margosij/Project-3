@@ -680,7 +680,15 @@ const familySeed = [
 ]
 const adminSeed = [
   {
-    name: 'Joe Clark'
+    email: 'joeclark@email.com',
+    password: bcrypt.hashSync('password1', 10),
+    familyId: 11,
+    admin: true,
+    avatar: gravatar.url(this.email, {
+      s: '200', // Size
+      r: 'pg', // Rating
+      d: 'mm' // Default
+    })
   },
   {
     name: 'Rick Karlolak'
@@ -790,13 +798,24 @@ const userSeed = [
       r: 'pg', // Rating
       d: 'mm' // Default
     })
+  },
+  {
+    email: 'joeclark@email.com',
+    password: bcrypt.hashSync('password1', 10),
+    familyId: 11,
+    admin: true,
+    avatar: gravatar.url(this.email, {
+      s: '200', // Size
+      r: 'pg', // Rating
+      d: 'mm' // Default
+    })
   }
 ]
 
 db.User.remove({})
   .then(() => db.User.collection.insertMany(userSeed))
   .then(data => {
-    console.log(data.result.n + ' records inserted!')
+    console.log(data.result.n + ' user records inserted!')
     process.exit(0)
   }).catch(err => {
     console.error(err)
@@ -806,7 +825,7 @@ db.User.remove({})
 db.Family.remove({})
   .then(() => db.Family.collection.insertMany(familySeed))
   .then(data => {
-    console.log(data.result.n + ' records inserted!')
+    console.log(data.result.n + ' family records inserted!')
     process.exit(0)
   })
   .catch(err => {
@@ -817,7 +836,7 @@ db.Family.remove({})
 db.Admin.remove({})
   .then(() => db.Admin.collection.insertMany(adminSeed))
   .then(data => {
-    console.log(data.result.n + ' records inserted!')
+    console.log(data.result.n + ' admin records inserted!')
     process.exit(0)
   })
   .catch(err => {

@@ -72,7 +72,7 @@ const FamilyContainer = props => {
             <Row>
               <Column>
                 <Card styling='card-body mx-0'>
-                  <Geolocated />
+                  <Geolocated name={props.familyData.familyLastName} />
                 </Card>
               </Column>
             </Row>

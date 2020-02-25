@@ -65,22 +65,11 @@ router.post("/register", (req, res) => {
         });
       }
     })
-    // .then(() => {
-    //   return User.findOneAndUpdate(
-    //     { email: newUser.email },
-    //     { $push: { familyId: family_Id} },
-    //     { new: true }
-    //   ).then(res => {
-    //     console.log(res)
-    //     res.json
-    //   })
-    // })
+   
     .catch(err => console.log(err));
 });
 
-// @route   GET api/users/login
-// @desc    Login User / Returning JWT Token
-// @access  Public
+
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 

@@ -2,8 +2,10 @@ import React from 'react'
 import { geolocated } from 'react-geolocated'
 import CheckInBtn from '../Buttons'
 
-const schoolLat = 35.785012099999996
-const schoolLon = -78.6602364
+// const schoolLat = 35.785012099999996
+// const schoolLon = -78.6602364
+const schoolLat = 35.7388228
+const schoolLon = -78.6010933
 class Geolocation extends React.Component {
   render() {
     function distance(lat1, lon1, lat2, lon2, unit) {
@@ -29,9 +31,10 @@ class Geolocation extends React.Component {
       return dist
     }
 
-    // console.log('Coords: ', this.props.coords)
+    console.log('Coords: ', this.props.coords)
 
     function createButton(props) {
+      console.log('geo props', props)
       var pickupLat = ''
       var pickupLon = ''
 
@@ -44,7 +47,7 @@ class Geolocation extends React.Component {
 
       console.log('Range: ', range)
       if (range <= 0.5) {
-        return <CheckInBtn />
+        return <CheckInBtn range={range} name={props.name} />
       } else {
         return <h3>Not In Range to check in</h3>
       }

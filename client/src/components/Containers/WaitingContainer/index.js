@@ -27,7 +27,7 @@ const Waiting = () => {
       <Card>
         <CardHeader title="Waiting" />
         {waitlist.length > 0 ? (
-          waitlist.map((parent, index) => <p key={ index }>{parent} is here</p>)
+          waitlist.map((parent, index) => <h5 key={ index }>The {parent} family is here</h5>)
         ) : (
           <h1>No parents waiting</h1>
         )}

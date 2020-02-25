@@ -37,7 +37,7 @@ class Navbar extends Component {
         <NavLink navTitle='Dismissal' to='/dismissal' />
         <NavLink navTitle='Database Dashboard' to='/database' />
         <NavLink navTitle='Family Dashboard' to='/family' />
-        {/* <NavLink navTitle='Admin Dashboard' to='/admin' /> */}
+        <NavLink navTitle='Admin Dashboard' to='/admin' />
         <li className='nav-item justify-content-end'>
           <a href='/profile' onClick={this.onLogoutClick.bind(this)} className='nav-link text-light'>
             <img
@@ -61,7 +61,7 @@ class Navbar extends Component {
         <NavLink navTitle='Family Dashboard' to='/family' />
         <NavLink navTitle='Admin Dashboard' to='/admin' />
         <li className='nav-item justify-content-end'>
-          <a href='/profile' onClick={this.onLogoutClick.bind(this)} className='nav-link text-light'>
+          <a href='/profile' onClick={this.onLogoutClick.bind(this)} className='nav-link text-light float-right'>
             <img
               className='rounded-circle'
               src={ user.avatar }

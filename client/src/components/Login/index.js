@@ -20,8 +20,13 @@ class Login extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props)
     if (this.props.auth.isAuthenticated) {
-      this.props.history.push('/family')
+      if (this.props.auth.admin) {
+        this.props.history.push('/admin')
+      } else {
+        this.props.history.push('/family')
+      }
     }
   }
 
