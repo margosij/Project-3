@@ -5,23 +5,35 @@ import { Row, Column } from '../../components/Grid'
 import FamilyContainer from '../../components/Containers/FamilyContainer'
 import API from '../../utils/Api'
 import { useSelector } from 'react-redux'
-
+import { usePosition } from 'use-position'
 const FamilyDashboard = props => {
-  console.log('props:', props)
+  const {
+    latitude,
+    longitude,
+    timestamp,
+    accuracy,
+    error,
+  } = usePosition(true, { enableHighAccuracy: true })
+  console.log('latitude:', latitude)
+  console.log('longitude:', longitude)
+  console.log('timestamp:', timestamp)
+  console.log('accuracy:', accuracy)
+  console.log('error:', error)
+
   const user = useSelector(state => state.auth.user)
-  const [familyId, setFamilyId] = useState(user.familyId)
+  // const [familyId, setFamilyId] = useState(user.familyId)
   // const [allFamilies, setAllFamilies] = useState([]);
   // console.log("allFamilies:", allFamilies);
   const [singleFamilyData, setSingleFamilyData] = useState({})
-  console.log('singleFamilyData:', singleFamilyData)
-  console.log('user!!!!!!:', user)
+  // console.log('singleFamilyData:', singleFamilyData)
+  // console.log('user!!!!!!:', user)
 
   useEffect(() => {
     if (user) {
-      console.log('FAMILY ID', familyId)
-      API.getFamilyById(familyId)
+      // console.log('FAMILY ID', familyId)
+      API.getFamilyById(user.familyId)
         .then(res => {
-          console.log(res)
+          // console.log(res)
           setSingleFamilyData(res)
         })
         .catch(err => console.log(err))

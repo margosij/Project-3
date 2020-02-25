@@ -13,7 +13,7 @@ module.exports = {
   findFamilyById: (req, res) => {
     db.Family.findOne({ familyId: parseInt(req.params.id) })
       .then(dbModel => {
-        console.log('DB MODEL CONSOLE', dbModel)
+        // console.log('DB MODEL CONSOLE', dbModel)
         res.send(dbModel)
       })
       .catch(err => res.status(422).json(err));

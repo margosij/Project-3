@@ -1,4 +1,4 @@
-# Dismissed!!!
+# Dismissed!!!(Still Under Development)
 #### A MERN School Dismissal App
 ___
 ![Demo](client/public/Dismissed.gif)
