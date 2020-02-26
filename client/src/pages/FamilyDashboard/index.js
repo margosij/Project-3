@@ -5,20 +5,20 @@ import { Row, Column } from '../../components/Grid'
 import FamilyContainer from '../../components/Containers/FamilyContainer'
 import API from '../../utils/Api'
 import { useSelector } from 'react-redux'
-import { usePosition } from 'use-position'
+// import { usePosition } from 'use-position'
 const FamilyDashboard = props => {
-  const {
-    latitude,
-    longitude,
-    timestamp,
-    accuracy,
-    error,
-  } = usePosition(true, { enableHighAccuracy: true })
-  console.log('latitude:', latitude)
-  console.log('longitude:', longitude)
-  console.log('timestamp:', timestamp)
-  console.log('accuracy:', accuracy)
-  console.log('error:', error)
+  // const {
+  //   latitude,
+  //   longitude,
+  //   timestamp,
+  //   accuracy,
+  //   error,
+  // } = usePosition(true, { enableHighAccuracy: true })
+  // console.log('latitude:', latitude)
+  // console.log('longitude:', longitude)
+  // console.log('timestamp:', timestamp)
+  // console.log('accuracy:', accuracy)
+  // console.log('error:', error)
 
   const user = useSelector(state => state.auth.user)
   // const [familyId, setFamilyId] = useState(user.familyId)
@@ -70,6 +70,7 @@ const FamilyDashboard = props => {
         <Column  styling='align-self-center no-gutters'>
           <FamilyContainer familyData={singleFamilyData} />
         </Column>
+      
       </Row>
     </div>
   )

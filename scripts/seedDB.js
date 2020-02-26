@@ -163,9 +163,9 @@ const familySeed = [
     ],
     students: [
       {
-        firstName: 'Kenn',
+        firstName: 'Damien',
         middleName: 'Eléonore',
-        lastName: 'Codi',
+        lastName: 'Wayne',
         gender: 'Male',
         dob: '08/05/2019',
         tShirtSize: 'XS',

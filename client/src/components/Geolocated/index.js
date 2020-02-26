@@ -25,7 +25,7 @@ class Geolocation extends React.Component {
       if (unit === 'K') {
         dist = dist * 1.609344
       }
-      if (unit ==='N') {
+      if (unit === 'N') {
         dist = dist * 0.8684
       }
       return dist
@@ -43,35 +43,41 @@ class Geolocation extends React.Component {
         pickupLon = props.coords.longitude
       }
 
-      var range = distance(schoolLat, schoolLon, pickupLat, pickupLon, 'M')
+      var range = distance(
+        schoolLat,
+        schoolLon,
+        pickupLat,
+        pickupLon,
+        'M',
+      )
 
       console.log('Range: ', range)
       if (range <= 0.5) {
-        return <CheckInBtn range={range} name={props.name} />
+        return <CheckInBtn range={range} name={props.name} {...props} />
       } else {
         return <h3>Not In Range to check in</h3>
       }
     }
 
     return !this.props.isGeolocationAvailable ? (
-        <div>Your browser does not support Geolocation</div>
+      <div>Your browser does not support Geolocation</div>
     ) : !this.props.isGeolocationEnabled ? (
-        <div>Geolocation is not enabled</div>
+      <div>Geolocation is not enabled</div>
     ) : this.props.coords ? (
       createButton(this.props)
     ) : (
-        <div>Getting the location data&hellip; </div>
+      <div>Getting the location data&hellip; </div>
     )
   }
 }
 
 export default geolocated({
   positionOptions: {
-    enableHighAccuracy: false
+    enableHighAccuracy: false,
   },
   watchPosition: true,
   userDecisionTimeout: 30000,
   suppressLocationOnMount: false,
   geolocationProvider: navigator.geolocation,
-  isOptimisticGeolocationEnabled: true
+  isOptimisticGeolocationEnabled: true,
 })(Geolocation)

@@ -15,20 +15,25 @@ const socket = openSocket(devSocket)
 // "socket.emit('Hello there', data) --- emit a broadcast to all browsers with a tag of 'Hello there'. data has to be in the form of an object ex. {data:'I Heard you'}
 
 // whatever tag is used, it has to be added to io section in Server.js
-socket.on('SocketBoilerPlate', () => console.log('Socket Boiler Page hit'))
+socket.on('SocketBoilerPlate', () =>
+  console.log('Socket Boiler Page hit'),
+)
 const SocketBoilerPlate = props => {
   return (
-      <>
-          <Container>
-              <Row styling='row align-self-center'>
-                  <Column>
-                      <Jumbotron title='Welcome to Harmony' lead='Socket Boiler Plate' />
-                  </Column>
-              </Row>
-              <Admin { ...props } />
-              <Parents { ...props } />
-          </Container>
-      </>
+    <>
+      <Container>
+        <Row styling='row align-self-center'>
+          <Column>
+            <Jumbotron
+              title='Welcome to Harmony'
+              lead='Socket Boiler Plate'
+            />
+          </Column>
+        </Row>
+        <Admin {...props} />
+        <Parents {...props} />
+      </Container>
+    </>
   )
 }
 

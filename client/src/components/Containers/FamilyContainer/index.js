@@ -5,7 +5,7 @@ import CardHeader from '../../CardHeader'
 import ParentsContainer from '../../../components/Containers/parentsContainer'
 import { List } from '../../List'
 import StudentContainer from '../StudentContainer'
-import Geolocated from '../../Geolocated/Geolocated'
+import Geolocated from '../../Geolocated'
 
 const FamilyContainer = props => {
   return (
@@ -80,7 +80,7 @@ const FamilyContainer = props => {
             <Row>
               <Card styling='card-body mx-0 px-0'>
                 <CardHeader title='Send pick up status' />
-                <Geolocated name={props.familyData.familyLastName} />
+                <Geolocated name={props.familyData.familyLastName} {...props} />
               </Card>
             </Row>
           </Container>

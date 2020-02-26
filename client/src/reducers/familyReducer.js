@@ -10,7 +10,7 @@ const initialState = {
   family: null,
   families: null,
   loading: false,
-  waitlist: []
+  waitList: []
 };
 
 export default (state = initialState, action) => {
@@ -41,9 +41,9 @@ export default (state = initialState, action) => {
     case ADD_FAMILY_TO_WAITLIST:
       return {
         ...state,
-        waitlist: state.waitlist.includes(action.payload)
-          ? state.waitlist
-          : [...state.waitlist, action.payload]
+        waitList: state.waitList.includes(action.payload)
+          ? state.waitList
+          : [...state.waitList, action.payload]
       };
     default:
       return state;

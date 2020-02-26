@@ -25,21 +25,30 @@ const TeacherContainer = props => {
                     <CardHeader title='Parent to Pick up Child' />
                     <List>
                       {props.familyData.guardians ? (
-                        props.familyData.guardians.map((parents, index) => (
-                          <ParentsContainer
-                            key={Math.floor(Math.random() * 1000 + 1)}
-                            name={`${parents.firstName} ${parents.lastName}`}
-                            work={parents.workPhone}
-                            home={parents.homePhone}
-                            cell={parents.cellPhone}
-                            email={parents.email}
-                            relation={parents.relation}
-                          />
-                        ))
+                        props.familyData.guardians.map(
+                          (parents, index) => (
+                            <ParentsContainer
+                              key={Math.floor(
+                                Math.random() * 1000 + 1,
+                              )}
+                              name={`${parents.firstName} ${parents.lastName}`}
+                              work={parents.workPhone}
+                              home={parents.homePhone}
+                              cell={parents.cellPhone}
+                              email={parents.email}
+                              relation={parents.relation}
+                            />
+                          ),
+                        )
                       ) : (
                         <div className='text-center'>
-                          <div className='spinner-border' role='status'>
-                            <span className='sr-only'>Loading...</span>
+                          <div
+                            className='spinner-border'
+                            role='status'
+                          >
+                            <span className='sr-only'>
+                              Loading...
+                            </span>
                           </div>
                         </div>
                       )}
@@ -51,22 +60,35 @@ const TeacherContainer = props => {
                     <CardHeader title='Children' />
                     <List>
                       {props.familyData.students ? (
-                        props.familyData.students.map((students, index) => (
-                          <StudentContainer
-                            key={Math.floor(Math.random() * 1000 + 1)}
-                            firstName={students.firstName}
-                            middleName={students.middleName}
-                            lastName={students.lastName}
-                            suffix={students.suffix ? students.suffix : ' '}
-                            gender={students.gender}
-                            dob={students.dob}
-                            gradeLevel={students.gradeLevel}
-                          />
-                        ))
+                        props.familyData.students.map(
+                          (students, index) => (
+                            <StudentContainer
+                              key={Math.floor(
+                                Math.random() * 1000 + 1,
+                              )}
+                              firstName={students.firstName}
+                              middleName={students.middleName}
+                              lastName={students.lastName}
+                              suffix={
+                                students.suffix
+                                  ? students.suffix
+                                  : ' '
+                              }
+                              gender={students.gender}
+                              dob={students.dob}
+                              gradeLevel={students.gradeLevel}
+                            />
+                          ),
+                        )
                       ) : (
                         <div className='text-center'>
-                          <div className='spinner-border' role='status'>
-                            <span className='sr-only'>Loading...</span>
+                          <div
+                            className='spinner-border'
+                            role='status'
+                          >
+                            <span className='sr-only'>
+                              Loading...
+                            </span>
                           </div>
                         </div>
                       )}

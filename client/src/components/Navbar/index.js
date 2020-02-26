@@ -7,7 +7,7 @@ import './style.css'
 import Logo from '../Logo'
 class Navbar extends Component {
   state = {
-    collapsed: true
+    collapsed: true,
   }
 
   onLogoutClick(e) {
@@ -30,7 +30,7 @@ class Navbar extends Component {
       : 'navbar-toggler navbar-toggler-right'
 
     const { isAuthenticated, user, admin } = this.props.auth
-  
+
     const authLinks = (
       <ul className='navbar-nav justify-content-end'>
         <NavLink navTitle='Home' to='/' />
@@ -39,12 +39,16 @@ class Navbar extends Component {
         <NavLink navTitle='Family Dashboard' to='/family' />
         {/* <NavLink navTitle='Admin Dashboard' to='/admin' /> */}
         <li className='nav-item justify-content-end'>
-          <a href='/profile' onClick={this.onLogoutClick.bind(this)} className='nav-link'>
+          <a
+            href='/profile'
+            onClick={this.onLogoutClick.bind(this)}
+            className='nav-link'
+          >
             <img
               className='rounded-circle'
-              src={ user.avatar }
-              alt={ user.name }
-              style={ { width: '25px', marginRight: '5px' } }
+              src={user.avatar}
+              alt={user.name}
+              style={{ width: '25px', marginRight: '5px' }}
               // title='You must have a Gravatar connected to your email to display an image'
             />{' '}
             Logout
@@ -52,7 +56,7 @@ class Navbar extends Component {
         </li>
       </ul>
     )
-    
+
     const adminLinks = (
       <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
         <NavLink navTitle='Home' to='/' />
@@ -61,12 +65,16 @@ class Navbar extends Component {
         <NavLink navTitle='Family Dashboard' to='/family' />
         {/* <NavLink navTitle='Admin Dashboard' to='/admin' /> */}
         <li className='nav-item justify-content-end'>
-          <a href='/profile' onClick={this.onLogoutClick.bind(this)} className='nav-link text-light float-right'>
+          <a
+            href='/profile'
+            onClick={this.onLogoutClick.bind(this)}
+            className='nav-link text-light float-right'
+          >
             <img
               className='rounded-circle'
-              src={ user.avatar }
-              alt={ user.name }
-              style={ { width: '25px', marginRight: '5px' } }
+              src={user.avatar}
+              alt={user.name}
+              style={{ width: '25px', marginRight: '5px' }}
               // title='You must have a Gravatar connected to your email to display an image'
             />{' '}
             Logout
@@ -74,7 +82,7 @@ class Navbar extends Component {
         </li>
       </ul>
     )
-   
+
     const guestLinks = (
       <ul className='navbar-nav mr-auto'>
         {/* <NavLink navTitle='Home' to='/' /> */}
@@ -103,8 +111,15 @@ class Navbar extends Component {
           >
             <span className='navbar-toggler-icon'></span>
           </button>
-          <div className={`${classOne} pl-2 text-light navbar-brand`} id='navbarResponsive'>
-            {isAuthenticated ? authLinks : admin ? adminLinks : guestLinks}
+          <div
+            className={`${classOne} pl-2 text-light navbar-brand`}
+            id='navbarResponsive'
+          >
+            {isAuthenticated
+              ? authLinks
+              : admin
+              ? adminLinks
+              : guestLinks}
           </div>
         </nav>
       </div>
@@ -114,11 +129,11 @@ class Navbar extends Component {
 
 Navbar.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth
+  auth: state.auth,
 })
 
 export default connect(mapStateToProps, { logoutUser })(Navbar)

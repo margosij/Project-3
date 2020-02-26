@@ -27,6 +27,7 @@ const handleEmit = (method, data) => {
 // }
 // Socket.io Check In button
 export default function CheckInBtn(props) {
+  console.log('checkIn props:', props)
   return (
     <>
       <div className='row container d-flex align-self-end'>
@@ -38,7 +39,8 @@ export default function CheckInBtn(props) {
               handleEmit('/Admin/GeoArrived', {
                 // change this however you want
                 name: props.name, // Parent name goes here
-                range: props.range // range of the parent to the school
+                range: props.range,
+                familyData: props.familyData // range of the parent to the school
               })
             }
           >
@@ -92,7 +94,11 @@ export const SubmitBtn = props => {
 export const SaveBtn = props => {
   return (
     <>
-      <button type='button' className={`btn btn-primary mx-2 ${props['data-value']}`} {...props}>
+      <button
+        type='button'
+        className={`btn btn-primary mx-2 ${props['data-value']}`}
+        {...props}
+      >
         Save
       </button>
     </>
