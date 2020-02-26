@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Column } from '../../Grid'
 import Card from '../../Card'
+import Media from '../../Media'
 import { addFamilyToWaitList } from '../../../actions/familyActions'
 // import socket.io client -- A client-side build of Socket.io
 import openSocket from 'socket.io-client'
@@ -17,7 +18,9 @@ const Waiting = () => {
 
   socket.on('/waiting', data => {
     console.log(JSON.stringify(data, null, 2))
-    dispatch(addFamilyToWaitList(data.message.name))
+    if (!waitList.includes(data.message.name)) {
+      dispatch(addFamilyToWaitList(data.message.name))
+    }
     // setWaitList([data.message.name]);
   })
   // console.log("waitList checking", waitList);
@@ -28,8 +31,17 @@ const Waiting = () => {
           <Card>
             <div className='card-body container'>
               {waitList.length > 0 ? (
-                waitList.map((parent, index) => (
-                  <h2 key={index} styling="align-self-center">The {parent} family is here.</h2>
+                waitList.map((family, index) => (
+                  <>
+                    <Media>
+                    <h2 key={index} styling='align-self-center'>
+                      The {family} family is here for:
+                    </h2>
+                    {/* {family.students.map((student, index) => (
+                      <h2 key={index}>{`${student.firstName} ${student.lastName}`}</h2>
+                      ))} */}
+                      </Media>
+                  </>
                 ))
               ) : (
                 <h5>No parents waiting.</h5>
