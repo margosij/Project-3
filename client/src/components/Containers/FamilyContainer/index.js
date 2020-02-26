@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Column, Container } from '../../Grid'
 import Card from '../../Card'
+import Dashboard from '../../DashboardCard'
 import CardHeader from '../../CardHeader'
 import ParentsContainer from '../../../components/Containers/parentsContainer'
 import { List } from '../../List'
@@ -11,7 +12,7 @@ const FamilyContainer = props => {
   return (
     <div>
       <Row styling='justify-content-center'>
-        <Card>
+        <Dashboard styling='border'>
           <CardHeader
             title={`The ${props.familyData.familyLastName} Family`}
           />
@@ -33,7 +34,7 @@ const FamilyContainer = props => {
                             email={parents.email}
                             relation={parents.relation}
                           />
-                        ),
+                        )
                       )
                     ) : (
                       <div className='text-center'>
@@ -64,7 +65,7 @@ const FamilyContainer = props => {
                             dob={students.dob}
                             gradeLevel={students.gradeLevel}
                           />
-                        ),
+                        )
                       )
                     ) : (
                       <div className='text-center'>
@@ -80,11 +81,14 @@ const FamilyContainer = props => {
             <Row>
               <Card styling='card-body mx-0 px-0'>
                 <CardHeader title='Send pick up status' />
-                <Geolocated name={props.familyData.familyLastName} {...props} />
+                <Geolocated
+                  name={props.familyData.familyLastName}
+                  {...props}
+                />
               </Card>
             </Row>
           </Container>
-        </Card>
+        </Dashboard>
       </Row>
     </div>
   )
