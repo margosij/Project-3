@@ -13,7 +13,7 @@ class Navbar extends Component {
   onLogoutClick(e) {
     e.preventDefault()
     this.props.logoutUser()
-    console.log('this.props')
+    // console.log('this.props')
   }
 
   toggleNavbar = () => {

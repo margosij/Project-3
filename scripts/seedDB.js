@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const db = require('../models')
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/dismissal'
+const MONGODB_URI =
+  process.env.MONGODB_URI ||
+  'mongodb://newuser:password28@ds033767.mlab.com:33767/heroku_b2tmnvs4'
 const bcrypt = require('bcryptjs')
 const gravatar = require('gravatar')
 mongoose.Promise = global.Promise
@@ -701,7 +703,7 @@ const adminSeed = [
 const userSeed = [
   {
     email: 'kent@email.com',
-    password: bcrypt.hashSync('password1', 10),
+    password: bcrypt.hashSync('password10', 10),
     familyId: 1,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -711,7 +713,7 @@ const userSeed = [
   },
   {
     email: 'shade@email.com',
-    password: bcrypt.hashSync('password2', 10),
+    password: bcrypt.hashSync('password9', 10),
     familyId: 2,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -721,7 +723,7 @@ const userSeed = [
   },
   {
     email: 'wayne@email.com',
-    password: bcrypt.hashSync('password3', 10),
+    password: bcrypt.hashSync('password8', 10),
     familyId: 3,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -731,7 +733,7 @@ const userSeed = [
   },
   {
     email: 'richards@email.com',
-    password: bcrypt.hashSync('password4', 10),
+    password: bcrypt.hashSync('password7', 10),
     familyId: 4,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -741,7 +743,7 @@ const userSeed = [
   },
   {
     email: 'parker@email.com',
-    password: bcrypt.hashSync('password5', 10),
+    password: bcrypt.hashSync('password6', 10),
     familyId: 5,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -751,7 +753,7 @@ const userSeed = [
   },
   {
     email: 'allen@email.com',
-    password: bcrypt.hashSync('password6', 10),
+    password: bcrypt.hashSync('password5', 10),
     familyId: 6,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -761,7 +763,7 @@ const userSeed = [
   },
   {
     email: 'lucas@email.com',
-    password: bcrypt.hashSync('password7', 10),
+    password: bcrypt.hashSync('password4', 10),
     familyId: 7,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -771,7 +773,7 @@ const userSeed = [
   },
   {
     email: 'fleck@email.com',
-    password: bcrypt.hashSync('password8', 10),
+    password: bcrypt.hashSync('password3', 10),
     familyId: 8,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -781,7 +783,7 @@ const userSeed = [
   },
   {
     email: 'rogers@email.com',
-    password: bcrypt.hashSync('password9', 10),
+    password: bcrypt.hashSync('password2', 10),
     familyId: 9,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -791,7 +793,7 @@ const userSeed = [
   },
   {
     email: 'parr@email.com',
-    password: bcrypt.hashSync('password10', 10),
+    password: bcrypt.hashSync('password1', 10),
     familyId: 10,
     avatar: gravatar.url(this.email, {
       s: '200', // Size
@@ -801,7 +803,7 @@ const userSeed = [
   },
   {
     email: 'joeclark@email.com',
-    password: bcrypt.hashSync('password1', 10),
+    password: bcrypt.hashSync('password0', 10),
     familyId: 11,
     admin: true,
     avatar: gravatar.url(this.email, {

@@ -10,7 +10,7 @@ import { List } from '../../List'
 import StudentContainer from '../StudentContainer'
 
 const TeacherContainer = props => {
-  console.log('props:', props)
+  // console.log('props:', props)
 
   return (
     <>

@@ -24,21 +24,21 @@ class Admin extends Component {
   }
 
   handleEmit = (method, data) => {
-    console.log('data:', data)
-    console.log('method:', method)
+    // console.log('data:', data)
+    // console.log('method:', method)
     // method is the websocket Tag, {message: data} is the data sent
     socket.emit(method, { message: data })
   }
   handleLoadEmit = (method, data) => {
-    console.log('data:', data)
-    console.log('method:', method)
+    // console.log('data:', data)
+    // console.log('method:', method)
     if (data !== undefined) {
       socket.emit(method, { message: data })
     }
   }
   render() {
     // listen for data with a 'hello tag
-    socket.on('hello', data => console.log(data.message))
+    // socket.on('hello', data => console.log(data.message))
     return (
       <>
         <Card>

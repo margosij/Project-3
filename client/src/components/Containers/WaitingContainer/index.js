@@ -15,7 +15,7 @@ const Waiting = () => {
   // console.log('waitList:', waitList)
 
   socket.on('/waiting', data => {
-    console.log(JSON.stringify(data, null, 2))
+    // console.log(JSON.stringify(data, null, 2))
     if (!waitList.includes(data.message.name)) {
       dispatch(addFamilyToWaitList(data.message.name))
     }
