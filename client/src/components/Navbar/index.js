@@ -58,7 +58,7 @@ class Navbar extends Component {
     )
 
     const adminLinks = (
-      <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
+      <ul className='navbar-nav mt-2 mt-lg-0'>
         <NavLink navTitle='Home' to='/' />
         <NavLink navTitle='Dismissal' to='/dismissal' />
         <NavLink navTitle='Database Dashboard' to='/database' />
@@ -84,7 +84,7 @@ class Navbar extends Component {
     )
 
     const guestLinks = (
-      <ul className='navbar-nav mr-auto'>
+      <ul className='navbar-nav'>
         {/* <NavLink navTitle='Home' to='/' /> */}
         {/* <NavLink navTitle='Sign Up' to='/signup' /> */}
         {/* <NavLink navTitle='Dismissal' to='/dismissal' /> */}

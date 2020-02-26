@@ -1,20 +1,19 @@
 import React, { Component } from 'react'
 import Jumbotron from '../../components/Jumbotron'
-import Login from '../../components/Login/index'
-// import { Container } from '../../components/Grid'
+import SignUp from '../../components/SignUp'
 
-class Home extends Component {
+class SignUpPage extends Component {
   render() {
     return (
-      <div className='overflow-hidden'>
+      <div>
         <Jumbotron
           title='Dismissed'
           lead='Harmony School of Enrichment'
         />
-        <Login />
+        <SignUp />
       </div>
     )
   }
 }
 
-export default Home
+export default SignUpPage

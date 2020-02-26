@@ -14,7 +14,7 @@ import Database from './pages/Database'
 import Home from './pages/Home'
 import NoMatch from './pages/NoMatch'
 import Navbar from './components/Navbar'
-import SignUp from './pages/SignUp'
+import SignUpPage from './pages/SignUpPage'
 import FamilyDashboard from './pages/FamilyDashboard'
 import SocketBoilerPlate from './pages/socketBoilerPlate'
 import AdminDashboard from './pages/AdminDashboard'
@@ -49,8 +49,8 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Row className='justify-content-center'>
-          <Column size='10' styling='container-fluid align-self-center justify-content-center'>
+        <Row className='justify-content-center' styling='mx-0'>
+          <Column size='8' styling='container-fluid align-self-center justify-content-center'>
             <Router>
               <Navbar />
               {/* <Example /> */}
@@ -58,7 +58,7 @@ class App extends Component {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/dismissal' component={Dismissal} />
                 <Route exact path='/database' component={Database} />
-                <Route exact path='/signup' component={SignUp} />
+                <Route exact path='/signup' component={SignUpPage} />
                 <Route exact path='/family' component={FamilyDashboard} />
                 <Route exact path='/admin' component={AdminDashboard} />
                 <Route exact path='/socket' component={SocketBoilerPlate} />
