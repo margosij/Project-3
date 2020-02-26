@@ -13,8 +13,8 @@ const socket = openSocket(devSocket)
 // }
 
 const handleEmit = (method, data) => {
-  console.log('data:', data)
-  console.log('method:', method)
+  // console.log('data:', data)
+  // console.log('method:', method)
   // method is the websocket Tag, {message: data} is the data sent
   socket.emit(method, { message: data })
 }
@@ -27,7 +27,7 @@ const handleEmit = (method, data) => {
 // }
 // Socket.io Check In button
 export default function CheckInBtn(props) {
-  console.log('checkIn props:', props)
+  // console.log('checkIn props:', props)
   return (
     <>
       <div className='row container d-flex align-self-end'>

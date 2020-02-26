@@ -44,7 +44,7 @@ class Login extends Component {
   }
   // when submit button is clicked
   onSubmit(e) {
-    console.log('submit hit')
+    // console.log('submit hit')
     e.preventDefault()
 
     const userData = {

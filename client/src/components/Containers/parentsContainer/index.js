@@ -6,7 +6,7 @@ import Card from '../../Card'
 import './style.css'
 
 const ParentsContainer = props => {
-  console.log('props:', props)
+  // console.log('props:', props)
 
   return (
     <>

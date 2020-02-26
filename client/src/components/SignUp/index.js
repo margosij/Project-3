@@ -38,7 +38,7 @@ class Signup extends Component {
   }
 
   onSubmit(e) {
-    console.log('submit hit')
+    // console.log('submit hit')
     e.preventDefault()
 
     const newUser = {
@@ -48,7 +48,7 @@ class Signup extends Component {
       password2: this.state.password2,
       family_id: this.state.family_id
     }
-    console.log('new user', newUser)
+    // console.log('new user', newUser)
     this.props.registerUser(newUser, this.props.history)
   }
 

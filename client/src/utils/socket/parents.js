@@ -19,13 +19,13 @@ class Parents extends Component {
   }
 
   handleEmit = function(method, data) {
-    console.log('data:', data)
-    console.log('method:', method)
+    // console.log('data:', data)
+    // console.log('method:', method)
     socket.emit(method, { message: data })
   }
   handleLoadEmit = function(method, data) {
-    console.log('data:', data)
-    console.log('method:', method)
+    // console.log('data:', data)
+    // console.log('method:', method)
     if (data !== undefined) {
       socket.emit(method, { message: data })
     }

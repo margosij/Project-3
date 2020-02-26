@@ -30,10 +30,10 @@ module.exports = {
   },
 
   createUser: (req, res) => {
-    console.log('create route hit')
-    console.log(req.body)
+    // console.log('create route hit')
+    // console.log(req.body)
     const { username, password } = req.body
-    console.log('request body coming in:', req.body)
+    // console.log('request body coming in:', req.body)
 
     db.User.findOne({ username: username }, (err, user) => {
       if (err) {
@@ -68,9 +68,9 @@ module.exports = {
       .catch(err => res.status(422).json(err))
   },
   logInUser: (req, res, done) => {
-    console.log('done:', done)
-    console.log('req.body', req.body)
-    console.log('loginUser route hit')
+    // console.log('done:', done)
+    // console.log('req.body', req.body)
+    // console.log('loginUser route hit')
     const { username, password } = req.body
     db.User.findOne({ username: username }, (err, user) => {
       if (err) {
