@@ -15,7 +15,7 @@ class Signup extends Component {
       password2: '',
       family_id: '',
       errors: {},
-      admin: 'false'
+      admin: 'false',
     }
     this.onChange = this.onChange.bind(this)
     this.onSubmit = this.onSubmit.bind(this)
@@ -46,7 +46,7 @@ class Signup extends Component {
       id: this.state.family_id,
       password: this.state.password,
       password2: this.state.password2,
-      family_id: this.state.family_id
+      family_id: this.state.family_id,
     }
     console.log('new user', newUser)
     this.props.registerUser(newUser, this.props.history)
@@ -67,7 +67,7 @@ class Signup extends Component {
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    'is-invalid': errors.email
+                    'is-invalid': errors.email,
                   })}
                   type='text'
                   placeholder='Email'
@@ -75,13 +75,17 @@ class Signup extends Component {
                   value={this.state.email}
                   onChange={this.onChange}
                 />
-                {errors.email && <div className='invalid-feedback'>{errors.email}</div>}
+                {errors.email && (
+                  <div className='invalid-feedback'>
+                    {errors.email}
+                  </div>
+                )}
               </div>
               {/* Password */}
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    'is-invalid': errors.password
+                    'is-invalid': errors.password,
                   })}
                   type='password'
                   placeholder='Password'
@@ -89,13 +93,17 @@ class Signup extends Component {
                   value={this.state.password}
                   onChange={this.onChange}
                 />
-                {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
+                {errors.password && (
+                  <div className='invalid-feedback'>
+                    {errors.password}
+                  </div>
+                )}
               </div>
               {/* Password 2 */}
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    'is-invalid': errors.password2
+                    'is-invalid': errors.password2,
                   })}
                   type='password'
                   placeholder='Passwords must match'
@@ -103,13 +111,17 @@ class Signup extends Component {
                   value={this.state.password2}
                   onChange={this.onChange}
                 />
-                {errors.password2 && <div className='invalid-feedback'>{errors.password2}</div>}
+                {errors.password2 && (
+                  <div className='invalid-feedback'>
+                    {errors.password2}
+                  </div>
+                )}
               </div>
               {/* Family Id Code */}
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    'is-invalid': errors.family_id
+                    'is-invalid': errors.family_id,
                   })}
                   type='text'
                   placeholder='Family ID Code'
@@ -117,16 +129,23 @@ class Signup extends Component {
                   value={this.state.family_id}
                   onChange={this.onChange}
                 />
-                {errors.family_id && <div className='invalid-feedback'>{errors.family_id}</div>}
+                {errors.family_id && (
+                  <div className='invalid-feedback'>
+                    {errors.family_id}
+                  </div>
+                )}
               </div>
               <button className='btn btn-success' type='submit'>
                 Submit
               </button>
             </Container>
             <Container className='mt-4 text-light'>
-              <h3 className='text-light'>Hello {this.state.email}!</h3>
+              <h3 className='text-light'>
+                Hello {this.state.email}!
+              </h3>
               <p className='text-light'>
-                I probably shouldn't tell you this, but your password is
+                I probably shouldn't tell you this, but your password
+                is
                 {this.state.password}!
               </p>
             </Container>
@@ -139,11 +158,13 @@ class Signup extends Component {
 Signup.propTypes = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 })
-export default connect(mapStateToProps, { registerUser })(withRouter(Signup))
+export default connect(mapStateToProps, { registerUser })(
+  withRouter(Signup),
+)

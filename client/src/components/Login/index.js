@@ -49,7 +49,7 @@ class Login extends Component {
 
     const userData = {
       username: this.state.username,
-      password: this.state.password
+      password: this.state.password,
     }
     console.log('UserData', userData)
     this.props.loginUser(userData)
@@ -66,7 +66,7 @@ class Login extends Component {
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    'is-invalid': errors.username
+                    'is-invalid': errors.username,
                   })}
                   type='text'
                   placeholder='Username'
@@ -74,25 +74,40 @@ class Login extends Component {
                   onChange={this.onChange}
                   id='username'
                 />
-                {errors.username && <div className='invalid-feedback'>{errors.username}</div>}
+                {errors.username && (
+                  <div className='invalid-feedback'>
+                    {errors.username}
+                  </div>
+                )}
               </div>
               <div className='form-group'>
                 <input
                   className={classnames('form-control', {
-                    'is-invalid': errors.password
+                    'is-invalid': errors.password,
                   })}
                   type='password'
                   placeholder='Password'
                   name='password'
                   onChange={this.onChange}
                 />
-                {errors.password && <div className='invalid-feedback'>{errors.password}</div>}
+                {errors.password && (
+                  <div className='invalid-feedback'>
+                    {errors.password}
+                  </div>
+                )}
               </div>
               <div>
-                <button className='btn btn-success my-2' type='submit'>
+                <button
+                  className='btn btn-success my-2'
+                  type='submit'
+                >
                   Submit
                 </button>
-                <Link className='nav-link float-right text-light' to='/signup' path='/signup'>
+                <Link
+                  className='nav-link float-right text-light'
+                  to='/signup'
+                  path='/signup'
+                >
                   Sign Up
                 </Link>
               </div>
@@ -107,12 +122,14 @@ class Login extends Component {
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
-  errors: PropTypes.object.isRequired
+  errors: PropTypes.object.isRequired,
 }
 // mapping global state to local state
 const mapStateToProps = state => ({
   auth: state.auth,
-  errors: state.errors
+  errors: state.errors,
 })
 
-export default connect(mapStateToProps, { loginUser })(withRouter(Login))
+export default connect(mapStateToProps, { loginUser })(
+  withRouter(Login),
+)

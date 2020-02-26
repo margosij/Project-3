@@ -70,6 +70,7 @@ const FamilyDashboard = props => {
         <Column  styling='align-self-center no-gutters'>
           <FamilyContainer familyData={singleFamilyData} />
         </Column>
+      
       </Row>
     </div>
   )

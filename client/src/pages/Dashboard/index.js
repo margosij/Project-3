@@ -7,7 +7,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Jumbotron title='Dismissed' lead='Harmony School of Enrichment' />
+        <Jumbotron
+          title='Dismissed'
+          lead='Harmony School of Enrichment'
+        />
         <Login />
       </div>
     )

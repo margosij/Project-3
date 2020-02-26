@@ -113,8 +113,8 @@ export const getFamilies = () => dispatch => {
     );
 };
 
-// Add family to waitlist
-export const addFamilyToWaitlist = name => {
+// Add family to waitList
+export const addFamilyToWaitList = name => {
   return {
     type: ADD_FAMILY_TO_WAITLIST,
     payload: name

@@ -7,7 +7,7 @@
 // const adminID = '55e2670f6f2b3c22940cb99fb'
 // const testFamilyID = '5e28a91ba67da12288679abd'
 
- const AdminDashboard = props => {
+const AdminDashboard = props => {
   // const [familyId, setFamilyId] = useState('')
   // const [allFamilies, setAllFamilies] = useState([])
   // const [allAdminH, setAllAdminsH] = useState([])
@@ -15,7 +15,6 @@
   // // const [parents, setParents] = useState([])
   // // const [students, setStudents] = useState([])
   // // const [singleParent, setSingleParents] = u seState({})
-
   // useEffect(() => {
   //   API.getAllFamilies()
   //     .then(res => {
@@ -24,7 +23,6 @@
   //     })
   //     .catch(err => console.log(err))
   // }, [])
-
   // useEffect(() => {
   //   API.getAllAdmins()
   //     .then(res => {
@@ -33,7 +31,6 @@
   //     })
   //     .catch(err => console.log(err))
   // }, [])
-
   // return (
   //   <>
   //     {/* <Container styling='align-self-center'> */}

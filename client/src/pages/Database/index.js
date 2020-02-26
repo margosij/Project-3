@@ -9,7 +9,9 @@ const Database = props => {
     <>
       <Container>
         <Row styling='row align-self-center'>
-          <Column>{/* <Jumbotron title='Welcome to Harmony' lead='Database' /> */}</Column>
+          <Column>
+            {/* <Jumbotron title='Welcome to Harmony' lead='Database' /> */}
+          </Column>
         </Row>
         <Row>
           <Admin {...props} />
