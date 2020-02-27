@@ -6,7 +6,7 @@ import Login from '../../components/Login/index'
 class Home extends Component {
   render() {
     return (
-      <div className='overflow-hidden'>
+      <div className='overflow-auto'>
         <Jumbotron
           title='Dismissed'
           lead='Harmony School of Enrichment'
