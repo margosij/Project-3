@@ -12,7 +12,7 @@ const validateLoginInput = require("../../validation/login");
 
 // Load User model
 const User = require("../../models/User");
-const Family = require("../../models/Family");
+// const Family = require("../../models/Family");
 
 // @route   GET api/users/test
 // @desc    Tests users route
@@ -78,7 +78,7 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const username = req.body.username;
+  // const username = req.body.username;
   const password = req.body.password;
 
   // Find user by email

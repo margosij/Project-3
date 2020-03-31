@@ -1,14 +1,14 @@
-const keys = require('../config/keys')
+// const keys = require('../config/keys')
 const router = require('express').Router()
 const apiRoutes = require('./api')
 const gravatar = require('gravatar')
 const bcrypt = require('bcryptjs')
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 const passport = require('passport')
 
 // Load Input Validation
 const validateRegisterInput = require('../validation/register')
-const validateLoginInput = require('../validation/login')
+// const validateLoginInput = require('../validation/login')
 
 // API Routes
 router.use('/api', apiRoutes)

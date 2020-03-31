@@ -1,3 +1,4 @@
 dist/
 build/
-node_modules/k
+node_modules/
+client/

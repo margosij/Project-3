@@ -1,5 +1,4 @@
 require('dotenv').config()
-const path = require('path')
 const express = require('express')
 const passport = require('passport')
 const bodyParser = require('body-parser')
@@ -7,7 +6,6 @@ const mongoose = require('mongoose')
 const routes = require('./routes')
 const morgan = require('morgan')
 const gradient = require('gradient-string')
-const cors = require('cors')
 
 // Start the API server
 const PORT = process.env.PORT || 3001

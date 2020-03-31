@@ -12,14 +12,19 @@ module.exports = {
     'prettier',
     'prettier/react'
   ],
-  plugins: ['prettier'],
+  plugins: ['prettier','react'],
+  settings: {
+    "react": {
+      "version": "detect"
+    }
+  },
   rules: {
     'prettier/prettier': ['error'],
     'react/jsx-filename-extension': [
       1,
       { extensions: ['.js', '.jsx'] }
     ],
-    quotes: ['error', 'single', { avoidEscape: true }],
+    quotes: ['error', 'single'', { avoidEscape: true }],
     'comma-dangle': ['error', 'always-multiline'],
     'no-unused-vars': ['error', { varsIgnorePattern: '^_' }]
   }
