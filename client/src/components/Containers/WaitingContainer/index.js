@@ -1,12 +1,13 @@
 import React from 'react'
+import openSocket from 'socket.io-client'
+import { useSelector, useDispatch } from 'react-redux'
 import { Row, Column } from '../../Grid'
 import Card from '../../Card'
 import { addFamilyToWaitList } from '../../../actions/familyActions'
 // import socket.io client -- A client-side build of Socket.io
-import openSocket from 'socket.io-client'
-import { useSelector, useDispatch } from 'react-redux'
 // open a webSocket on this port --this will change when deployed
 import devSocket from '../../../utils/setdev'
+
 const socket = openSocket(devSocket)
 
 const Waiting = () => {

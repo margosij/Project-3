@@ -1,12 +1,13 @@
 import React from 'react'
+import openSocket from 'socket.io-client'
 import Jumbotron from '../components/Jumbotron'
 import { Row, Column, Container } from '../components/Grid'
 import Admin from '../utils/socket/admin'
 import Parents from '../utils/socket/parents'
 // import socket.io client -- A client-side build of Socket.io
-import openSocket from 'socket.io-client'
 // open a webSocket on this port --this will change when deployed
 import devSocket from '../utils/setdev'
+
 const socket = openSocket(devSocket)
 
 // this is a development plate I built to test Socket IO

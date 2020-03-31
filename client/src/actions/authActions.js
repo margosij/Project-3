@@ -1,13 +1,13 @@
-import axios from 'axios';
-import setAuthToken from '../utils/setAuthToken';
-import jwt_decode from 'jwt-decode';
+import axios from 'axios'
+import jwt_decode from 'jwt-decode'
+import setAuthToken from '../utils/setAuthToken'
 
 import {
   GET_ERRORS,
   SET_CURRENT_USER,
   USER_LOADING,
   GET_CURRENT_FAMILY
-} from './types';
+} from './types'
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
@@ -20,8 +20,8 @@ export const registerUser = (userData, history) => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    );
-};
+    )
+}
 
 // Login - Get User Token
 export const loginUser = userData => dispatch => {
@@ -29,49 +29,49 @@ export const loginUser = userData => dispatch => {
     .post('/api/users/login', userData)
     .then(res => {
       // Save to localStorage
-      const { token } = res.data;
+      const { token } = res.data
       // Set token to ls
-      localStorage.setItem('jwtToken', token);
+      localStorage.setItem('jwtToken', token)
       // Set token to Auth header
-      setAuthToken(token);
+      setAuthToken(token)
       // Decode token to get user data
-      const decoded = jwt_decode(token);
+      const decoded = jwt_decode(token)
       // console.log('decoded:', decoded);
       // Set current user
-      dispatch(setCurrentUser(decoded));
+      dispatch(setCurrentUser(decoded))
     })
     .catch(err =>
       dispatch({
         type: GET_ERRORS,
         payload: err.response.data
       })
-    );
-};
+    )
+}
 
 // Set logged in user
 export const setCurrentUser = decoded => {
   return {
     type: SET_CURRENT_USER,
     payload: decoded
-  };
-};
+  }
+}
 // User loading
 export const setUserLoading = () => {
   return {
     type: USER_LOADING
-  };
-};
+  }
+}
 
 // Log user out
 export const logoutUser = () => dispatch => {
   // Remove token from localStorage
-  localStorage.removeItem('jwtToken');
+  localStorage.removeItem('jwtToken')
   // Remove auth header for future requests
-  setAuthToken(false);
+  setAuthToken(false)
   // Set current user to {} which will set isAuthenticated to false
-  dispatch(setCurrentUser({}));
-  window.location.href = '/';
-};
+  dispatch(setCurrentUser({}))
+  window.location.href = '/'
+}
 
 export const getCurrentFamily = () => dispatch => {
   axios
@@ -87,5 +87,5 @@ export const getCurrentFamily = () => dispatch => {
         type: GET_ERRORS,
         payload: err.response.data
       })
-    );
-};
+    )
+}

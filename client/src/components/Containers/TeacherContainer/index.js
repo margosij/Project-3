@@ -17,7 +17,7 @@ const TeacherContainer = props => {
       <Container>
         <Row styling='row-cols-1 row-cols-md-2"'>
           <Card>
-            <CardHeader title={'Child Pickup'} />
+            <CardHeader title='Child Pickup' />
             <Container>
               <Row styling='row-cols-1 row-cols-md-2'>
                 <Column styling='px-0'>
@@ -29,7 +29,7 @@ const TeacherContainer = props => {
                           (parents, index) => (
                             <ParentsContainer
                               key={Math.floor(
-                                Math.random() * 1000 + 1,
+                                Math.random() * 1000 + 1
                               )}
                               name={`${parents.firstName} ${parents.lastName}`}
                               work={parents.workPhone}
@@ -38,7 +38,7 @@ const TeacherContainer = props => {
                               email={parents.email}
                               relation={parents.relation}
                             />
-                          ),
+                          )
                         )
                       ) : (
                         <div className='text-center'>
@@ -64,7 +64,7 @@ const TeacherContainer = props => {
                           (students, index) => (
                             <StudentContainer
                               key={Math.floor(
-                                Math.random() * 1000 + 1,
+                                Math.random() * 1000 + 1
                               )}
                               firstName={students.firstName}
                               middleName={students.middleName}
@@ -78,7 +78,7 @@ const TeacherContainer = props => {
                               dob={students.dob}
                               gradeLevel={students.gradeLevel}
                             />
-                          ),
+                          )
                         )
                       ) : (
                         <div className='text-center'>

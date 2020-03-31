@@ -6,7 +6,7 @@ const initialState = {
   isAuthenticated: false,
   user: {},
   admin: false,
-  loading: false,
+  loading: false
 }
 
 export default function(state = initialState, action) {
@@ -15,12 +15,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isAuthenticated: !isEmpty(action.payload),
-        user: action.payload,
+        user: action.payload
       }
     case USER_LOADING:
       return {
         ...state,
-        loading: true,
+        loading: true
       }
     default:
       return state

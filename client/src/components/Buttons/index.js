@@ -3,6 +3,7 @@ import React from 'react'
 import openSocket from 'socket.io-client'
 // open a webSocket on this port --this will change when deployed
 import devSocket from '../../utils/setdev'
+
 const socket = openSocket(devSocket)
 
 // const componentDidMount = () => {
@@ -111,7 +112,7 @@ export const ViewBtn = props => {
       <a
         className='btn btn-success active'
         href={props.link}
-        target={'_blank'}
+        target='_blank'
         onClick={props.onClick}
         {...props}
       >

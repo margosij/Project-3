@@ -26,7 +26,7 @@ const Chat = () => {
                         <i
                           className='fa fa-search'
                           aria-hidden='true'
-                        ></i>{' '}
+                        />{' '}
                       </button>
                     </span>{' '}
                   </div>
@@ -40,7 +40,7 @@ const Chat = () => {
                       <img
                         src='https://ptetutorials.com/images/user-profile.png'
                         alt='sunil'
-                      ></img>{' '}
+                      />{' '}
                     </div>
                     <div className='chat_ib'>
                       <h5>
@@ -61,7 +61,7 @@ const Chat = () => {
                       <img
                         src='https://ptetutorials.com/images/user-profile.png'
                         alt='sunil'
-                      ></img>{' '}
+                      />{' '}
                     </div>
                     <div className='chat_ib'>
                       <h5>
@@ -82,7 +82,7 @@ const Chat = () => {
                       <img
                         src='https://ptetutorials.com/images/user-profile.png'
                         alt='sunil'
-                      ></img>{' '}
+                      />{' '}
                     </div>
                     <div className='chat_ib'>
                       <h5>
@@ -103,7 +103,7 @@ const Chat = () => {
                       <img
                         src='https://ptetutorials.com/images/user-profile.png'
                         alt='sunil'
-                      ></img>{' '}
+                      />{' '}
                     </div>
                     <div className='chat_ib'>
                       <h5>
@@ -124,7 +124,7 @@ const Chat = () => {
                       <img
                         src='https://ptetutorials.com/images/user-profile.png'
                         alt='sunil'
-                      ></img>{' '}
+                      />{' '}
                     </div>
                     <div className='chat_ib'>
                       <h5>
@@ -145,7 +145,7 @@ const Chat = () => {
                       <img
                         src='https://ptetutorials.com/images/user-profile.png'
                         alt='sunil'
-                      ></img>{' '}
+                      />{' '}
                     </div>
                     <div className='chat_ib'>
                       <h5>
@@ -166,7 +166,7 @@ const Chat = () => {
                       <img
                         src='https://ptetutorials.com/images/user-profile.png'
                         alt='sunil'
-                      ></img>{' '}
+                      />{' '}
                     </div>
                     <div className='chat_ib'>
                       <h5>
@@ -190,7 +190,7 @@ const Chat = () => {
                     <img
                       src='https://ptetutorials.com/images/user-profile.png'
                       alt='sunil'
-                    ></img>{' '}
+                    />{' '}
                   </div>
                   <div className='received_msg'>
                     <div className='received_withd_msg'>
@@ -223,7 +223,7 @@ const Chat = () => {
                     <img
                       src='https://ptetutorials.com/images/user-profile.png'
                       alt='sunil'
-                    ></img>{' '}
+                    />{' '}
                   </div>
                   <div className='received_msg'>
                     <div className='received_withd_msg'>
@@ -250,7 +250,7 @@ const Chat = () => {
                     <img
                       src='https://ptetutorials.com/images/user-profile.png'
                       alt='sunil'
-                    ></img>{' '}
+                    />{' '}
                   </div>
                   <div className='received_msg'>
                     <div className='received_withd_msg'>
@@ -279,7 +279,7 @@ const Chat = () => {
                     <i
                       className='fa fa-paper-plane-o'
                       aria-hidden='true'
-                    ></i>
+                    />
                   </button>
                 </div>
               </div>

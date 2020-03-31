@@ -1,7 +1,10 @@
 # Dismissed!!!(Still Under Development)
 #### A MERN School Dismissal App
 ___
-![Demo](client/public/Dismissed.gif)
+<p align="center">
+  <img src='client/src/landing.png'/>
+  
+</p>
 ___
 
 The purpose of "Dismissed" is to give schools a more efficient way to move through the carpool process.  We used one school in particular as a case for our app, [The Harmony School of Enrichment](https://hsenrichment.harmonytx.org/) in Houston, TX has over 1800 students and they don't use any forms of mass transportation.  Right now they have an archaic pick-up process that leads to traffic back-ups for miles and long wait times.
