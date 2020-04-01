@@ -71,7 +71,7 @@ export function GeoCheckInBtn(props) {
   )
 }
 
-export const SubmitBtn = props => {
+export const SubmitBtn = ({ handleSubmit }) => {
   return (
     <>
       <div className='row container d-flex align-self-end'>
@@ -82,55 +82,12 @@ export const SubmitBtn = props => {
             data-toggle='tooltip'
             data-placement='top'
             title='Tooltip on top'
-            onClick={props.handleSubmit}
+            onClick={handleSubmit}
           >
             Submit
           </button>
         </div>
       </div>
     </>
-  )
-}
-
-export const SaveBtn = props => {
-  return (
-    <>
-      <button
-        type='button'
-        className={`btn btn-primary mx-2 ${props['data-value']}`}
-        {...props}
-      >
-        Save
-      </button>
-    </>
-  )
-}
-
-export const ViewBtn = props => {
-  return (
-    <>
-      <a
-        className='btn btn-success active'
-        href={props.link}
-        target='_blank'
-        onClick={props.onClick}
-        {...props}
-      >
-        View
-      </a>
-    </>
-  )
-}
-
-export const DeleteBtn = props => {
-  return (
-    <span
-      className='btn btn-info mx-2 delete-btn float-right'
-      {...props}
-      role='button'
-      tabIndex='0'
-    >
-      ✗
-    </span>
   )
 }

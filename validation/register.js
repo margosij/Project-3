@@ -8,7 +8,7 @@ module.exports = function validateRegisterInput(data) {
   data.password = !isEmpty(data.password) ? data.password : ''
   data.password2 = !isEmpty(data.password2) ? data.password2 : ''
   data.family_id = !isEmpty(data.id) ? data.id : ''
-  
+
   if (Validator.isEmpty(data.email)) {
     errors.email = 'An email is required'
   }

@@ -10,6 +10,13 @@ import {
   ADD_FAMILY_TO_WAITLIST
 } from './types'
 
+// family loading
+export const setFamilyLoading = () => {
+  return {
+    type: FAMILY_LOADING
+  }
+}
+
 // Get current family
 export const getCurrentFamily = () => dispatch => {
   dispatch(setFamilyLoading())
@@ -81,12 +88,6 @@ export const deleteAccount = () => dispatch => {
   }
 }
 
-// family loading
-export const setFamilyLoading = () => {
-  return {
-    type: FAMILY_LOADING
-  }
-}
 
 // Clear family
 export const clearCurrentFamily = () => {

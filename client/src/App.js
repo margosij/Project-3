@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
   BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom'
+// eslint-disable-next-line camelcase
 import jwt_decode from 'jwt-decode'
 import { Provider } from 'react-redux'
 import { Row, Column } from './components/Grid'
@@ -49,7 +50,7 @@ if (localStorage.jwtToken) {
   }
 }
 
-class App extends Component {
+class App extends PureComponent {
   render() {
     return (
       <Provider store={store}>

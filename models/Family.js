@@ -3,7 +3,6 @@ const Schema = mongoose.Schema
 
 // Family Schema
 const familySchema = new Schema({
- 
   familyLastName: {
     type: String,
     required: true

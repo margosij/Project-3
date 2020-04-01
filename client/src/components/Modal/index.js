@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 
 class Modal extends Component {
   state = {
-    show: false,
+    show: false
   }
+
   showModal = () => {
     this.setState({ show: true })
   }
@@ -11,6 +12,7 @@ class Modal extends Component {
   hideModal = () => {
     this.setState({ show: false })
   }
+
   render() {
     return (
       <>

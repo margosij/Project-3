@@ -1,8 +1,9 @@
-import familyTestData from './testData'
-import Card from '../../components/Card'
 import React, { Component } from 'react'
 import openSocket from 'socket.io-client'
-import devSocket from '../../utils/setdev'
+import familyTestData from './testData'
+import Card from '../../components/Card'
+import devSocket from '../setdev'
+
 const socket = openSocket(devSocket)
 
 class Parents extends Component {
@@ -18,12 +19,13 @@ class Parents extends Component {
     this.handleLoadEmit('arrived', this.state.message)
   }
 
-  handleEmit = function(method, data) {
+  handleEmit = function (method, data) {
     // console.log('data:', data)
     // console.log('method:', method)
     socket.emit(method, { message: data })
   }
-  handleLoadEmit = function(method, data) {
+
+  handleLoadEmit = function (method, data) {
     // console.log('data:', data)
     // console.log('method:', method)
     if (data !== undefined) {
@@ -36,7 +38,9 @@ class Parents extends Component {
       <>
         <Card>
           <div className='card-body'>
-            <h5 className='card-title'>Socket Emitter Test Parents</h5>
+            <h5 className='card-title'>
+              Socket Emitter Test Parents
+            </h5>
             <p className='card-text'>
               {this.state.message}
               <br />
@@ -44,7 +48,9 @@ class Parents extends Component {
             </p>
             <button
               className='btn btn-primary'
-              onClick={() => this.handleEmit('arrived', this.state.message)}
+              onClick={() =>
+                this.handleEmit('arrived', this.state.message)
+              }
             >
               I'm here
             </button>

@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { logoutUser } from '../../actions/authActions'
 import NavLink from '../NavLink'
-import PropTypes from 'prop-types'
 import './style.css'
 import Logo from '../Logo'
+
 class Navbar extends Component {
   state = {
-    collapsed: true,
+    collapsed: true
   }
 
   onLogoutClick(e) {
@@ -109,7 +110,7 @@ class Navbar extends Component {
             aria-expanded='false'
             aria-label='Toggle navigation'
           >
-            <span className='navbar-toggler-icon'></span>
+            <span className='navbar-toggler-icon' />
           </button>
           <div
             className={`${classOne} pl-2 text-light navbar-brand`}
@@ -129,11 +130,11 @@ class Navbar extends Component {
 
 Navbar.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
-  auth: state.auth,
+  auth: state.auth
 })
 
 export default connect(mapStateToProps, { logoutUser })(Navbar)

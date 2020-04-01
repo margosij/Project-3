@@ -1,4 +1,5 @@
 import axios from 'axios'
+// eslint-disable-next-line camelcase
 import jwt_decode from 'jwt-decode'
 import setAuthToken from '../utils/setAuthToken'
 
@@ -23,6 +24,13 @@ export const registerUser = (userData, history) => dispatch => {
     )
 }
 
+// Set logged in user
+export const setCurrentUser = decoded => {
+  return {
+    type: SET_CURRENT_USER,
+    payload: decoded
+  }
+}
 // Login - Get User Token
 export const loginUser = userData => dispatch => {
   axios
@@ -48,13 +56,6 @@ export const loginUser = userData => dispatch => {
     )
 }
 
-// Set logged in user
-export const setCurrentUser = decoded => {
-  return {
-    type: SET_CURRENT_USER,
-    payload: decoded
-  }
-}
 // User loading
 export const setUserLoading = () => {
   return {
