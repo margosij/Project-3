@@ -8,9 +8,21 @@
   },
   "proxy": "http://localhost:3001/",
   "main": "server.js",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+        "prettier — single-quote — write",
+        "git add"
+    ]
+},
   "scripts": {
     "test": "jest",
     "lint:js": "eslint . && prettier-eslint --list-different **/*.js",
+    "lint:fix": "eslint . --fix",
     "lint": "eslint . && prettier-eslint --list-different $PWD**/*.js",
     "format": "prettier-eslint --write \"$PWD{,!(node_modules)/**/}*.{js,jsx}\"",
     "db:seed": "node scripts/seedDB.js",
@@ -20,7 +32,8 @@
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
     "build": "cd client && npm run build",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -48,6 +61,8 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^3.0.0",
+    "husky": "^4.2.3",
+    "lint-staged": "^10.1.1",
     "nodemon": "^2.0.2",
     "prettier-eslint-cli": "^5.0.0",
     "pretty-quick": "^2.0.1"
