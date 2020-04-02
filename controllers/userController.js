@@ -1,6 +1,6 @@
 const db = require('../models')
-const bcrypt = require('bcrypt')
-const User = require('../models/User')
+// const bcrypt = require('bcrypt')
+// const User = require('../models/User')
 const passport = require('../config/passport')
 
 // Defining methods for the UserController
@@ -72,25 +72,28 @@ module.exports = {
     // console.log('req.body', req.body)
     // console.log('loginUser route hit')
     const { username, password } = req.body
-    db.User.findOne({ username: username }, (err, user) => {
-      if (err) {
-        return done(err)
+    db.User.findOne(
+      { username: username },
+      (err, user) => {
+        if (err) {
+          return done(err)
+        }
+        if (!user) {
+          return res.json({ message: 'Incorrect username' })
+        }
+        if (!user.checkPassword(password)) {
+          return res.json({ message: 'Incorrect password' })
+        }
+        return res.json(user)
+      },
+      passport.authenticate('local'),
+      (req, res) => {
+        console.log('logged in', req.user)
+        var userInfo = {
+          username: req.user.username
+        }
+        res.send(userInfo)
       }
-      if (!user) {
-        return res.json({ message: 'Incorrect username' })
-      }
-      if (!user.checkPassword(password)) {
-        return res.json({ message: 'Incorrect password' })
-      }
-      return res.json(user)
-    },
-    passport.authenticate('local'),
-    (req, res) => {
-      console.log('logged in', req.user)
-      var userInfo = {
-        username: req.user.username
-      }
-      res.send(userInfo)
-    }).catch(err => res.status(422).json(err))      
+    ).catch(err => res.status(422).json(err))
   }
 }

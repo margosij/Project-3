@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 import { connect } from 'react-redux'
-import { loginUser } from '../../actions/authActions'
 import { withRouter, Link } from 'react-router-dom'
 // packages allows conditionals in classNames
 import classnames from 'classnames'
+import { loginUser } from '../../actions/authActions'
 import FormContainer from '../Containers/FormContainer'
+
 class Login extends Component {
   constructor() {
     super()
@@ -42,6 +43,7 @@ class Login extends Component {
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value })
   }
+
   // when submit button is clicked
   onSubmit(e) {
     // console.log('submit hit')
@@ -54,6 +56,7 @@ class Login extends Component {
     console.log('UserData', userData)
     this.props.loginUser(userData)
   }
+
   render() {
     const { errors } = this.state
     // console.log('errors', errors)

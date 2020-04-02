@@ -1,14 +1,10 @@
 import React from 'react'
 
-const Card = props => {
+const Card = ({ children, styling }) => {
   return (
-    <div
-      className={`card animated ${props.styling} border-0`}
-    >
-      {props.children}
+    <div className={`card animated ${styling} border-0`}>
+      {children}
     </div>
   )
 }
 export default Card
-
-

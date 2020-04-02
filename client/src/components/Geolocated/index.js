@@ -12,11 +12,11 @@ const schoolLon = -78.645361
 class Geolocation extends React.Component {
   render() {
     function distance(lat1, lon1, lat2, lon2, unit) {
-      var radLat1 = (Math.PI * lat1) / 180
-      var radLat2 = (Math.PI * lat2) / 180
-      var theta = lon1 - lon2
-      var radTheta = (Math.PI * theta) / 180
-      var dist =
+      const radLat1 = (Math.PI * lat1) / 180
+      const radLat2 = (Math.PI * lat2) / 180
+      const theta = lon1 - lon2
+      const radTheta = (Math.PI * theta) / 180
+      let dist =
         Math.sin(radLat1) * Math.sin(radLat2) +
         Math.cos(radLat1) * Math.cos(radLat2) * Math.cos(radTheta)
       if (dist > 1) {
@@ -26,10 +26,10 @@ class Geolocation extends React.Component {
       dist = (dist * 180) / Math.PI
       dist = dist * 60 * 1.1515
       if (unit === 'K') {
-        dist = dist * 1.609344
+        dist *= 1.609344
       }
       if (unit === 'N') {
-        dist = dist * 0.8684
+        dist *= 0.8684
       }
       return dist
     }
@@ -38,28 +38,29 @@ class Geolocation extends React.Component {
 
     function createButton(props) {
       // console.log('geo props', props)
-      var pickupLat = ''
-      var pickupLon = ''
+      let pickupLat = ''
+      let pickupLon = ''
 
       if (props) {
         pickupLat = props.coords.latitude
         pickupLon = props.coords.longitude
       }
 
-      var range = distance(
+      const range = distance(
         schoolLat,
         schoolLon,
         pickupLat,
         pickupLon,
-        'M',
+        'M'
       )
 
       // console.log('Range: ', range)
       if (range <= 0.5) {
-        return <CheckInBtn range={range} name={props.name} {...props} />
-      } else {
-        return <h3>Not In Range to check in</h3>
+        return (
+          <CheckInBtn range={range} name={props.name} {...props} />
+        )
       }
+      return <h3>Not In Range to check in</h3>
     }
 
     return !this.props.isGeolocationAvailable ? (
@@ -76,11 +77,11 @@ class Geolocation extends React.Component {
 
 export default geolocated({
   positionOptions: {
-    enableHighAccuracy: false,
+    enableHighAccuracy: false
   },
   watchPosition: true,
   userDecisionTimeout: 30000,
   suppressLocationOnMount: false,
   geolocationProvider: navigator.geolocation,
-  isOptimisticGeolocationEnabled: true,
+  isOptimisticGeolocationEnabled: true
 })(Geolocation)

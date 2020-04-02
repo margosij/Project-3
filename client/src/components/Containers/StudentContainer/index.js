@@ -2,6 +2,7 @@ import React from 'react'
 import Card from '../../Card'
 import { ListItem } from '../../List'
 import './style.css'
+
 const StudentContainer = props => {
   return (
     <>
@@ -15,7 +16,7 @@ const StudentContainer = props => {
             <h6 className='card-title'>Grade:</h6>
             <p>{props.gradeLevel}</p>
             <h6 className='card-title'>Picked up?</h6>
-            <input type='checkbox' value='pickedUp'></input>
+            <input type='checkbox' value='pickedUp' />
           </div>
         </Card>
       </ListItem>

@@ -1,10 +1,10 @@
 /* eslint-disable quotes */
 import React, { useState, useEffect } from 'react'
 // import Jumbotron from '../components/Jumbotron'
+import { useSelector } from 'react-redux'
 import { Row, Column } from '../../components/Grid'
 import FamilyContainer from '../../components/Containers/FamilyContainer'
 import API from '../../utils/Api'
-import { useSelector } from 'react-redux'
 // import { usePosition } from 'use-position'
 const FamilyDashboard = props => {
   // const {
@@ -67,10 +67,9 @@ const FamilyDashboard = props => {
     <div>
       <h1 className='text-center text-light'>Family Dashboard</h1>
       <Row styling='my-5'>
-        <Column  styling='align-self-center no-gutters'>
+        <Column styling='align-self-center no-gutters'>
           <FamilyContainer familyData={singleFamilyData} />
         </Column>
-      
       </Row>
     </div>
   )

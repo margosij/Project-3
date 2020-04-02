@@ -1,10 +1,10 @@
 import React from 'react'
 
-const CardHeader = props => {
+const CardHeader = ({ title }) => {
   return (
     <>
       <div className='card-header text-center'>
-        <h4>{props.title}</h4>
+        <h4>{title}</h4>
       </div>
     </>
   )

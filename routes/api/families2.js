@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const passport = require('passport')
 
 // Load Validation
@@ -26,7 +26,7 @@ router.get(
     const errors = {}
 
     Family.findOne({ user: req.user.id })
-      .populate('user', [ 'name', 'avatar' ])
+      .populate('user', ['name', 'avatar'])
       .then(Family => {
         if (!Family) {
           errors.noprofile = 'There is no Family for this user'
@@ -45,7 +45,7 @@ router.get('/all', (req, res) => {
   const errors = {}
 
   Family.find()
-    .populate('user', [ 'name', 'avatar' ])
+    .populate('user', ['name', 'avatar'])
     .then(profiles => {
       if (!profiles) {
         errors.noprofile = 'There are no profiles'
@@ -54,7 +54,10 @@ router.get('/all', (req, res) => {
 
       res.json(profiles)
     })
-    .catch(err => res.status(404).json({ Family: 'There are no profiles' }))
+    .catch(err => {
+      res.status(404).json({ Family: 'There are no profiles' })
+      console.log(err)
+    })
 })
 
 // @route   GET api/Family/handle/:handle
@@ -65,7 +68,7 @@ router.get('/handle/:handle', (req, res) => {
   const errors = {}
 
   Family.findOne({ handle: req.params.handle })
-    .populate('user', [ 'name', 'avatar' ])
+    .populate('user', ['name', 'avatar'])
     .then(Family => {
       if (!Family) {
         errors.noprofile = 'There is no Family for this user'
@@ -85,7 +88,7 @@ router.get('/user/:user_id', (req, res) => {
   const errors = {}
 
   Family.findOne({ user: req.params.user_id })
-    .populate('user', [ 'name', 'avatar' ])
+    .populate('user', ['name', 'avatar'])
     .then(Family => {
       if (!Family) {
         errors.noprofile = 'There is no Family for this user'

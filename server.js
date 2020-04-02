@@ -1,5 +1,4 @@
 require('dotenv').config()
-const path = require('path')
 const express = require('express')
 const passport = require('passport')
 const bodyParser = require('body-parser')
@@ -7,7 +6,6 @@ const mongoose = require('mongoose')
 const routes = require('./routes')
 const morgan = require('morgan')
 const gradient = require('gradient-string')
-const cors = require('cors')
 
 // Start the API server
 const PORT = process.env.PORT || 3001
@@ -29,7 +27,6 @@ app.use((req, res, next) => {
         'cross-site-cookie=foo; SameSite=None; Secure'
       ]
     })
-    
   }
   next()
 })
@@ -41,9 +38,9 @@ mongoose.set('useNewUrlParser', true)
 // mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)
 mongoose
-.connect(db)
-.then(() => console.log('MongoDB Connected'))
-.catch(err => console.log(err))
+  .connect(db)
+  .then(() => console.log('MongoDB Connected'))
+  .catch(err => console.log(err))
 
 // Serve up static assets (usually on heroku)
 // Server static assets if in production
@@ -62,9 +59,8 @@ require('./config/passport')(passport) // require our local strategy
 // Add routes, and API
 app.use(routes)
 
-
 const server = app.listen(PORT, () => {
-  console.log(`🌎  ==> API Server now listening on PORT ${ PORT }!`)
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`)
 })
 
 // =============================================================================

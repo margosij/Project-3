@@ -8,7 +8,7 @@ export const Container = props => {
           {props.children}
         </div>
       ) : (
-        <div className={`container`}>{props.children}</div>
+        <div className='container'>{props.children}</div>
       )}
     </>
   )
@@ -20,7 +20,7 @@ export const Column = props => {
     ? // if size prop passed to this component, map col-size to class Name
       (size = props.size
         .split(' ')
-        .map(size => 'col-' + size)
+        .map(size => `col-${size}`)
         .join(' '))
     : // if not, just set the class to col
       (size = 'col')
@@ -35,7 +35,7 @@ export const Row = ({ styling, children }) => {
       {styling ? (
         <div className={`row ${styling}`}>{children}</div>
       ) : (
-        <div className={`row`}>{children}</div>
+        <div className='row'>{children}</div>
       )}
     </>
   )

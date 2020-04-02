@@ -5,7 +5,14 @@ import Card from '../../Card'
 // import Geolocated from '../../Geolocated'
 import './style.css'
 
-const ParentsContainer = props => {
+const ParentsContainer = ({
+  name,
+  relation,
+  home,
+  work,
+  cell,
+  email
+}) => {
   // console.log('props:', props)
 
   return (
@@ -13,12 +20,12 @@ const ParentsContainer = props => {
       <ListItem styling='list-inline-item m-0'>
         <Card styling='border-0'>
           <div className='card-body border-0'>
-            <p className='card-title'>Name: {props.name}</p>
-            <p className='card-title'>Relation: {props.relation}</p>
-            <p className='card-title'>Home Phone: {props.home}</p>
-            <p className='card-title'>Work Phone: {props.work}</p>
-            <p className='card-title'>Cell Phone: {props.cell}</p>
-            <p className='card-title'>Email: {props.email}</p>
+            <p className='card-title'>Name: {name}</p>
+            <p className='card-title'>Relation: {relation}</p>
+            <p className='card-title'>Home Phone: {home}</p>
+            <p className='card-title'>Work Phone: {work}</p>
+            <p className='card-title'>Cell Phone: {cell}</p>
+            <p className='card-title'>Email: {email}</p>
           </div>
           {/* <div className='card-footer'>
             <CheckInBtn name={props.name} {...props} />

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { PropTypes } from 'prop-types'
 import { withRouter } from 'react-router-dom'
-import FormContainer from '../Containers/FormContainer'
 import { connect } from 'react-redux'
-import { registerUser } from '../../actions/authActions'
 import classnames from 'classnames'
+import FormContainer from '../Containers/FormContainer'
+import { registerUser } from '../../actions/authActions'
+
 class Signup extends Component {
   constructor() {
     super()
