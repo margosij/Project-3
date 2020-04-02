@@ -6,7 +6,7 @@
       "modules": true
     }
   },
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "jest"],
   "extends": ["prettier"],
   "rules": {
     "prettier/prettier": "error"
