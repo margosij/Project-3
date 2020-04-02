@@ -1,6 +1,6 @@
 # Dismissed!!!(Still Under Development)
 #### A MERN School Dismissal App
-<!-- [![Build Status](https://travis-ci.com/armonkahil/Dismissed.svg?branch=master)](https://travis-ci.com/armonkahil/Dismissed)___ -->
+[![Build Status](https://travis-ci.com/armonkahil/Dismissed.svg?branch=master)](https://travis-ci.com/armonkahil/Dismissed)___
 <p align="center">
   <img src='client/src/landing.png'/>
   
