@@ -8,17 +8,6 @@
   },
   "proxy": "http://localhost:3001/",
   "main": "server.js",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-        "prettier — single-quote — write",
-        "git add"
-    ]
-},
   "scripts": {
     "test": "jest",
     "lint:js": "eslint . && prettier-eslint --list-different **/*.js",
@@ -87,5 +76,16 @@
     "path": "^0.12.7",
     "socket.io": "^2.3.0",
     "validator": "^13.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,css,scss,md}": [
+        "prettier — single-quote — write",
+        "git add"
+    ]
   }
 }
